@@ -1,0 +1,12 @@
+[   23488ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNTZhYTEzMjctODczNC00ZjNlLTgyZTMtMzQyNTRlZDVkY2QzIiwiZW1haWwiOiJmZWF0dXJlM19yZWdyZXNzaW9uX3Rlc3RfMjAyNjAyMDdAdGVzdC5jb20iLCJleHAiOjE3NzExMDY3Njd9.P7HgpZg8L7cYx3C5zccyX7uhp7h3lybMLMPHD_yXN9g." {file: "http://localhost:3000/static/js/bundle.js" line: 119497}] @ http://localhost:3000/static/js/bundle.js:119497
+[   23503ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   23622ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   23623ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   51942ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNTZhYTEzMjctODczNC00ZjNlLTgyZTMtMzQyNTRlZDVkY2QzIiwiZW1haWwiOiJmZWF0dXJlM19yZWdyZXNzaW9uX3Rlc3RfMjAyNjAyMDdAdGVzdC5jb20iLCJleHAiOjE3NzExMDY3OTZ9.9Z2Ie02nY0mHHq0dpUCj1V5xtDCWTEdZ5jNi137k1yo." {file: "http://localhost:3000/static/js/bundle.js" line: 119497}] @ http://localhost:3000/static/js/bundle.js:119497
+[   51953ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   52049ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   52050ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0

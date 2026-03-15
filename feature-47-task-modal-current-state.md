@@ -1,0 +1,416 @@
+- generic:
+  - generic:
+    - generic:
+      - generic:
+        - complementary:
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - img
+                - generic:
+                  - heading [level=2]: CompliAI
+                  - paragraph: Compliance OS
+          - navigation:
+            - button:
+              - img
+              - generic: Dashboard
+            - button:
+              - img
+              - generic: Policies
+            - button:
+              - img
+              - generic: Regulations
+            - button:
+              - img
+              - generic: Regulatory Updates
+            - button:
+              - img
+              - generic: Gap Analysis
+            - button:
+              - img
+              - generic: Tasks
+            - button:
+              - img
+              - generic: Evidence
+            - button:
+              - img
+              - generic: Audit
+            - button:
+              - img
+              - generic: LOS/LMS
+            - button:
+              - img
+              - generic: Calendar
+            - button:
+              - img
+              - generic: Chat
+            - button:
+              - img
+              - generic: Analytics
+            - button:
+              - img
+              - generic: Notifications
+            - button:
+              - img
+              - generic: Settings
+          - generic:
+            - generic:
+              - generic: Feature 35 Test
+              - generic: Test Org
+            - button:
+              - img
+              - text: Logout
+          - button:
+            - img
+        - main:
+          - generic:
+            - generic:
+              - generic:
+                - navigation:
+                  - list:
+                    - listitem:
+                      - link:
+                        - /url: /dashboard
+                        - text: Dashboard
+                    - listitem:
+                      - generic: /
+                      - generic: Tasks
+              - generic:
+                - generic:
+                  - img
+                  - textbox:
+                    - /placeholder: Search...
+                - generic:
+                  - button:
+                    - img
+                - generic:
+                  - button:
+                    - generic: F3
+                    - img
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - heading [level=1]: Task Management
+                  - paragraph: Track compliance tasks and their lifecycle
+                - generic:
+                  - button:
+                    - img
+                    - text: Refresh
+                  - button:
+                    - img
+                    - text: Create Task
+              - generic:
+                - generic:
+                  - generic:
+                    - img
+                    - text: Pending Tasks
+                  - generic: Tasks that are not yet completed or closed
+                - generic:
+                  - generic:
+                    - table:
+                      - rowgroup:
+                        - row:
+                          - columnheader: Task
+                          - columnheader: Status
+                          - columnheader: Assignee
+                          - columnheader: Department
+                          - columnheader: Due Date
+                      - rowgroup:
+                        - row:
+                          - cell:
+                            - generic:
+                              - paragraph: Test Task for Feature 45 CRUD
+                              - paragraph: Testing create, read, update, delete operations for tasks
+                          - cell:
+                            - generic: Open
+                          - cell: Unassigned
+                          - cell: —
+                          - cell: —
+                        - row:
+                          - cell:
+                            - generic:
+                              - paragraph: Test Task for Feature 45 CRUD
+                              - paragraph: Testing create, read, update, delete operations for tasks
+                          - cell:
+                            - generic: Open
+                          - cell: Unassigned
+                          - cell: —
+                          - cell: —
+                        - row:
+                          - cell:
+                            - generic:
+                              - paragraph: TEST_TASK_CRUD_45
+                              - paragraph: Testing task CRUD operations for feature 45
+                          - cell:
+                            - generic: Open
+                          - cell: Unassigned
+                          - cell: —
+                          - cell: —
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - paragraph: Total Tasks
+                      - paragraph: "0"
+                    - generic:
+                      - img
+                - generic:
+                  - generic:
+                    - generic:
+                      - paragraph: Overdue
+                      - paragraph: "0"
+                    - generic:
+                      - img
+                - generic:
+                  - generic:
+                    - generic:
+                      - paragraph: Due Today
+                      - paragraph: "0"
+                    - generic:
+                      - img
+                - generic:
+                  - generic:
+                    - generic:
+                      - paragraph: Due This Week
+                      - paragraph: "0"
+                    - generic:
+                      - img
+                - generic:
+                  - generic:
+                    - generic:
+                      - paragraph: Completion Rate
+                      - paragraph: 0%
+                    - generic:
+                      - img
+                - generic:
+                  - generic:
+                    - generic:
+                      - paragraph: Avg Time
+                      - paragraph: "-"
+                    - generic:
+                      - img
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img
+                        - textbox:
+                          - /placeholder: Search tasks...
+              - generic:
+                - generic:
+                  - generic:
+                    - heading [level=3]: Open
+                    - generic: "3"
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - heading [level=4]: Test Task for Feature 45 CRUD
+                                - generic: Medium
+                              - paragraph: Testing create, read, update, delete operations for tasks
+                          - generic:
+                            - generic:
+                              - generic:
+                                - heading [level=4]: Test Task for Feature 45 CRUD
+                                - generic: Medium
+                              - paragraph: Testing create, read, update, delete operations for tasks
+                          - generic:
+                            - generic:
+                              - generic:
+                                - heading [level=4]: TEST_TASK_CRUD_45
+                                - generic: Medium
+                              - paragraph: Testing task CRUD operations for feature 45
+                - generic:
+                  - generic:
+                    - heading [level=3]: In Progress
+                    - generic: "0"
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic: No tasks
+                - generic:
+                  - generic:
+                    - heading [level=3]: Evidence
+                    - generic: "0"
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic: No tasks
+                - generic:
+                  - generic:
+                    - heading [level=3]: AI Review
+                    - generic: "0"
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic: No tasks
+                - generic:
+                  - generic:
+                    - heading [level=3]: Manual Review
+                    - generic: "0"
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic: No tasks
+                - generic:
+                  - generic:
+                    - heading [level=3]: Done
+                    - generic: "0"
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic: No tasks
+    - region "Notifications alt+T"
+  - dialog:
+    - generic:
+      - generic:
+        - generic:
+          - heading [level=2]: Test Task for Feature 45 CRUD
+          - paragraph:
+            - generic:
+              - generic:
+                - img
+                - text: Open
+              - generic: Medium Priority
+    - generic:
+      - generic:
+        - generic:
+          - generic: "Department: —"
+          - generic: "Assignee: Unassigned"
+          - generic: "Due Date: Not set"
+          - generic: "Status: Open"
+          - generic: "Priority: Medium"
+          - generic: "Time Spent: 0m"
+          - generic: "Estimated Time: Not set"
+          - generic: "Created: 34 minutes ago"
+    - generic:
+      - tablist:
+        - tab [selected]: Details
+        - tab:
+          - img
+          - text: Clauses (0)
+        - tab:
+          - img
+          - text: Evidence (0)
+        - tab:
+          - img
+          - text: Timeline
+        - tab: Comments (0)
+      - generic:
+        - generic:
+          - generic:
+            - tabpanel:
+              - generic:
+                - generic:
+                  - generic: Description
+                - generic:
+                  - paragraph: Testing create, read, update, delete operations for tasks
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic: Assigned To
+                      - combobox:
+                        - generic: Unassigned
+                        - img
+                    - generic:
+                      - generic: Due Date
+                      - generic: Not set
+                    - generic:
+                      - generic: Department
+                      - generic: —
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic: Time Spent
+                      - generic: 0m
+                    - generic:
+                      - generic: Estimated Time
+                      - generic: Not set
+                    - generic:
+                      - generic: Created
+                      - generic: 34 minutes ago
+              - generic:
+                - generic:
+                  - generic:
+                    - button:
+                      - img
+                      - text: Start Working
+    - button:
+      - img
+      - generic: Close
+  - dialog [ref=e646]:
+    - generic [ref=e649]:
+      - heading [level=2] [ref=e650]: Test Task for Feature 45 CRUD
+      - paragraph [ref=e651]:
+        - generic [ref=e652]:
+          - generic [ref=e653]:
+            - img [ref=e654]
+            - text: Open
+          - generic [ref=e658]: Medium Priority
+    - generic [ref=e661]:
+      - generic [ref=e662]: "Department: —"
+      - generic [ref=e663]: "Assignee: Unassigned"
+      - generic [ref=e664]: "Due Date: Not set"
+      - generic [ref=e665]: "Status: Open"
+      - generic [ref=e666]: "Priority: Medium"
+      - generic [ref=e667]: "Time Spent: 0m"
+      - generic [ref=e668]: "Estimated Time: Not set"
+      - generic [ref=e669]: "Created: 34 minutes ago"
+    - generic [ref=e670]:
+      - tablist [ref=e671]:
+        - tab [active] [selected] [ref=e672] [cursor=pointer]: Details
+        - tab [ref=e673] [cursor=pointer]:
+          - img [ref=e674]
+          - text: Clauses (0)
+        - tab [ref=e678] [cursor=pointer]:
+          - img [ref=e679]
+          - text: Evidence (0)
+        - tab [ref=e685] [cursor=pointer]:
+          - img [ref=e686]
+          - text: Timeline
+        - tab [ref=e690] [cursor=pointer]: Comments (0)
+      - tabpanel [ref=e694]:
+        - generic [ref=e695]:
+          - generic [ref=e697]: Description
+          - paragraph [ref=e699]: Testing create, read, update, delete operations for tasks
+        - generic [ref=e700]:
+          - generic [ref=e702]:
+            - generic [ref=e703]:
+              - generic [ref=e704]: Assigned To
+              - combobox [ref=e705] [cursor=pointer]:
+                - generic: Unassigned
+                - img [ref=e706]
+            - generic [ref=e708]:
+              - generic [ref=e709]: Due Date
+              - generic [ref=e710]: Not set
+            - generic [ref=e711]:
+              - generic [ref=e712]: Department
+              - generic [ref=e713]: —
+          - generic [ref=e715]:
+            - generic [ref=e716]:
+              - generic [ref=e717]: Time Spent
+              - generic [ref=e718]: 0m
+            - generic [ref=e719]:
+              - generic [ref=e720]: Estimated Time
+              - generic [ref=e721]: Not set
+            - generic [ref=e722]:
+              - generic [ref=e723]: Created
+              - generic [ref=e724]: 34 minutes ago
+        - button [ref=e728] [cursor=pointer]:
+          - img
+          - text: Start Working
+    - button [ref=e729] [cursor=pointer]:
+      - img [ref=e730]
+      - generic [ref=e733]: Close

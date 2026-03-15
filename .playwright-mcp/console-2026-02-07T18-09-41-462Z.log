@@ -1,0 +1,39 @@
+[    7456ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzEwOTI1ODh9.aANJnaBztEYtGaAjGcBMk4bg7HRVDZZC3MbKonWmmCc." {file: "http://localhost:3000/static/js/bundle.js" line: 119353}] @ http://localhost:3000/static/js/bundle.js:119353
+[    7480ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[    7635ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[    7635ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   13266ms] [ERROR] Error 
+
+The above error occurred in the <SelectItem> component.
+
+React will try to recreate this component tree from scratch using the error boundary you provided, ErrorBoundary.
+ @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   13267ms] [ERROR] ErrorBoundary caught an error: Error JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   23768ms] [ERROR] Error 
+
+The above error occurred in the <SelectItem> component.
+
+React will try to recreate this component tree from scratch using the error boundary you provided, ErrorBoundary.
+ @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   23768ms] [ERROR] ErrorBoundary caught an error: Error JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   23800ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzEwOTI1ODh9.aANJnaBztEYtGaAjGcBMk4bg7HRVDZZC3MbKonWmmCc." {file: "http://localhost:3000/static/js/bundle.js" line: 119353}] @ http://localhost:3000/static/js/bundle.js:119353
+[   23800ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[  221616ms] [ERROR] Error 
+
+The above error occurred in the <SelectItem> component.
+
+React will try to recreate this component tree from scratch using the error boundary you provided, ErrorBoundary.
+ @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[  221618ms] [ERROR] ErrorBoundary caught an error: Error JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[  221647ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzEwOTI1ODh9.aANJnaBztEYtGaAjGcBMk4bg7HRVDZZC3MbKonWmmCc." {file: "http://localhost:3000/static/js/bundle.js" line: 119353}] @ http://localhost:3000/static/js/bundle.js:119353
+[  221651ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[  222109ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ http://localhost:3000/static/js/bundle.js:101711
+[  222109ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ http://localhost:3000/static/js/bundle.js:101711
+[  222118ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ http://localhost:3000/static/js/bundle.js:101711
+[  222118ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ http://localhost:3000/static/js/bundle.js:101711

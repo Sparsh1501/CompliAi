@@ -1,0 +1,1128 @@
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/services/multi_llm_service_new.py:12: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py:3662: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("startup")
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py:3692: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("shutdown")
+INFO:     Started server process [96912]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:55446 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55447 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55450 - "OPTIONS /api/auth/register HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55450 - "POST /api/auth/register HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:55454 - "POST /api/auth/register HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 55455) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOTY0NDI3YzItZWU2ZS00YWM3LWJmZTctZTJkMjgyY2U4NjJmIiwiZW1haWwiOiJmZWF0dXJlMTN0ZXN0QGV4YW1wbGUuY29tIiwiZXhwIjoxNzcxMDg2OTQwfQ.d481xpnlisSw0AGQeejGMHIJCVDwJYthrKuKE3zs-KE" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:55454 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:55456 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 940, in transfer_data
+    message = await self.read_message()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 1010, in read_message
+    frame = await self.read_data_frame(max_size=self.max_size)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 1087, in read_data_frame
+    frame = await self.read_frame(max_size)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 1144, in read_frame
+    frame = await Frame.read(
+            ^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/framing.py", line 70, in read
+    data = await reader(2)
+           ^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12_2/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/streams.py", line 750, in readexactly
+    raise exceptions.IncompleteReadError(incomplete, n)
+asyncio.exceptions.IncompleteReadError: 0 bytes read on a total of 2 expected bytes
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 349, in asgi_send
+    await self.send(data)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 618, in send
+    await self.ensure_open()
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 916, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedError: no close frame received or sent
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 97, in send
+    await self._send(message)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 50, in sender
+    await send(message)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 365, in asgi_send
+    raise ClientDisconnected from exc
+uvicorn.protocols.utils.ClientDisconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 255, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 77, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 373, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 96, in app
+    await wrap_app_handling_exceptions(app, session)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 94, in app
+    await func(session)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 348, in app
+    await dependant.call(**values)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 3571, in websocket_endpoint
+    await websocket.send_json({
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 198, in send_json
+    await self.send({"type": "websocket.send", "text": text})
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 100, in send
+    raise WebSocketDisconnect(code=1006)
+starlette.websockets.WebSocketDisconnect
+INFO:     127.0.0.1:55459 - "OPTIONS /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55460 - "OPTIONS /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55461 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55462 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55459 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55460 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55454 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55456 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55459 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55460 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55461 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55462 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 55464) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOTY0NDI3YzItZWU2ZS00YWM3LWJmZTctZTJkMjgyY2U4NjJmIiwiZW1haWwiOiJmZWF0dXJlMTN0ZXN0QGV4YW1wbGUuY29tIiwiZXhwIjoxNzcxMDg2OTQwfQ.d481xpnlisSw0AGQeejGMHIJCVDwJYthrKuKE3zs-KE" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:55571 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55570 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55573 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55573 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     connection closed
+INFO:     ('127.0.0.1', 55582) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOTY0NDI3YzItZWU2ZS00YWM3LWJmZTctZTJkMjgyY2U4NjJmIiwiZW1haWwiOiJmZWF0dXJlMTN0ZXN0QGV4YW1wbGUuY29tIiwiZXhwIjoxNzcxMDg2OTQwfQ.d481xpnlisSw0AGQeejGMHIJCVDwJYthrKuKE3zs-KE" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:55584 - "OPTIONS /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55581 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55585 - "OPTIONS /api/tasks/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55580 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55584 - "OPTIONS /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55586 - "OPTIONS /api/department-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55585 - "OPTIONS /api/tasks/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55586 - "OPTIONS /api/department-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55583 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55586 - "GET /api/tasks/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55581 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55586 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55584 - "GET /api/tasks/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55581 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55583 - "GET /api/department-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55585 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55580 - "GET /api/department-members HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     ('127.0.0.1', 55603) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOTY0NDI3YzItZWU2ZS00YWM3LWJmZTctZTJkMjgyY2U4NjJmIiwiZW1haWwiOiJmZWF0dXJlMTN0ZXN0QGV4YW1wbGUuY29tIiwiZXhwIjoxNzcxMDg2OTQwfQ.d481xpnlisSw0AGQeejGMHIJCVDwJYthrKuKE3zs-KE" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:55604 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55605 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55605 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55604 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55605 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55607 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55606 - "GET /api/tasks/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55609 - "GET /api/tasks/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55608 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55604 - "GET /api/department-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55605 - "GET /api/department-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55620 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55619 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55621 - "OPTIONS /api/auth/register HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55621 - "POST /api/auth/register HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 55622) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZTRiYzQ2NWYtZGM4ZC00NGVlLTg5Y2EtNmI5NjZlYzUzNjYzIiwiZW1haWwiOiJzY2hlbWFfdGVzdF9mZWF0dXJlMkB0ZXN0LmNvbSIsImV4cCI6MTc3MTA4NzAzM30.mrEgezz8FO4P8mlVn-bog6eokjFSc2pCNaFg4Ri9l3E" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     127.0.0.1:55621 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55623 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55621 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55623 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 940, in transfer_data
+    message = await self.read_message()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 1010, in read_message
+    frame = await self.read_data_frame(max_size=self.max_size)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 1087, in read_data_frame
+    frame = await self.read_frame(max_size)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 1144, in read_frame
+    frame = await Frame.read(
+            ^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/framing.py", line 70, in read
+    data = await reader(2)
+           ^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12_2/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/streams.py", line 750, in readexactly
+    raise exceptions.IncompleteReadError(incomplete, n)
+asyncio.exceptions.IncompleteReadError: 0 bytes read on a total of 2 expected bytes
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 349, in asgi_send
+    await self.send(data)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 618, in send
+    await self.ensure_open()
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 916, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedError: no close frame received or sent
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 97, in send
+    await self._send(message)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 50, in sender
+    await send(message)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 365, in asgi_send
+    raise ClientDisconnected from exc
+uvicorn.protocols.utils.ClientDisconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 255, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 77, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 373, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 96, in app
+    await wrap_app_handling_exceptions(app, session)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 94, in app
+    await func(session)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 348, in app
+    await dependant.call(**values)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 3571, in websocket_endpoint
+    compliance_by_department=compliance_by_department,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 198, in send_json
+    await self.send({"type": "websocket.send", "text": text})
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 100, in send
+    raise WebSocketDisconnect(code=1006)
+starlette.websockets.WebSocketDisconnect
+INFO:     127.0.0.1:55621 - "OPTIONS /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55624 - "OPTIONS /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55621 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55624 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55621 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55623 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55625 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55623 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55624 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55621 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 55626) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZTRiYzQ2NWYtZGM4ZC00NGVlLTg5Y2EtNmI5NjZlYzUzNjYzIiwiZW1haWwiOiJzY2hlbWFfdGVzdF9mZWF0dXJlMkB0ZXN0LmNvbSIsImV4cCI6MTc3MTA4NzAzM30.mrEgezz8FO4P8mlVn-bog6eokjFSc2pCNaFg4Ri9l3E" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:55627 - "OPTIONS /api/auth/register HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55627 - "POST /api/auth/register HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 55628) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiN2E0MzU3ZDMtNDdiMS00YTI4LTgyNGMtNWYxNGQ0NTRjNDhlIiwiZW1haWwiOiJmZWF0dXJlMzVAdGVzdC5jb20iLCJleHAiOjE3NzEwODcwNDJ9.S8FYsWO2VtH1fFcGxkfahi7dEU5nDn1-P7xGsUC6DMU" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     ('127.0.0.1', 55630) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiN2E0MzU3ZDMtNDdiMS00YTI4LTgyNGMtNWYxNGQ0NTRjNDhlIiwiZW1haWwiOiJmZWF0dXJlMzVAdGVzdC5jb20iLCJleHAiOjE3NzEwODcwNDJ9.S8FYsWO2VtH1fFcGxkfahi7dEU5nDn1-P7xGsUC6DMU" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:55627 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55627 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55627 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55631 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55627 - "OPTIONS /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55631 - "OPTIONS /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55627 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55631 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55627 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55631 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55627 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55627 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55631 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55645 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55645 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 55646) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzUwZDk4ODYtMmM2MC00ZmU1LTk3NDQtYmQ4MDM2OGZjYWVhIiwiZW1haWwiOiJmZWF0dXJlNjZAdGVzdC5jb20iLCJleHAiOjE3NzEwODcwNTB9.TS9LVe6MDMQqPkupex9J4GCGsNHYV6QAz-l-AqeQ8nE" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     ('127.0.0.1', 55647) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzUwZDk4ODYtMmM2MC00ZmU1LTk3NDQtYmQ4MDM2OGZjYWVhIiwiZW1haWwiOiJmZWF0dXJlNjZAdGVzdC5jb20iLCJleHAiOjE3NzEwODcwNTB9.TS9LVe6MDMQqPkupex9J4GCGsNHYV6QAz-l-AqeQ8nE" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:55645 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55645 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55648 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55645 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55645 - "OPTIONS /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55648 - "OPTIONS /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55645 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55648 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55645 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55648 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55645 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55648 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55645 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55648 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:55650 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55649 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55651 - "OPTIONS /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55652 - "OPTIONS /api/tasks/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55651 - "OPTIONS /api/department-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55651 - "OPTIONS /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55654 - "OPTIONS /api/tasks/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55655 - "OPTIONS /api/department-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55653 - "GET /api/tasks/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55652 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55656 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55654 - "GET /api/tasks/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55651 - "GET /api/department-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55655 - "GET /api/department-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55744 - "OPTIONS /api/tasks/c1ca2942-1031-4b25-9220-99c2d2c4e71d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55745 - "OPTIONS /api/tasks/c1ca2942-1031-4b25-9220-99c2d2c4e71d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55745 - "GET /api/tasks/c1ca2942-1031-4b25-9220-99c2d2c4e71d HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55744 - "GET /api/tasks/c1ca2942-1031-4b25-9220-99c2d2c4e71d HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55744 - "OPTIONS /api/tasks/c1ca2942-1031-4b25-9220-99c2d2c4e71d/comments HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55745 - "OPTIONS /api/tasks/c1ca2942-1031-4b25-9220-99c2d2c4e71d/timeline HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55746 - "OPTIONS /api/tasks/c1ca2942-1031-4b25-9220-99c2d2c4e71d/comments HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55747 - "OPTIONS /api/tasks/c1ca2942-1031-4b25-9220-99c2d2c4e71d/timeline HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55744 - "GET /api/tasks/c1ca2942-1031-4b25-9220-99c2d2c4e71d/comments HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55745 - "GET /api/tasks/c1ca2942-1031-4b25-9220-99c2d2c4e71d/timeline HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55747 - "GET /api/tasks/c1ca2942-1031-4b25-9220-99c2d2c4e71d/timeline HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55746 - "GET /api/tasks/c1ca2942-1031-4b25-9220-99c2d2c4e71d/comments HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55744 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55745 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:55757 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55756 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55838 - "POST /api/auth/register HTTP/1.1" 400 Bad Request
+INFO:     connection closed
+INFO:     127.0.0.1:55927 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55928 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55940 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55940 - "POST /api/auth/login HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:55943 - "OPTIONS /api/auth/register HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55943 - "POST /api/auth/register HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 55944) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZTI2MTIzOWMtYzliYS00MTIxLWFiZTUtZTBkNjNlZWVhMThlIiwiZW1haWwiOiJmZWF0dXJlNDZ0ZXN0QGV4YW1wbGUuY29tIiwiZXhwIjoxNzcxMDg3MTE4fQ.A0ZH_uMvdQnpL2B6rEYflUH7wi6EfgjzWjwi_-iNl78" [accepted]
+INFO:     connection open
+INFO:     connection closed
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 349, in asgi_send
+    await self.send(data)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 618, in send
+    await self.ensure_open()
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 916, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1000 (OK) User logged out; then sent 1000 (OK) User logged out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 97, in send
+    await self._send(message)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 50, in sender
+    await send(message)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 365, in asgi_send
+    raise ClientDisconnected from exc
+uvicorn.protocols.utils.ClientDisconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 255, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 77, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 373, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 96, in app
+    await wrap_app_handling_exceptions(app, session)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 94, in app
+    await func(session)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 348, in app
+    await dependant.call(**values)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 3571, in websocket_endpoint
+    compliance_by_department=compliance_by_department,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 198, in send_json
+    await self.send({"type": "websocket.send", "text": text})
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 100, in send
+    raise WebSocketDisconnect(code=1006)
+starlette.websockets.WebSocketDisconnect
+INFO:     ('127.0.0.1', 55945) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZTI2MTIzOWMtYzliYS00MTIxLWFiZTUtZTBkNjNlZWVhMThlIiwiZW1haWwiOiJmZWF0dXJlNDZ0ZXN0QGV4YW1wbGUuY29tIiwiZXhwIjoxNzcxMDg3MTE4fQ.A0ZH_uMvdQnpL2B6rEYflUH7wi6EfgjzWjwi_-iNl78" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:55943 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55946 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55943 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55946 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55943 - "OPTIONS /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55943 - "OPTIONS /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55947 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55948 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55946 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55943 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55946 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55943 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55948 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55947 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55952 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 55961) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZTRiYzQ2NWYtZGM4ZC00NGVlLTg5Y2EtNmI5NjZlYzUzNjYzIiwiZW1haWwiOiJzY2hlbWFfdGVzdF9mZWF0dXJlMkB0ZXN0LmNvbSIsImV4cCI6MTc3MTA4NzEyNH0.tzQbI0P5ED1UwkTZha0blJtOQmtrlAEk_2J_-qpnFsM" [accepted]
+INFO:     connection open
+INFO:     connection closed
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 940, in transfer_data
+    message = await self.read_message()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 1010, in read_message
+    frame = await self.read_data_frame(max_size=self.max_size)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 1087, in read_data_frame
+    frame = await self.read_frame(max_size)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 1144, in read_frame
+    frame = await Frame.read(
+            ^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/framing.py", line 70, in read
+    data = await reader(2)
+           ^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12_2/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/streams.py", line 750, in readexactly
+    raise exceptions.IncompleteReadError(incomplete, n)
+asyncio.exceptions.IncompleteReadError: 0 bytes read on a total of 2 expected bytes
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 349, in asgi_send
+    await self.send(data)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 618, in send
+    await self.ensure_open()
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 916, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedError: no close frame received or sent
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 97, in send
+    await self._send(message)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 50, in sender
+    await send(message)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 365, in asgi_send
+    raise ClientDisconnected from exc
+uvicorn.protocols.utils.ClientDisconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 255, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 77, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 373, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 96, in app
+    await wrap_app_handling_exceptions(app, session)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 94, in app
+    await func(session)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 348, in app
+    await dependant.call(**values)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 3571, in websocket_endpoint
+    compliance_by_department=compliance_by_department,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 198, in send_json
+    await self.send({"type": "websocket.send", "text": text})
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 100, in send
+    raise WebSocketDisconnect(code=1006)
+starlette.websockets.WebSocketDisconnect
+INFO:     127.0.0.1:55952 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55962 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55952 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55962 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55952 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55962 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55952 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55962 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 55963) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZTRiYzQ2NWYtZGM4ZC00NGVlLTg5Y2EtNmI5NjZlYzUzNjYzIiwiZW1haWwiOiJzY2hlbWFfdGVzdF9mZWF0dXJlMkB0ZXN0LmNvbSIsImV4cCI6MTc3MTA4NzEyNH0.tzQbI0P5ED1UwkTZha0blJtOQmtrlAEk_2J_-qpnFsM" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:55964 - "OPTIONS /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55965 - "OPTIONS /api/tasks/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55964 - "OPTIONS /api/tasks/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55966 - "OPTIONS /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55965 - "OPTIONS /api/department-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55967 - "OPTIONS /api/department-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55964 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55965 - "GET /api/tasks/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55967 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55966 - "GET /api/tasks/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55969 - "GET /api/department-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55968 - "GET /api/department-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55970 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55970 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55971 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55972 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56061 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56060 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56064 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56063 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56070 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56069 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:56157 - "OPTIONS /api/auth/register HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56157 - "POST /api/auth/register HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 56158) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzA5YjM5ZWQtNDc2Mi00MjExLWIyMjItM2NkYTIzYWFjYWMzIiwiZW1haWwiOiJmZWF0dXJlNjd0ZXN0QHRlc3QuY29tIiwiZXhwIjoxNzcxMDg3MTcxfQ.yk9iTTi9vNnPQ-fTJ6UsZw6rYxjFFnpKzmUMISjwgOI" [accepted]
+INFO:     connection open
+INFO:     connection closed
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 349, in asgi_send
+    await self.send(data)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 618, in send
+    await self.ensure_open()
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 916, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1000 (OK) User logged out; then sent 1000 (OK) User logged out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 97, in send
+    await self._send(message)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 50, in sender
+    await send(message)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 365, in asgi_send
+    raise ClientDisconnected from exc
+uvicorn.protocols.utils.ClientDisconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 255, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 77, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 373, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 96, in app
+    await wrap_app_handling_exceptions(app, session)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 94, in app
+    await func(session)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 348, in app
+    await dependant.call(**values)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 3571, in websocket_endpoint
+    compliance_by_department=compliance_by_department,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 198, in send_json
+    await self.send({"type": "websocket.send", "text": text})
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 100, in send
+    raise WebSocketDisconnect(code=1006)
+starlette.websockets.WebSocketDisconnect
+INFO:     ('127.0.0.1', 56159) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzA5YjM5ZWQtNDc2Mi00MjExLWIyMjItM2NkYTIzYWFjYWMzIiwiZW1haWwiOiJmZWF0dXJlNjd0ZXN0QHRlc3QuY29tIiwiZXhwIjoxNzcxMDg3MTcxfQ.yk9iTTi9vNnPQ-fTJ6UsZw6rYxjFFnpKzmUMISjwgOI" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:56157 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56157 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56160 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56157 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56157 - "OPTIONS /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56160 - "OPTIONS /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56157 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56160 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56157 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56160 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56157 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56157 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56160 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56157 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56161 - "OPTIONS /api/los-lms/uploads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56162 - "OPTIONS /api/los-lms/uploads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56162 - "GET /api/los-lms/uploads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56161 - "GET /api/los-lms/uploads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56163 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56163 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56164 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56165 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56171 - "OPTIONS /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56171 - "POST /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56171 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56172 - "GET /api/tasks/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56173 - "GET /api/department-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56178 - "GET /api/admin/collections HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56179 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56180 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56182 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56181 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56195 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56196 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56195 - "GET /api/tasks/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56196 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56197 - "GET /api/department-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56202 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56201 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56203 - "OPTIONS /api/auth/register HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56203 - "POST /api/auth/register HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 56205) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMGJlMTc2N2ItMDFkOC00MTY3LTljODMtODQzOGQ4M2U5NjE0IiwiZW1haWwiOiJmZWF0dXJlMTZ0ZXN0X2ZlYjdfMjAyNkBleGFtcGxlLmNvbSIsImV4cCI6MTc3MTA4NzIyNH0.HVzUVtlcAQ9cY5Gg9XnSgThjYoYLIfEK6qlP1NyBvhI" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     ('127.0.0.1', 56206) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMGJlMTc2N2ItMDFkOC00MTY3LTljODMtODQzOGQ4M2U5NjE0IiwiZW1haWwiOiJmZWF0dXJlMTZ0ZXN0X2ZlYjdfMjAyNkBleGFtcGxlLmNvbSIsImV4cCI6MTc3MTA4NzIyNH0.HVzUVtlcAQ9cY5Gg9XnSgThjYoYLIfEK6qlP1NyBvhI" [accepted]
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 349, in asgi_send
+    await self.send(data)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 618, in send
+    await self.ensure_open()
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 916, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1000 (OK) User logged out; then sent 1000 (OK) User logged out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 97, in send
+    await self._send(message)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 50, in sender
+    await send(message)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 365, in asgi_send
+    raise ClientDisconnected from exc
+uvicorn.protocols.utils.ClientDisconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 255, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 77, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 373, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 96, in app
+    await wrap_app_handling_exceptions(app, session)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 94, in app
+    await func(session)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 348, in app
+    await dependant.call(**values)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 3571, in websocket_endpoint
+    compliance_by_department=compliance_by_department,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 198, in send_json
+    await self.send({"type": "websocket.send", "text": text})
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 100, in send
+    raise WebSocketDisconnect(code=1006)
+starlette.websockets.WebSocketDisconnect
+INFO:     connection open
+INFO:     127.0.0.1:56203 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56203 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56203 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56207 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56203 - "OPTIONS /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56203 - "OPTIONS /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56203 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56207 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56207 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56203 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56203 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56207 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56203 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56207 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56211 - "OPTIONS /api/policies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56212 - "OPTIONS /api/policies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56211 - "GET /api/policies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56212 - "GET /api/policies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56214 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56213 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56217 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56216 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56232 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56233 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56234 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56235 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56239 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56238 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56240 - "OPTIONS /api/auth/register HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56240 - "POST /api/auth/register HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:56241 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56242 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56242 - "OPTIONS /api/evidence HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56242 - "OPTIONS /api/evidence HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56242 - "GET /api/evidence HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56241 - "GET /api/evidence HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56243 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56243 - "POST /api/auth/login HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:56245 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56244 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56246 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56247 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56253 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56254 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56255 - "POST /api/auth/register HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 56256) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMDA3NmY4ZDctOWYyOC00NDA2LTliOTYtMDk5MTBjMTJjMWZjIiwiZW1haWwiOiJyZWdyZXNzaW9uX3Rlc3RfZmViN18yMDI2QHRlc3QuY29tIiwiZXhwIjoxNzcxMDg3Mjk1fQ.eghXcCJV9DpPuQhN3aXhTFq12POelUp0Br8hW2CihSs" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:56255 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56257 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56255 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56257 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56255 - "OPTIONS /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56257 - "OPTIONS /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56258 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56258 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56255 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56257 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56255 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56257 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56258 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56259 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 56260) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMDA3NmY4ZDctOWYyOC00NDA2LTliOTYtMDk5MTBjMTJjMWZjIiwiZW1haWwiOiJyZWdyZXNzaW9uX3Rlc3RfZmViN18yMDI2QHRlc3QuY29tIiwiZXhwIjoxNzcxMDg3Mjk1fQ.eghXcCJV9DpPuQhN3aXhTFq12POelUp0Br8hW2CihSs" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     127.0.0.1:56262 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56261 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56269 - "GET /api/tasks/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56268 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56270 - "GET /api/department-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56277 - "GET /api/tasks/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56276 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56278 - "GET /api/department-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56278 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56278 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56279 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56280 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:56281 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56281 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56285 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56286 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56290 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 56292) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzA5YjM5ZWQtNDc2Mi00MjExLWIyMjItM2NkYTIzYWFjYWMzIiwiZW1haWwiOiJmZWF0dXJlNjd0ZXN0QHRlc3QuY29tIiwiZXhwIjoxNzcxMDg3MTcxfQ.yk9iTTi9vNnPQ-fTJ6UsZw6rYxjFFnpKzmUMISjwgOI" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:56291 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56295 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56294 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56293 - "GET /api/los-lms/uploads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56291 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56290 - "GET /api/los-lms/uploads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56301 - "GET /api/tasks/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56300 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56302 - "GET /api/department-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56303 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56304 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     connection closed
+INFO:     127.0.0.1:56392 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56391 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56482 - "OPTIONS /api/test/create-los-upload HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56482 - "POST /api/test/create-los-upload HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56485 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56485 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56492 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56491 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56494 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56493 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56509 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56508 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56522 - "OPTIONS /api/auth/register HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56522 - "POST /api/auth/register HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 56523) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOWM4OTY4MjktOGUzZS00MzE5LTg1MDQtY2U2ZjM3ZTU0ZDQzIiwiZW1haWwiOiJmZWF0dXJlNTN0ZXN0QGV4YW1wbGUuY29tIiwiZXhwIjoxNzcxMDg3Mzg1fQ.GPJ_yba3JfNlrGcCVjxumXIFSQv2HqCjc_tPslchcg8" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     ('127.0.0.1', 56524) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOWM4OTY4MjktOGUzZS00MzE5LTg1MDQtY2U2ZjM3ZTU0ZDQzIiwiZW1haWwiOiJmZWF0dXJlNTN0ZXN0QGV4YW1wbGUuY29tIiwiZXhwIjoxNzcxMDg3Mzg1fQ.GPJ_yba3JfNlrGcCVjxumXIFSQv2HqCjc_tPslchcg8" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:56522 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56525 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56522 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56525 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56522 - "OPTIONS /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56525 - "OPTIONS /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56522 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56525 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56522 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56525 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56522 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56522 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56522 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56525 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56526 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56527 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:56535 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56534 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56616 - "OPTIONS /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56617 - "OPTIONS /api/tasks/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56618 - "OPTIONS /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56619 - "OPTIONS /api/tasks/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56620 - "OPTIONS /api/department-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56621 - "OPTIONS /api/department-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56616 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56618 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56619 - "GET /api/tasks/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56617 - "GET /api/tasks/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56621 - "GET /api/department-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56620 - "GET /api/department-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56622 - "OPTIONS /api/auth/register HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56622 - "POST /api/auth/register HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 56623) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZGI0YTYxMGYtZTBhNy00Y2YxLWJkMGEtYTlkNmIwMThkODMyIiwiZW1haWwiOiJzY2hlbWFfdGVzdF8yMDI2MDIwN0B0ZXN0LmNvbSIsImV4cCI6MTc3MTA4NzM5M30.3iLAu26M7nt0aHCoBgcbXiw7ZRwg7zXfOZyGLhbJ5OU" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     ('127.0.0.1', 56624) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZGI0YTYxMGYtZTBhNy00Y2YxLWJkMGEtYTlkNmIwMThkODMyIiwiZW1haWwiOiJzY2hlbWFfdGVzdF8yMDI2MDIwN0B0ZXN0LmNvbSIsImV4cCI6MTc3MTA4NzM5M30.3iLAu26M7nt0aHCoBgcbXiw7ZRwg7zXfOZyGLhbJ5OU" [accepted]
+INFO:     connection open
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 349, in asgi_send
+    await self.send(data)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 618, in send
+    await self.ensure_open()
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 916, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1000 (OK) User logged out; then sent 1000 (OK) User logged out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 97, in send
+    await self._send(message)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 50, in sender
+    await send(message)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 365, in asgi_send
+    raise ClientDisconnected from exc
+uvicorn.protocols.utils.ClientDisconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 255, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 77, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 373, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 96, in app
+    await wrap_app_handling_exceptions(app, session)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 94, in app
+    await func(session)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 348, in app
+    await dependant.call(**values)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 3571, in websocket_endpoint
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 198, in send_json
+    await self.send({"type": "websocket.send", "text": text})
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 100, in send
+    raise WebSocketDisconnect(code=1006)
+starlette.websockets.WebSocketDisconnect
+INFO:     127.0.0.1:56622 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56625 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56625 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56622 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56622 - "OPTIONS /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56625 - "OPTIONS /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56622 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56625 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56625 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56622 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56622 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56625 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56626 - "POST /api/test/create-los-upload HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56622 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56625 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:56636 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56637 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56639 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56638 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56641 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56640 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56642 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56642 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 56643) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZGI0YTYxMGYtZTBhNy00Y2YxLWJkMGEtYTlkNmIwMThkODMyIiwiZW1haWwiOiJzY2hlbWFfdGVzdF8yMDI2MDIwN0B0ZXN0LmNvbSIsImV4cCI6MTc3MTA4NzQyMH0.LWpjzwUhZjmfhKkn0BM07qcRi2cYvsblsMdOSx2tUKQ" [accepted]
+INFO:     connection open
+INFO:     connection closed
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 940, in transfer_data
+    message = await self.read_message()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 1010, in read_message
+    frame = await self.read_data_frame(max_size=self.max_size)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 1087, in read_data_frame
+    frame = await self.read_frame(max_size)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 1144, in read_frame
+    frame = await Frame.read(
+            ^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/framing.py", line 70, in read
+    data = await reader(2)
+           ^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12_2/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/streams.py", line 750, in readexactly
+    raise exceptions.IncompleteReadError(incomplete, n)
+asyncio.exceptions.IncompleteReadError: 0 bytes read on a total of 2 expected bytes
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 349, in asgi_send
+    await self.send(data)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 618, in send
+    await self.ensure_open()
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 916, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedError: no close frame received or sent
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 97, in send
+    await self._send(message)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 50, in sender
+    await send(message)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 365, in asgi_send
+    raise ClientDisconnected from exc
+uvicorn.protocols.utils.ClientDisconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 255, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 77, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 373, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 96, in app
+    await wrap_app_handling_exceptions(app, session)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 94, in app
+    await func(session)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 348, in app
+    await dependant.call(**values)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 3571, in websocket_endpoint
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 198, in send_json
+    await self.send({"type": "websocket.send", "text": text})
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 100, in send
+    raise WebSocketDisconnect(code=1006)
+starlette.websockets.WebSocketDisconnect
+INFO:     127.0.0.1:56642 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56644 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56642 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56644 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56642 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56644 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56642 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56644 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 56645) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZGI0YTYxMGYtZTBhNy00Y2YxLWJkMGEtYTlkNmIwMThkODMyIiwiZW1haWwiOiJzY2hlbWFfdGVzdF8yMDI2MDIwN0B0ZXN0LmNvbSIsImV4cCI6MTc3MTA4NzQyMH0.LWpjzwUhZjmfhKkn0BM07qcRi2cYvsblsMdOSx2tUKQ" [accepted]
+INFO:     connection open

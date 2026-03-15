@@ -1,0 +1,14 @@
+[   17084ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiN2RhMmU4MTgtY2Q1My00ZTY0LTg4NDItOGVhZDk5MWYyMDRiIiwiZW1haWwiOiJjb2xsZWN0aW9uc190ZXN0QHRlc3QuY29tIiwiZXhwIjoxNzcxMDkwNzM5fQ.ZVYQYl2kleCO_eG6U9NZR1f4xJly0fvNn_Z6DFRi42Y." {file: "http://localhost:3000/static/js/bundle.js" line: 119350}] @ http://localhost:3000/static/js/bundle.js:119350
+[   17126ms] [ERROR] [JavaScript Error: "The connection to ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiN2RhMmU4MTgtY2Q1My00ZTY0LTg4NDItOGVhZDk5MWYyMDRiIiwiZW1haWwiOiJjb2xsZWN0aW9uc190ZXN0QHRlc3QuY29tIiwiZXhwIjoxNzcxMDkwNzM5fQ.ZVYQYl2kleCO_eG6U9NZR1f4xJly0fvNn_Z6DFRi42Y was interrupted while the page was loading." {file: "http://localhost:3000/static/js/bundle.js" line: 119350}] @ http://localhost:3000/static/js/bundle.js:119350
+[   17126ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   17426ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   17426ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   41029ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiN2RhMmU4MTgtY2Q1My00ZTY0LTg4NDItOGVhZDk5MWYyMDRiIiwiZW1haWwiOiJjb2xsZWN0aW9uc190ZXN0QHRlc3QuY29tIiwiZXhwIjoxNzcxMDkwNzY0fQ.uotwH_GL-bpKmXGW31Oq3QaUzFf3yh7vHuHy60W7z04." {file: "http://localhost:3000/static/js/bundle.js" line: 119350}] @ http://localhost:3000/static/js/bundle.js:119350
+[   41033ms] [ERROR] [JavaScript Error: "The connection to ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiN2RhMmU4MTgtY2Q1My00ZTY0LTg4NDItOGVhZDk5MWYyMDRiIiwiZW1haWwiOiJjb2xsZWN0aW9uc190ZXN0QHRlc3QuY29tIiwiZXhwIjoxNzcxMDkwNzY0fQ.uotwH_GL-bpKmXGW31Oq3QaUzFf3yh7vHuHy60W7z04 was interrupted while the page was loading." {file: "http://localhost:3000/static/js/bundle.js" line: 119350}] @ http://localhost:3000/static/js/bundle.js:119350
+[   41034ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   41106ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   41107ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0

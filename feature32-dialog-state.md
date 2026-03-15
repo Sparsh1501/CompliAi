@@ -1,0 +1,152 @@
+- generic:
+  - generic:
+    - generic:
+      - generic:
+        - complementary:
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - img
+                - generic:
+                  - heading [level=2]: CompliAI
+                  - paragraph: Compliance OS
+          - navigation:
+            - button:
+              - img
+              - generic: Dashboard
+            - button:
+              - img
+              - generic: Policies
+            - button:
+              - img
+              - generic: Regulations
+            - button:
+              - img
+              - generic: Gap Analysis
+            - button:
+              - img
+              - generic: Tasks
+            - button:
+              - img
+              - generic: Evidence
+            - button:
+              - img
+              - generic: Audit
+            - button:
+              - img
+              - generic: LOS/LMS
+            - button:
+              - img
+              - generic: Calendar
+            - button:
+              - img
+              - generic: Chat
+            - button:
+              - img
+              - generic: Analytics
+            - button:
+              - img
+              - generic: Notifications
+            - button:
+              - img
+              - generic: Settings
+          - generic:
+            - generic:
+              - generic: Test RegUpload User
+              - generic: Test NBFC
+            - button:
+              - img
+              - text: Logout
+          - button:
+            - img
+        - main:
+          - generic:
+            - generic:
+              - generic:
+                - navigation:
+                  - list:
+                    - listitem:
+                      - link:
+                        - /url: /dashboard
+                        - text: Dashboard
+                    - listitem:
+                      - generic: /
+                      - generic: Regulations
+              - generic:
+                - generic:
+                  - img
+                  - textbox:
+                    - /placeholder: Search...
+                - button:
+                  - img
+                - generic:
+                  - button:
+                    - generic: TR
+                    - img
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - heading [level=1]: Regulation Repository
+                  - paragraph: Multi-regulator compliance tracking
+                - button [expanded]:
+                  - img
+                  - text: Upload Regulation
+              - generic:
+                - generic:
+                  - img
+                  - textbox:
+                    - /placeholder: Search by title, circular number...
+              - generic:
+                - tablist:
+                  - tab [selected]: ALL (0)
+                  - tab: RBI (0)
+                  - tab: SEBI (0)
+                  - tab: NSE (0)
+                  - tab: BSE (0)
+                  - tab: IRDAI (0)
+                  - tab: FIU_IND (0)
+                  - tab: NPCI (0)
+                - tabpanel:
+                  - generic:
+                    - generic:
+                      - img
+                      - heading [level=3]: No Regulations Yet
+                      - paragraph: Upload your first regulation document
+                      - button:
+                        - img
+                        - text: Upload Regulation
+    - region "Notifications alt+T"
+  - dialog "Upload Regulation Document" [ref=e455]:
+    - generic [ref=e456]:
+      - heading "Upload Regulation Document" [level=2] [ref=e457]
+      - paragraph [ref=e458]: Upload a PDF of regulatory circular or guideline
+    - generic [ref=e459]:
+      - generic [ref=e460]:
+        - text: Regulation Title
+        - textbox "Regulation Title" [ref=e461]:
+          - /placeholder: e.g., RBI KYC Master Directions 2025
+          - text: RBI KYC Master Directions 2025
+      - generic [ref=e462]:
+        - text: Regulatory Body
+        - combobox "Regulatory Body" [ref=e463]:
+          - option "RBI" [selected]
+          - option "SEBI"
+          - option "NSE"
+          - option "BSE"
+          - option "IRDAI"
+          - option "FIU_IND"
+          - option "NPCI"
+      - generic [ref=e464]:
+        - text: Circular Number
+        - textbox "Circular Number" [active] [ref=e465]:
+          - /placeholder: e.g., RBI/2025-26/01
+          - text: RBI/2025-26/001
+      - generic [ref=e466]:
+        - text: PDF File
+        - button "PDF File" [ref=e467]
+      - button "Upload & Extract Clauses" [ref=e468] [cursor=pointer]
+    - button "Close" [ref=e469] [cursor=pointer]:
+      - img [ref=e470]
+      - generic [ref=e473]: Close

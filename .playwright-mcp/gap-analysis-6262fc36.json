@@ -1,0 +1,275 @@
+{
+  "id": "6262fc36-251c-4873-bac3-68c052f3fb8a",
+  "policy_id": "0a7071c8-0a12-423b-a55e-9d8ecd378d9b",
+  "regulation_id": "test-regulation-id",
+  "policy": "KYC Compliance Policy Final",
+  "policy_title": "KYC Compliance Policy Final",
+  "regulation": "Unknown Regulation",
+  "regulation_title": "Unknown Regulation",
+  "compliance_score": 65.0,
+  "analysis_mode": "deep_analysis",
+  "executive_summary": "The KYC Compliance Policy demonstrates moderate alignment with RBI Master Direction on KYC requirements.",
+  "total_gaps": 3,
+  "critical_gaps": 0,
+  "high_gaps": 1,
+  "medium_gaps": 1,
+  "low_gaps": 1,
+  "compliant_clauses": 0,
+  "priority_actions": [],
+  "gaps": [
+    {
+      "id": "c971843c-11f1-47dc-84a8-7e5106c5d448",
+      "gap_type": "Missing Requirement",
+      "severity": "High",
+      "confidence_score": 0.92,
+      "description": "The KYC policy does not include provisions for Enhanced Due Diligence on PEPs. RBI Master Direction mandates EDD measures including senior management approval.",
+      "suggested_fix": "Add a PEP identification and EDD section with approval workflows and source-of-funds verification.",
+      "policy_clause": {
+        "clause_id": "40428662-19d4-4de8-ba4c-c73fc0964cf8",
+        "reference_circulars": [],
+        "metadata": {},
+        "text": "Customer identification shal be carried out at the time of opening an account. The bank shal verify identity using reliable documents such as passport, voter ID, or Aadhaar.",
+        "original_text": "Customer identification shal be carried out at the time of opening an account.",
+        "section": "Section 3.1 - Customer Identification",
+        "page_number": 1,
+        "title": "CUSTOMER IDENTIFICATION PROCEDURES",
+        "content": "Customer identification at account opening.",
+        "tags": [
+          "mandatory",
+          "kyc"
+        ],
+        "requirement_type": "mandatory",
+        "subject_category": "customer_due_diligence",
+        "key_obligations": [
+          "Verify customer identity",
+          "Use reliable documents"
+        ],
+        "semantic_summary": "Mandates identity verification at account opening.",
+        "entities_involved": [
+          "Bank",
+          "Customer"
+        ],
+        "keywords": [
+          "kyc",
+          "identification"
+        ],
+        "compliance_indicators": [
+          "Identity records maintained"
+        ],
+        "criticality": "high"
+      },
+      "regulation_clause": {
+        "clause_id": "a1fb7b7e-a7e8-4a75-b8bb-145581341966",
+        "reference_circulars": [],
+        "metadata": {},
+        "text": "Regulated entities shal apply enhanced due diligence for Politicaly Exposed Persons. Senior management approval shal be obtained before establishing a business relationship with a PEP.",
+        "original_text": "Regulated entities shal apply enhanced due diligence for PEPs.",
+        "section": "Chapter II, Clause 16 - EDD for PEPs",
+        "page_number": 3,
+        "title": "ENHANCED DUE DILIGENCE FOR PEPs",
+        "content": "EDD measures for PEPs including senior management approval.",
+        "tags": [
+          "mandatory",
+          "pep",
+          "edd"
+        ],
+        "requirement_type": "mandatory",
+        "subject_category": "customer_due_diligence",
+        "key_obligations": [
+          "Apply EDD for PEPs",
+          "Obtain senior management approval"
+        ],
+        "semantic_summary": "Requires EDD for PEPs with senior management approval.",
+        "entities_involved": [
+          "Regulated Entity",
+          "PEP"
+        ],
+        "keywords": [
+          "pep",
+          "edd",
+          "senior management"
+        ],
+        "compliance_indicators": [
+          "PEP screening records"
+        ],
+        "criticality": "high"
+      },
+      "metadata": {
+        "remediation": {
+          "draft_clause": "The Bank shal implement PEP screening. Head of Compliance approval is required for PEP relationships.",
+          "priority": "high"
+        }
+      }
+    },
+    {
+      "id": "82662cf7-6b37-4c19-9f2b-5a27a13a24d2",
+      "gap_type": "Partial Coverage",
+      "severity": "Medium",
+      "confidence_score": 0.85,
+      "description": "The policy mentions transaction monitoring but lacks specifics on threshold amounts for STRs and CTRs. RBI guidelines require reporting of cash transactions exceeding INR 10 lakh.",
+      "suggested_fix": "Enhance monitoring section with CTR thresholds (INR 10 lakh), STR timelines (7 days), and Principal Officer designation.",
+      "policy_clause": {
+        "clause_id": "e4dde576-42f9-4eaa-a7c4-a73e051a9d18",
+        "reference_circulars": [],
+        "metadata": {},
+        "text": "The compliance department shal monitor transactions on an ongoing basis and report any suspicious activities to authorities. Monitoring systems shal detect unusual patterns.",
+        "original_text": "The compliance department shal monitor transactions and report suspicious activities.",
+        "section": "Section 5.2 - Transaction Monitoring",
+        "page_number": 2,
+        "title": "TRANSACTION MONITORING AND REPORTING",
+        "content": "Compliance monitors transactions and reports suspicious activities.",
+        "tags": [
+          "mandatory",
+          "monitoring",
+          "reporting"
+        ],
+        "requirement_type": "mandatory",
+        "subject_category": "anti_money_laundering",
+        "key_obligations": [
+          "Monitor transactions",
+          "Report suspicious activities"
+        ],
+        "semantic_summary": "Requires ongoing transaction monitoring and reporting.",
+        "entities_involved": [
+          "Compliance Department"
+        ],
+        "keywords": [
+          "monitoring",
+          "aml"
+        ],
+        "compliance_indicators": [
+          "Monitoring system deployed"
+        ],
+        "criticality": "high"
+      },
+      "regulation_clause": {
+        "clause_id": "e6e8a18a-f3c1-4b28-b5b4-232e98f8fc09",
+        "reference_circulars": [],
+        "metadata": {},
+        "text": "Regulated entities shal report to FIU-IND: cash transactions of value more than rupees ten lakh; suspicious transactions within 7 working days of forming suspicion.",
+        "original_text": "Regulated entities shal report to FIU-IND cash transactions and suspicious transactions.",
+        "section": "Chapter IV, Clause 28 - Reporting",
+        "page_number": 5,
+        "title": "REPORTING OBLIGATIONS TO FIU-IND",
+        "content": "Cash transactions above INR 10 lakh and suspicious transactions must be reported.",
+        "tags": [
+          "mandatory",
+          "fiu-ind",
+          "ctr",
+          "str"
+        ],
+        "requirement_type": "mandatory",
+        "subject_category": "reporting_requirements",
+        "key_obligations": [
+          "Report cash transactions above INR 10 lakh",
+          "File STRs within 7 days"
+        ],
+        "semantic_summary": "Mandates reporting of large cash and suspicious transactions to FIU-IND.",
+        "entities_involved": [
+          "Regulated Entity",
+          "FIU-IND"
+        ],
+        "keywords": [
+          "fiu-ind",
+          "str",
+          "ctr"
+        ],
+        "compliance_indicators": [
+          "CTR filings",
+          "STR filings"
+        ],
+        "criticality": "high"
+      },
+      "metadata": {
+        "remediation": {
+          "draft_clause": "The Bank shal report to FIU-IND cash transactions exceeding INR 10 lakh and suspicious transactions within 7 working days.",
+          "priority": "medium"
+        }
+      }
+    },
+    {
+      "id": "b12381b0-c0da-4ce5-9a63-dbd0004d3592",
+      "gap_type": "Outdated Reference",
+      "severity": "Low",
+      "confidence_score": 0.78,
+      "description": "The policy references PMLA 2002 but does not incorporate 2023 amendments. Record retention period references may be outdated.",
+      "suggested_fix": "Update statutory references to latest PMLA amendments (2023). Align record retention to current 5-year requirement.",
+      "policy_clause": {
+        "clause_id": "7efac4b9-e36d-4c1e-821b-24031c26441f",
+        "reference_circulars": [],
+        "metadata": {},
+        "text": "Records related to customer identification and transactions shal be maintained for a minimum period of ten years from the date of the transaction to enable reconstruction of individual transactions.",
+        "original_text": "Records shal be maintained for a minimum of ten years.",
+        "section": "Section 7.1 - Record Keeping",
+        "page_number": 4,
+        "title": "RECORD KEEPING AND RETETTION",
+        "content": "Customer and transaction records maintained for ten years.",
+        "tags": [
+          "mandatory",
+          "record-keeping"
+        ],
+        "requirement_type": "mandatory",
+        "subject_category": "record_keeping",
+        "key_obligations": [
+          "Maintain records for 10 years"
+        ],
+        "semantic_summary": "Requires record maintenance for at least 10 years.",
+        "entities_involved": [
+          "Bank"
+        ],
+        "keywords": [
+          "record keeping",
+          "retention"
+        ],
+        "compliance_indicators": [
+          "Record retention policy documented"
+        ],
+        "criticality": "medium"
+      },
+      "regulation_clause": {
+        "clause_id": "f5d7c437-e540-4cf1-966a-859a49467d51",
+        "reference_circulars": [],
+        "metadata": {},
+        "text": "Regulated entities shal maintain records of transactions including CDD information for five years after the business relationship is ended. Records pertaining to ongoing investigations shal be retained until case closure.",
+        "original_text": "Regulated entities shal maintain records for five years after relationship ends.",
+        "section": "Chapter V, Clause 34 - Maintenance of Records",
+        "page_number": 7,
+        "title": "MAINTENANCE OF RECORDS",
+        "content": "Records maintained for 5 years after relationship ends.",
+        "tags": [
+          "mandatory",
+          "record-keeping",
+          "five-years"
+        ],
+        "requirement_type": "mandatory",
+        "subject_category": "record_keeping",
+        "key_obligations": [
+          "Maintain records 5 years after relationship ends",
+          "Retain STR records until case closure"
+        ],
+        "semantic_summary": "Mandates 5-year record retention post-relationship.",
+        "entities_involved": [
+          "Regulated Entity"
+        ],
+        "keywords": [
+          "record maintenance",
+          "five years",
+          "retention"
+        ],
+        "compliance_indicators": [
+          "Records retained per timeline"
+        ],
+        "criticality": "medium"
+      },
+      "metadata": {
+        "remediation": {
+          "draft_clause": "Records shal be maintained for five years from cessation of business relationship. Policy reviewed annually for PMLA alignment.",
+          "priority": "low"
+        }
+      }
+    }
+  ],
+  "checklist": [],
+  "created_at": "2026-02-07T23:26:04.874118+00:00",
+  "exported_at": "2026-02-07T23:39:41.583267+00:00"
+}

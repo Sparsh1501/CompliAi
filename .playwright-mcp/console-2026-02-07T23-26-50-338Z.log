@@ -1,0 +1,53 @@
+[    9645ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYTdlN2RhMmItYzM3NS00ZjQ1LTkwYzItZjkzN2M1MWJkN2IzIiwiZW1haWwiOiJkYXRldGVzdGVyQHRlc3QuY29tIiwiZXhwIjoxNzcxMTExNjE5fQ.UaBqPjvJZQNopfQXHc-ckbB4JPZJ-mrw6uYRqmLA7dY." {file: "http://localhost:3000/static/js/bundle.js" line: 120531}] @ http://localhost:3000/static/js/bundle.js:120531
+[    9678ms] [ERROR] [JavaScript Error: "The connection to ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYTdlN2RhMmItYzM3NS00ZjQ1LTkwYzItZjkzN2M1MWJkN2IzIiwiZW1haWwiOiJkYXRldGVzdGVyQHRlc3QuY29tIiwiZXhwIjoxNzcxMTExNjE5fQ.UaBqPjvJZQNopfQXHc-ckbB4JPZJ-mrw6uYRqmLA7dY was interrupted while the page was loading." {file: "http://localhost:3000/static/js/bundle.js" line: 120531}] @ http://localhost:3000/static/js/bundle.js:120531
+[    9678ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   23720ms] [ERROR] In HTML, <div> cannot be a descendant of <p>.
+This will cause a hydration error.
+
+  ...
+    <TabsProvider scope={undefined} baseId="radix-_r_s_" value="overview" onValueChange={function} ...>
+      <Primitive.div dir="ltr" data-orientation="horizontal" className="w-full" data-testid="policy-tabs" ref={null}>
+        <div dir="ltr" data-orientation="horizontal" className="w-full" data-testid="policy-tabs" ref={null}>
+          <_c>
+          <_c5>
+          <_c5 value="overview" className="mt-6" data-testid="overview-t...">
+            <TabsContent ref={null} className="ring-offse..." value="overview" data-testid="overview-t...">
+              <Presence present={true}>
+                <Primitive.div data-state="active" data-orientation="horizontal" role="tabpanel" ...>
+                  <div data-state="active" data-orientation="horizontal" role="tabpanel" aria-labelledby="radix-_r_s..." ...>
+                    <_c>
+                      <div ref={null} className="rounded-xl...">
+                        <_c3>
+                        <_c9 className="space-y-4">
+                          <div ref={null} className="p-6 pt-0 s...">
+                            <div className="grid grid-..." data-testid="metadata-d...">
+                              <div>
+                              <div>
+                              <div>
+                              <div>
+                                <label>
+>                               <p className="mt-1">
+                                  <Badge className="bg-amber-1...">
+>                                   <div
+>                                     className="inline-flex items-center rounded-lg border px-2.5 py-0.5 text-xs font..."
+>                                   >
+                              ...
+          ...
+ @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   23721ms] [ERROR] <p> cannot contain a nested <div>.
+See this log for the ancestor stack trace. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[  333500ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYTdlN2RhMmItYzM3NS00ZjQ1LTkwYzItZjkzN2M1MWJkN2IzIiwiZW1haWwiOiJkYXRldGVzdGVyQHRlc3QuY29tIiwiZXhwIjoxNzcxMTExNjE5fQ.UaBqPjvJZQNopfQXHc-ckbB4JPZJ-mrw6uYRqmLA7dY." {file: "http://localhost:3000/static/js/bundle.js" line: 120531}] @ http://localhost:3000/static/js/bundle.js:120531
+[  333502ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[  338549ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYTdlN2RhMmItYzM3NS00ZjQ1LTkwYzItZjkzN2M1MWJkN2IzIiwiZW1haWwiOiJkYXRldGVzdGVyQHRlc3QuY29tIiwiZXhwIjoxNzcxMTExNjE5fQ.UaBqPjvJZQNopfQXHc-ckbB4JPZJ-mrw6uYRqmLA7dY." {file: "http://localhost:3000/static/js/bundle.js" line: 120531}] @ http://localhost:3000/static/js/bundle.js:120531
+[  338552ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[  339763ms] [ERROR] Failed to fetch notifications: Error @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[  339764ms] [ERROR] [JavaScript Error: "Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at http://localhost:8000/api/notifications. (Reason: CORS request did not succeed). Status code: (null)."] @ :0
+[  339764ms] [ERROR] [JavaScript Error: "Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at http://localhost:8000/api/notifications/unread-count. (Reason: CORS request did not succeed). Status code: (null)."] @ :0
+[  343564ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYTdlN2RhMmItYzM3NS00ZjQ1LTkwYzItZjkzN2M1MWJkN2IzIiwiZW1haWwiOiJkYXRldGVzdGVyQHRlc3QuY29tIiwiZXhwIjoxNzcxMTExNjE5fQ.UaBqPjvJZQNopfQXHc-ckbB4JPZJ-mrw6uYRqmLA7dY." {file: "http://localhost:3000/static/js/bundle.js" line: 120531}] @ http://localhost:3000/static/js/bundle.js:120531
+[  343565ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[  348589ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYTdlN2RhMmItYzM3NS00ZjQ1LTkwYzItZjkzN2M1MWJkN2IzIiwiZW1haWwiOiJkYXRldGVzdGVyQHRlc3QuY29tIiwiZXhwIjoxNzcxMTExNjE5fQ.UaBqPjvJZQNopfQXHc-ckbB4JPZJ-mrw6uYRqmLA7dY." {file: "http://localhost:3000/static/js/bundle.js" line: 120531}] @ http://localhost:3000/static/js/bundle.js:120531
+[  348590ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[  353951ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYTdlN2RhMmItYzM3NS00ZjQ1LTkwYzItZjkzN2M1MWJkN2IzIiwiZW1haWwiOiJkYXRldGVzdGVyQHRlc3QuY29tIiwiZXhwIjoxNzcxMTExNjE5fQ.UaBqPjvJZQNopfQXHc-ckbB4JPZJ-mrw6uYRqmLA7dY." {file: "http://localhost:3000/static/js/bundle.js" line: 120531}] @ http://localhost:3000/static/js/bundle.js:120531
+[  353955ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[  358988ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYTdlN2RhMmItYzM3NS00ZjQ1LTkwYzItZjkzN2M1MWJkN2IzIiwiZW1haWwiOiJkYXRldGVzdGVyQHRlc3QuY29tIiwiZXhwIjoxNzcxMTExNjE5fQ.UaBqPjvJZQNopfQXHc-ckbB4JPZJ-mrw6uYRqmLA7dY." {file: "http://localhost:3000/static/js/bundle.js" line: 120531}] @ http://localhost:3000/static/js/bundle.js:120531
+[  358990ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0

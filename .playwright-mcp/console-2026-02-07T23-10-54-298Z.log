@@ -1,0 +1,12 @@
+[    9218ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNTc0YzMwZWYtODU5Ni00NmRhLTg3NjUtMjEyYWQyMGViYjY3IiwiZW1haWwiOiJyZXN0YXJ0X3Rlc3RfMTc3MDUwNTc2NEB0ZXN0LmNvbSIsImV4cCI6MTc3MTExMDY2M30.y_vubN-KXI2WBEWCUU7yzPtiidQ5XpMdPuVEw5EoCbY." {file: "http://localhost:3000/static/js/bundle.js" line: 120464}] @ http://localhost:3000/static/js/bundle.js:120464
+[    9230ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[    9346ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[    9346ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   10088ms] [ERROR] Dashboard error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   10090ms] [ERROR] [JavaScript Error: "Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at http://localhost:8000/api/dashboard/stats. (Reason: CORS request did not succeed). Status code: (null)."] @ :0
+[   10097ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   10098ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0

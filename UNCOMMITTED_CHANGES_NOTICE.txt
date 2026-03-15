@@ -1,0 +1,47 @@
+UNCOMMITTED CHANGES NOTICE
+==========================
+Date: 2026-02-07 23:35 UTC
+
+MODIFIED FILES (Not committed)
+-------------------------------
+1. frontend/src/lib/api.js
+   - Added departmentsApi.update()
+   - Added departmentsApi.delete()
+   - Added departmentsApi.addMember()
+   - Added departmentsApi.removeMember()
+
+2. frontend/src/pages/Departments.js
+   - Added Edit Department Dialog
+   - Added Delete Confirmation Dialog
+   - ~161 lines of changes
+
+3. backend-restart-verification.log (runtime log)
+4. frontend-server.log (runtime log)
+
+ORIGIN
+------
+These changes appear to be from a parallel session working on department
+management features (likely Features #117, #118, or related).
+
+ACTION TAKEN
+------------
+Session #16, #36, #80 agent did NOT commit these changes because:
+1. They were not part of assigned features
+2. Work appears incomplete (161 lines suggests work-in-progress)
+3. No corresponding progress notes or feature completion markers
+4. May belong to another active session
+
+RECOMMENDATION
+--------------
+The agent working on department features should:
+1. Complete the feature implementation
+2. Test the changes
+3. Mark the feature as passing
+4. Commit with proper message
+5. Update progress notes
+
+DO NOT DISCARD these changes - they represent real work-in-progress.
+
+---
+Created by: Session working on Features #16, #36, #80
+Purpose: Document state for next session

@@ -1,0 +1,40 @@
+[   39497ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMjIzZmZiNjctNDBlOC00ZTVhLWIzZTktYzUwNDMxZGQ2YjRhIiwiZW1haWwiOiJ0YXNrdGVzdEB0ZXN0LmNvbSIsImV4cCI6MTc3MTA4NDkzNH0.mGzsve-gBxad0xK4V1NSGOnF-dSYx5keinEk2NBTKck." {file: "http://localhost:3000/static/js/bundle.js" line: 116291}] @ http://localhost:3000/static/js/bundle.js:116291
+[   39512ms] [ERROR] [JavaScript Error: "The connection to ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMjIzZmZiNjctNDBlOC00ZTVhLWIzZTktYzUwNDMxZGQ2YjRhIiwiZW1haWwiOiJ0YXNrdGVzdEB0ZXN0LmNvbSIsImV4cCI6MTc3MTA4NDkzNH0.mGzsve-gBxad0xK4V1NSGOnF-dSYx5keinEk2NBTKck was interrupted while the page was loading." {file: "http://localhost:3000/static/js/bundle.js" line: 116291}] @ http://localhost:3000/static/js/bundle.js:116291
+[   39512ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   39626ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   39626ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   71830ms] [ERROR] Error creating task: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   71831ms] [ERROR] [JavaScript Error: "Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at http://localhost:8000/api/tasks. (Reason: CORS header ‘Access-Control-Allow-Origin’ missing). Status code: 500."] @ :0
+[  151562ms] [ERROR] In HTML, <div> cannot be a descendant of <p>.
+This will cause a hydration error.
+
+  ...
+    <FocusScope asChild={true} loop={true} trapped={true} onMountAutoFocus={undefined} ...>
+      <Primitive.div tabIndex={-1} asChild={true} ref={function} onKeyDown={function}>
+        <Primitive.div.Slot tabIndex={-1} onKeyDown={function} ref={function}>
+          <Primitive.div.SlotClone tabIndex={-1} onKeyDown={function} ref={function}>
+            <DismissableLayer role="dialog" id="radix-_r_3h_" aria-describedby="radix-_r_3j_" ...>
+              <Primitive.div role="dialog" id="radix-_r_3h_" aria-describedby="radix-_r_3j_" ...>
+                <div role="dialog" id="radix-_r_3h_" aria-describedby="radix-_r_3j_" aria-labelledby="radix-_r_3i_" ...>
+                  <DialogHeader>
+                    <div className="flex flex-...">
+                      <div className="flex items...">
+                        <div className="flex-1">
+                          <_c7>
+                          <_c9 className="mt-1">
+                            <DialogDescription ref={null} className="text-sm te...">
+                              <Primitive.p id="radix-_r_3j_" className="text-sm te..." ref={null}>
+>                               <p id="radix-_r_3j_" className="text-sm text-muted-foreground mt-1" ref={null}>
+                                  <div className="flex flex-...">
+                                    <Badge className="bg-[#80808...">
+>                                     <div
+>                                       className="inline-flex items-center rounded-lg px-2.5 py-0.5 text-xs font-semi..."
+>                                     >
+                                    ...
+                  ...
+                  ...
+ @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[  151562ms] [ERROR] <p> cannot contain a nested <div>.
+See this log for the ancestor stack trace. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0

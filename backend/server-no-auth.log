@@ -1,0 +1,209 @@
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/services/multi_llm_service_new.py:12: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py:5994: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("startup")
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py:6026: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("shutdown")
+INFO:     Started server process [85227]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     ('127.0.0.1', 57577) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 57579) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 57581) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 57583) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 57585) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 57588) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 57590) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 57592) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 57594) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 57596) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 57598) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 57600) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 57602) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 57604) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 57606) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 57608) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 57610) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 57612) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 57614) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 57616) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 57618) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 57620) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 57622) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 57624) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 57626) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 57628) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 57630) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 57632) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 57634) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:57636 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57654 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57654 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 57655) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGNiMTZlNWQtZjJhOS00MmE0LThmODUtYjc1ZDg3YjkzOGI1IiwiZW1haWwiOiJ0ZXN0X2NvbGxlY3Rpb25zX2ZlYjhAdGVzdC5jb20iLCJleHAiOjE3NzEwOTU2MTl9.rPsmnmEruNxJIoIG-YLZsXTJWHuAJKuTgmuHGlZdiJM" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     ('127.0.0.1', 57656) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGNiMTZlNWQtZjJhOS00MmE0LThmODUtYjc1ZDg3YjkzOGI1IiwiZW1haWwiOiJ0ZXN0X2NvbGxlY3Rpb25zX2ZlYjhAdGVzdC5jb20iLCJleHAiOjE3NzEwOTU2MTl9.rPsmnmEruNxJIoIG-YLZsXTJWHuAJKuTgmuHGlZdiJM" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:57654 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57657 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57654 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57657 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57654 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57654 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57654 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57657 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57761 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57760 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57769 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57770 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:57860 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57860 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58094 - "OPTIONS /api/auth/register HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58094 - "POST /api/auth/register HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:58183 - "POST /api/auth/register HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 58184) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOThjZDY4NzYtNGYyOS00NGRkLThhNjMtODUwODE1MGVmMTRkIiwiZW1haWwiOiJ0ZXN0X2ZlYjhfdW5pcXVlXzEyMzQ1QHRlc3QuY29tIiwiZXhwIjoxNzcxMDk1ODk1fQ.Tu2n77S40f5V6SdpULD45V8PJliU5DCk653qzPNyz3A" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     ('127.0.0.1', 58185) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOThjZDY4NzYtNGYyOS00NGRkLThhNjMtODUwODE1MGVmMTRkIiwiZW1haWwiOiJ0ZXN0X2ZlYjhfdW5pcXVlXzEyMzQ1QHRlc3QuY29tIiwiZXhwIjoxNzcxMDk1ODk1fQ.Tu2n77S40f5V6SdpULD45V8PJliU5DCk653qzPNyz3A" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:58183 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58186 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 349, in asgi_send
+    await self.send(data)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 618, in send
+    await self.ensure_open()
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 916, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1000 (OK) User logged out; then sent 1000 (OK) User logged out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 97, in send
+    await self._send(message)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 50, in sender
+    await send(message)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 365, in asgi_send
+    raise ClientDisconnected from exc
+uvicorn.protocols.utils.ClientDisconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 255, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 77, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 373, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 96, in app
+    await wrap_app_handling_exceptions(app, session)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 94, in app
+    await func(session)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 348, in app
+    await dependant.call(**values)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 5867, in websocket_endpoint
+    compliance_by_status=compliance_by_status,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 198, in send_json
+    await self.send({"type": "websocket.send", "text": text})
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 100, in send
+    raise WebSocketDisconnect(code=1006)
+starlette.websockets.WebSocketDisconnect
+INFO:     127.0.0.1:58189 - "OPTIONS /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58190 - "OPTIONS /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58183 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58186 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58189 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58183 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58183 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58186 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58190 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58190 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58189 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58183 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:58197 - "POST /api/auth/register HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:58200 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58200 - "POST /api/auth/login HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:58595 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58595 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58606 - "GET /api/collections HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58706 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58706 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58715 - "GET /api/collections HTTP/1.1" 404 Not Found

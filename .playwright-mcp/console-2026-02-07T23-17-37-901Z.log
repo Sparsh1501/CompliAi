@@ -1,0 +1,2 @@
+[    7253ms] [ERROR] [JavaScript Error: "Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at http://localhost:8000/api/auth/login. (Reason: CORS header ‘Access-Control-Allow-Origin’ missing). Status code: 400."] @ :0
+[    7255ms] [ERROR] [JavaScript Error: "Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at http://localhost:8000/api/auth/login. (Reason: CORS request did not succeed). Status code: (null)."] @ :0

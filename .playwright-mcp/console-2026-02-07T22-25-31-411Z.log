@@ -1,0 +1,10 @@
+[   76562ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZjNkY2NkMmUtMDJlMy00MDI0LWFlMTktYzU1NmI4OTc5NjMyIiwiZW1haWwiOiJ1cGxvYWR0ZXN0QGNvbXBsaS5haSIsImV4cCI6MTc3MTEwODAwN30.4-kvx2EMcgFkIhfUtyfGPumFwuKXl8C-0DSNEdewaNQ." {file: "http://localhost:3000/static/js/bundle.js" line: 119497}] @ http://localhost:3000/static/js/bundle.js:119497
+[   76565ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   76681ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   76682ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[  386240ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZjNkY2NkMmUtMDJlMy00MDI0LWFlMTktYzU1NmI4OTc5NjMyIiwiZW1haWwiOiJ1cGxvYWR0ZXN0QGNvbXBsaS5haSIsImV4cCI6MTc3MTEwODAwN30.4-kvx2EMcgFkIhfUtyfGPumFwuKXl8C-0DSNEdewaNQ." {file: "http://localhost:3000/static/js/bundle.js" line: 119497}] @ http://localhost:3000/static/js/bundle.js:119497
+[  386243ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[  411276ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZjNkY2NkMmUtMDJlMy00MDI0LWFlMTktYzU1NmI4OTc5NjMyIiwiZW1haWwiOiJ1cGxvYWR0ZXN0QGNvbXBsaS5haSIsImV4cCI6MTc3MTEwODAwN30.4-kvx2EMcgFkIhfUtyfGPumFwuKXl8C-0DSNEdewaNQ." {file: "http://localhost:3000/static/js/bundle.js" line: 119497}] @ http://localhost:3000/static/js/bundle.js:119497
+[  411280ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0

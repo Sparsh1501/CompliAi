@@ -1,0 +1,20 @@
+Know Your Customer (KYC) Policy
+
+Effective Date: January 1, 2024
+Organization: Test Financial Services Ltd.
+
+Policy Clauses:
+
+1. Customer Identification: All customers must provide valid government-issued photo identification before account opening.
+
+2. Address Verification: Proof of address must be submitted within 30 days of account opening through utility bills or bank statements.
+
+3. Enhanced Due Diligence: Enhanced due diligence is required for high-risk customers including PEPs and those from high-risk jurisdictions.
+
+4. Annual Updates: Customer information must be updated and reverified annually to maintain current records.
+
+5. Suspicious Activity Reporting: Any suspicious activity must be reported immediately to the compliance officer within 24 hours of detection.
+
+6. Record Retention: All KYC documents must be retained for a minimum of 5 years after account closure.
+
+7. Third-Party Verification: Third-party identity verification services must be used for all online account openings.

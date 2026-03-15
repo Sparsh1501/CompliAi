@@ -1,0 +1,915 @@
+<project_specification>
+  <project_name>CompliAI</project_name>
+
+  <overview>
+    CompliAI is India's first AI-native Compliance Operating System enabling NBFCs, PAs/PGs, Digital Lenders, and FinTechs to maintain continuous compliance with RBI, FIU-IND, NPCI, and Digital Lending regulations without needing large compliance teams. The platform automates interpretation, mapping, evidence collection, and audit preparedness end-to-end. It uses Claude Sonnet as the primary AI engine with Qdrant for semantic vector search, MongoDB as the primary database, and a React frontend with a corporate enterprise design.
+  </overview>
+
+  <existing_codebase>
+    This project has an existing codebase that should be refactored and extended. The current monolithic server.py (2288 lines) must be reorganized into clean routers + services + models while preserving all existing functionality.
+
+    <existing_tech>
+      - Backend: FastAPI (Python) with Motor async MongoDB driver
+      - Frontend: React 19 + Shadcn/UI + Tailwind CSS
+      - Database: MongoDB 7 (via Docker)
+      - AI: Claude Sonnet (Anthropic), OpenAI, Google Gemini, Mistral OCR
+      - Infra: Docker Compose
+    </existing_tech>
+
+    <existing_modules>
+      - Authentication (JWT + bcrypt)
+      - Policy upload and clause extraction
+      - Regulation upload and clause extraction
+      - Gap analysis (3 implementations: semantic, enhanced, regulation-first)
+      - Task management with SLA tracking and work timers
+      - Evidence upload and basic validation
+      - Audit session management
+      - Calendar events
+      - Chat/AI assistant
+      - Departments and members
+      - Dashboard with basic stats
+      - WebSocket real-time updates
+    </existing_modules>
+
+    <refactoring_required>
+      - Break server.py into clean routers/ directory (one router per module)
+      - Extract business logic into services/ directory
+      - Centralize models in models/ directory
+      - Add Qdrant integration for vector search
+      - Apply new design system to frontend
+      - Enhance all existing modules per this specification
+    </refactoring_required>
+  </existing_codebase>
+
+  <technology_stack>
+    <frontend>
+      <framework>React 19</framework>
+      <ui_library>Shadcn/UI (Radix UI primitives)</ui_library>
+      <styling>Tailwind CSS 3.4+ with CSS variables for theming</styling>
+      <state_management>React Context</state_management>
+      <routing>React Router v7</routing>
+      <http_client>Axios</http_client>
+      <charts>Recharts</charts>
+      <forms>React Hook Form + Zod validation</forms>
+      <icons>Lucide React</icons>
+      <notifications>Sonner</notifications>
+      <build_tool>Create React App (craco)</build_tool>
+      <package_manager>Yarn</package_manager>
+    </frontend>
+    <backend>
+      <runtime>Python 3.11+</runtime>
+      <framework>FastAPI</framework>
+      <server>Uvicorn</server>
+      <database>MongoDB 7 (primary via Motor async driver)</database>
+      <vector_database>Qdrant (semantic search and clause embeddings)</vector_database>
+      <object_storage>Local filesystem (/tmp/uploads) with MinIO/S3 ready architecture</object_storage>
+      <search>MongoDB text indexes (Elasticsearch planned for future)</search>
+      <ai_primary>Anthropic Claude Sonnet (claude-sonnet-4-20250514)</ai_primary>
+      <ai_fallback>Claude 3.5 Sonnet, Claude Haiku</ai_fallback>
+      <ai_future>Self-hosted Llama (fine-tuned with Claude-generated data)</ai_future>
+      <ocr>Claude Vision API + Mistral OCR + PyPDF2</ocr>
+      <document_processing>PyPDF2, pdf2image, Pillow</document_processing>
+      <validation>Pydantic v2+</validation>
+    </backend>
+    <communication>
+      <api>REST API (FastAPI auto-generated OpenAPI docs)</api>
+      <realtime>WebSocket for live updates</realtime>
+      <streaming>Server-Sent Events (SSE) for long-running AI operations</streaming>
+    </communication>
+    <infrastructure>
+      <containerization>Docker + Docker Compose</containerization>
+      <mongodb>MongoDB 7 container with persistent volume</mongodb>
+      <qdrant>Qdrant container for vector search</qdrant>
+      <mongo_express>Mongo Express web UI for DB management</mongo_express>
+    </infrastructure>
+  </technology_stack>
+
+  <prerequisites>
+    <environment_setup>
+      - Python 3.11+ with pip
+      - Node.js 18+ with Yarn
+      - Docker and Docker Compose
+      - Anthropic API key (ANTHROPIC_API_KEY)
+      - MongoDB 7 (via Docker or local install)
+      - Qdrant (via Docker)
+    </environment_setup>
+  </prerequisites>
+
+  <feature_count>200</feature_count>
+
+  <security_and_access_control>
+    <user_roles>
+      <role name="user">
+        <permissions>
+          - Can upload and manage own policies
+          - Can view regulations
+          - Can run gap analysis on own policies
+          - Can view and complete assigned tasks
+          - Can upload evidence
+          - Can use AI chat assistant
+          - Can view own dashboard and analytics
+        </permissions>
+      </role>
+      <role name="compliance_head">
+        <permissions>
+          - All user permissions
+          - Can approve/reject policies in approval workflow
+          - Can view all team policies and gap analyses
+          - Can assign tasks to team members
+          - Can view full analytics suite
+          - Can configure notification preferences
+          - Can manage departments
+        </permissions>
+      </role>
+      <role name="auditor">
+        <permissions>
+          - Can view all policies, regulations, and gap analyses
+          - Can generate audit-ready reports
+          - Can approve/reject evidence
+          - Can view audit sessions and compliance history
+          - Read-only access to most modules
+        </permissions>
+      </role>
+    </user_roles>
+    <authentication>
+      <method>JWT + bcrypt password hashing (existing implementation)</method>
+      <session_timeout>configurable</session_timeout>
+    </authentication>
+    <human_in_the_loop>
+      Every AI-generated output must have a review/edit/correct interface:
+      - Clause extraction results can be edited, added, or deleted
+      - Gap analysis results can be approved, rejected, or modified
+      - Remediation suggestions can be accepted, edited, or dismissed
+      - Evidence validation results can be overridden
+      - Impact scores can be manually adjusted
+      - Task assignments can be reassigned
+      - All corrections are logged for future learning improvement
+    </human_in_the_loop>
+  </security_and_access_control>
+
+  <core_features>
+    <infrastructure>
+      - Database connection established (MongoDB + Qdrant)
+      - Database schema/collections applied correctly
+      - Data persists across server restart
+      - No mock data patterns in codebase
+      - Backend API queries real database
+    </infrastructure>
+
+    <policy_document_management>
+      - Upload policies via UI (PDF, DOCX, TXT) with drag-and-drop
+      - Upload policies via API endpoint
+      - Auto-detection of policy type (KYC, AML, IT, Outsourcing, Digital Lending, InfoSec, Fair Practice Code, Risk Management)
+      - NLP-based clause extraction with metadata (section, page, clause-ID)
+      - Clause semantic enrichment (requirement_type, subject_category, key_obligations, entities, keywords)
+      - Full version history - all versions accessible
+      - Diff view between any two versions
+      - Full audit trail of every change with timestamps and user
+      - Policy lifecycle: Draft → Review → Approve → Archive
+      - Multi-step approval chain: Owner submits → Reviewer reviews → Approver approves/rejects
+      - Approval workflow tracking with status at each step
+      - AI-suggested regulation linking (system recommends, user confirms)
+      - Policy listing with search and filter
+      - Policy detail view with clause viewer
+      - Clause editing, adding, and deleting (human-in-the-loop)
+      - Link policies to relevant regulations manually
+      - Policy metadata management (owner, department, effective date, review date)
+      - Bulk policy operations
+    </policy_document_management>
+
+    <regulation_repository>
+      - Upload regulation documents (PDF, DOCX)
+      - Clause extraction from regulations with semantic enrichment
+      - Scheduled daily crawler for RBI/FIU-IND/NPCI websites
+      - Full auto pipeline: ingest → extract clauses → run impact analysis → create review tasks → notify
+      - Auto-summarization of new circulars
+      - Version diff: side-by-side comparison view
+      - Version diff: inline highlighted changes (additions green, removals red)
+      - AI summary of what changed and why it matters
+      - Change detection (what changed, what policies are impacted)
+      - Full historical archive of all circulars with search
+      - Regulation listing with search, filter by regulatory body
+      - Regulation detail view with clause viewer
+      - Mapping regulations to internal policies
+      - Regulation metadata (regulatory body, circular number, effective date, category)
+    </regulation_repository>
+
+    <gap_analysis_engine>
+      - Unified engine with Quick Scan mode (fast, high-level gaps)
+      - Unified engine with Deep Analysis mode (thorough, clause-by-clause)
+      - Mode selection toggle in UI
+      - Qdrant-powered semantic clause matching (embeddings)
+      - LLM-based clause-to-clause comparison
+      - Identify missing clauses (regulation requires, policy doesn't have)
+      - Identify weak clauses (policy addresses partially)
+      - Identify conflicting clauses (policy contradicts regulation)
+      - Identify partial coverage (some aspects missing)
+      - Regulatory-weighted severity scoring (penalty severity weights gaps)
+      - Confidence score (0-100%) on each gap
+      - Compliance risk score per regulation area
+      - Overall compliance score
+      - Full remediation package per gap: draft clause text
+      - Full remediation package per gap: legal citations
+      - Full remediation package per gap: reference to similar clauses in other policies
+      - Full remediation package per gap: auto-create task
+      - Source reference viewer: show exact page number and paragraph in policy PDF
+      - Source reference viewer: render PDF page image with highlighted problematic section
+      - Gap analysis report listing and history
+      - Gap report export (PDF, Excel, JSON)
+      - Generate compliance checklist from gaps
+      - Streaming progress during analysis (SSE)
+      - Human-in-the-loop: approve, reject, or modify each gap finding
+      - Human-in-the-loop: edit remediation suggestions
+      - Human-in-the-loop: correction history tracked for learning
+    </gap_analysis_engine>
+
+    <artefact_audit_assessment>
+      - Evidence requirement templates per regulation type (KYC, AML, IT, etc.)
+      - AI-derived evidence requirements per clause (what evidence is needed)
+      - Templates as baseline + AI enrichment for edge cases
+      - Compare expected vs uploaded artefacts per clause
+      - Summary dashboard: X of Y artefacts collected, missing items count
+      - Detailed clause-by-clause evidence status with Red/Amber/Green indicators
+      - Full audit-ready PDF export with timestamps, evidence links, citations
+      - Compliance officer sign-off fields in audit report
+      - Audit notes auto-generated by AI
+      - Missing artefact identification with examples (V-KYC logs, vendor certs, KFS disclosures)
+      - Create tasks directly from audit gap findings
+      - Evidence template management (create, edit, delete templates)
+      - Audit session management with history
+      - Human review interface for audit findings
+    </artefact_audit_assessment>
+
+    <task_system>
+      - Task CRUD (create, read, update, delete)
+      - Auto-task generation from gap analysis results
+      - Auto-task generation from audit gap assessment results
+      - Auto-task generation from regulatory updates
+      - Auto-task generation from evidence validation failures
+      - Auto-task generation from LOS/LMS exceptions
+      - Task metadata: owner, SLA, effort estimate, linked clauses, priority
+      - Full dependency graph: blocking dependencies (B can't start until A done)
+      - Full dependency graph: parent/child subtasks
+      - Full dependency graph: related tasks linking
+      - Visual dependency view (Gantt-style or network diagram)
+      - Status workflow: Open → In Progress → Pending Evidence → AI Review → Manual Review → Completed/Rejected
+      - Work timer functionality
+      - SLA tracking with deadline monitoring
+      - Auto-escalation: reassign to next level when SLA breached + notify leadership
+      - AI auto-assign tasks based on role, workload, expertise (with manual override)
+      - Bulk task creation and assignment
+      - Task listing with search, filter, sort
+      - Task detail view with linked clauses, evidence, dependencies
+      - Export tasks to Excel/PDF
+      - Deadline reminders
+    </task_system>
+
+    <los_lms_module>
+      - REST API connector to pull data from LOS/LMS systems
+      - File upload connector (CSV, Excel) for LOS/LMS data
+      - AI-assisted field mapping UI (AI suggests mappings from column names and sample data, user confirms)
+      - Data mapping configuration save and reuse
+      - Loan-level compliance scanning (missing KFS, incorrect interest, missing consent)
+      - Portfolio-level compliance metrics (% with missing docs, concentration risk)
+      - Exception report generation with details
+      - Exception → auto-create remediation task
+      - Exception → link to relevant regulation clause
+      - Exception → link to required evidence
+      - Sample record scanning interface
+      - LOS/LMS scan history and results
+      - Mock data provided for POC demonstration
+      - Data mapping templates for common fields
+    </los_lms_module>
+
+    <evidence_management>
+      - Evidence file upload with OCR (Claude Vision + Mistral)
+      - SHA-256 hash integrity on upload, verified on access
+      - Append-only immutable audit log of all evidence actions (upload, view, validate, approve, reject)
+      - Full AI comprehension: OCR + structured field extraction (dates, names, amounts, signatures)
+      - Full AI comprehension: understands document context, answers "does this evidence prove X?"
+      - AI validation with confidence score
+      - Confidence-based routing: auto-approve if high confidence, route to human if uncertain
+      - Red/Green flag with explainability (AI explains why evidence passes or fails)
+      - Evidence lifecycle: Upload → AI Validate → Auto-approve or Route to Human → Final Status
+      - Link evidence to tasks and clauses
+      - Evidence listing with search and filter
+      - Human override on AI validation decisions
+      - Auto-generate audit notes from evidence
+      - Evidence templates per regulation type
+    </evidence_management>
+
+    <regulatory_update_engine>
+      - Daily scheduled RBI/FIU-IND/NPCI website crawling
+      - New circular detection and auto-ingestion
+      - Auto-summarization of new circulars
+      - Full impact package: impact score per circular
+      - Full impact package: list of affected policies
+      - Full impact package: list of affected clauses
+      - Full impact package: affected tasks and evidence
+      - Full impact package: comparison with current compliance posture
+      - Full impact package: estimated effort to remediate
+      - Full impact package: priority recommendation
+      - Auto-create review tasks for required policy updates
+      - In-app notifications for new regulations (notification bell + dashboard widget)
+      - Email digest notifications (configurable: real-time, daily, weekly)
+      - User notification preference settings
+      - AI-extracted regulatory deadlines from circulars (effective dates, compliance dates, reporting dates)
+      - Manual calendar entry for compliance deadlines
+      - Calendar sync with reminders
+      - Regulatory updates feed view (timeline of new circulars)
+    </regulatory_update_engine>
+
+    <ai_copilot_chat>
+      - Q&A on general compliance knowledge (Indian regulatory landscape)
+      - Contextual queries on organization's uploaded policies and regulations
+      - Full platform context: aware of dashboards, analytics, recent activity
+      - Action triggers from chat: "Run gap analysis on Policy X against RBI KYC MD"
+      - Action triggers from chat: "Show me all overdue tasks"
+      - Action triggers from chat: "What's our compliance score?"
+      - Proactive insights: "You have 3 new RBI circulars this week affecting 5 policies"
+      - Default continuous conversation thread
+      - Topic-based chat sessions (create focused threads: "KYC Discussion", "Audit Prep Q&A")
+      - Chat history persistence
+      - Chat message search
+      - Streaming AI responses
+    </ai_copilot_chat>
+
+    <analytics_suite>
+      - Overall compliance score dashboard (per regulation, per policy)
+      - Regulation coverage metrics (% of regulations mapped to policies)
+      - SLA performance view (on-time vs overdue tasks, by team, by priority)
+      - Critical gaps heatmap (by regulation area, severity)
+      - Evidence collection progress (per policy, per regulation)
+      - Regulatory update impact tracker (new circulars and their impact over time)
+      - Team workload distribution (tasks per person, department)
+      - Trend analysis over time (compliance score improving/declining)
+      - Role-based dashboard views (Compliance Head: strategic, Auditor: audit-focused, Policy Owner: their tasks)
+      - Exportable analytics reports (PDF, Excel)
+      - Dense power-user data tables with sorting, filtering, pagination
+      - Charts and visualizations (bar, line, pie, heatmap)
+    </analytics_suite>
+
+    <ui_design_system>
+      - New corporate enterprise design system
+      - Emerald/green color palette (primary: deep emerald, success: green, warning: amber, error: red)
+      - Clean whites/light grays for backgrounds (dense readability)
+      - Professional high-readability typography
+      - Collapsible sidebar navigation (expand/collapse for more screen space)
+      - Dense power-user layouts (data-rich, multiple panels)
+      - Responsive data tables
+      - Login/registration flow
+      - Notification center with preference settings
+      - Loading states, skeleton screens, progress indicators
+      - Toast notifications for actions
+      - Modal dialogs for confirmations and detail views
+    </ui_design_system>
+
+    <human_in_the_loop>
+      - Review/edit interface on all AI clause extraction outputs
+      - Review/edit interface on all gap analysis findings
+      - Review/edit interface on remediation suggestions
+      - Review/edit interface on evidence validation results
+      - Review/edit interface on impact scores and regulatory analysis
+      - Review/edit interface on AI task assignments
+      - Correction feedback mechanism (accept/reject/modify with reason)
+      - Correction history tracking per AI output
+      - All corrections logged with timestamp, user, original value, corrected value
+    </human_in_the_loop>
+  </core_features>
+
+  <database_schema>
+    <mongodb_collections>
+      <users>
+        - _id, email, password_hash, full_name, organization, department, role, workload_score, created_at, updated_at
+      </users>
+      <policies>
+        - _id, title, type (KYC/AML/IT/Outsourcing/DL/InfoSec/FPC/Risk), file_path, original_filename, uploaded_by, organization
+        - status (Draft/Review/Approved/Archived), current_version, regulation_links[], department
+        - owner, effective_date, review_date, metadata, created_at, updated_at
+      </policies>
+      <policy_versions>
+        - _id, policy_id, version_number, clauses[], changes_summary, diff_data
+        - created_by, created_at, snapshot_of_policy
+      </policy_versions>
+      <approval_workflows>
+        - _id, policy_id, policy_version, workflow_steps[]
+        - Each step: {role, assignee, status (pending/approved/rejected), comments, timestamp}
+        - current_step, overall_status, created_at
+      </approval_workflows>
+      <regulations>
+        - _id, title, regulatory_body (RBI/FIU-IND/NPCI), circular_number, category
+        - file_path, original_filename, effective_date, version_history[]
+        - impact_score, summary, diff_highlights, created_at, updated_at
+      </regulations>
+      <regulation_updates>
+        - _id, regulation_id, crawl_date, source_url, change_type (new/amendment/superseded)
+        - ai_summary, impact_analysis, affected_policies[], affected_clauses[]
+        - affected_tasks[], compliance_posture_comparison, remediation_effort_estimate
+        - priority_recommendation, auto_created_tasks[], status (pending_review/reviewed)
+        - created_at
+      </regulation_updates>
+      <clauses>
+        - _id, source_type (policy/regulation), source_id, clause_text, clause_id_in_document
+        - section, page_number, paragraph_number, requirement_type, subject_category
+        - key_obligations[], semantic_summary, entities_involved[], keywords[]
+        - compliance_indicators[], qdrant_vector_id, created_at, updated_at
+      </clauses>
+      <gap_analyses>
+        - _id, policy_id, regulation_id, analysis_mode (quick_scan/deep_analysis)
+        - compliance_score, regulatory_risk_score, gaps[]
+        - Each gap: {type (missing/weak/conflicting/partial), severity, confidence_score, regulatory_weight, policy_clause_id, regulation_clause_id, source_page, source_paragraph, source_image_ref, remediation_text, draft_clause, legal_citations[], similar_clauses[], auto_task_id, human_review_status, human_corrections[]}
+        - executive_summary, checklist[], created_by, created_at
+      </gap_analyses>
+      <tasks>
+        - _id, title, description, priority (critical/high/medium/low), status (open/in_progress/pending_evidence/ai_review/manual_review/completed/rejected)
+        - assignee, assigned_by, assignment_method (ai_auto/manual), department
+        - source_type (gap_analysis/audit_gap/regulatory_update/evidence_failure/los_lms_exception)
+        - source_id, linked_clauses[], linked_evidence[]
+        - sla_deadline, effort_estimate, escalation_level
+        - timer_data, dependencies[], parent_task_id, child_task_ids[], related_task_ids[]
+        - created_at, updated_at, completed_at
+      </tasks>
+      <task_dependencies>
+        - _id, task_id, depends_on_task_id, dependency_type (blocking/related/parent_child)
+        - created_at
+      </task_dependencies>
+      <escalation_rules>
+        - _id, priority, escalate_after_hours, escalate_to_role, notify_users[]
+        - organization, created_at
+      </escalation_rules>
+      <evidence>
+        - _id, file_path, original_filename, uploaded_by, linked_task_id, linked_clause_id
+        - sha256_hash, file_size, mime_type
+        - ocr_text, extracted_fields (dates, names, amounts, signatures_present)
+        - ai_validation_result (pass/fail/uncertain), ai_confidence_score
+        - ai_explanation, ai_audit_notes
+        - lifecycle_status (uploaded/ai_validated/auto_approved/pending_human_review/approved/rejected)
+        - human_reviewer, human_review_notes, human_override
+        - created_at, updated_at
+      </evidence>
+      <evidence_audit_log>
+        - _id, evidence_id, action (upload/view/validate/approve/reject/override)
+        - performed_by, details, timestamp
+        - APPEND-ONLY: no updates or deletes allowed
+      </evidence_audit_log>
+      <evidence_templates>
+        - _id, regulation_type (KYC/AML/IT/etc.), clause_pattern
+        - required_evidence_types[], description, created_at
+      </evidence_templates>
+      <departments>
+        - _id, organization, name, head, created_at
+      </departments>
+      <department_members>
+        - _id, department_id, user_id, role_in_department, joined_at
+      </department_members>
+      <audit_sessions>
+        - _id, title, description, policies[], regulations[], compliance_status
+        - findings[], sign_off_fields[], created_by, created_at, completed_at
+      </audit_sessions>
+      <calendar_events>
+        - _id, title, description, event_type (regulatory_deadline/policy_review/audit/manual)
+        - date, source (ai_extracted/manual), source_regulation_id
+        - reminder_settings, assigned_to, created_at
+      </calendar_events>
+      <chat_threads>
+        - _id, title, topic, created_by, thread_type (default/topic), created_at, updated_at
+      </chat_threads>
+      <chat_messages>
+        - _id, thread_id, role (user/assistant), content, action_triggered
+        - action_result, context_references[], created_at
+      </chat_messages>
+      <los_lms_data>
+        - _id, source_type (api/file_upload), source_name, mapping_config_id
+        - records[], scan_results, created_at
+      </los_lms_data>
+      <los_lms_mappings>
+        - _id, name, source_system, field_mappings[], ai_suggested (boolean)
+        - confirmed_by, created_at, updated_at
+      </los_lms_mappings>
+      <los_lms_exceptions>
+        - _id, los_lms_data_id, record_id, exception_type
+        - description, regulation_clause_id, required_evidence
+        - auto_task_id, severity, created_at
+      </los_lms_exceptions>
+      <notification_preferences>
+        - _id, user_id, in_app_enabled, email_enabled, email_frequency (realtime/daily/weekly)
+        - categories_enabled[], created_at, updated_at
+      </notification_preferences>
+      <notifications>
+        - _id, user_id, type (regulatory_update/task_assigned/sla_breach/evidence_review/system)
+        - title, message, link, read (boolean), created_at
+      </notifications>
+    </mongodb_collections>
+
+    <qdrant_collections>
+      <policy_clauses>
+        - Vector embeddings of all policy clauses
+        - Payload: clause_id, policy_id, clause_text, requirement_type, subject_category
+        - Embedded on upload, re-embedded during analysis for freshness
+      </policy_clauses>
+      <regulation_clauses>
+        - Vector embeddings of all regulation clauses
+        - Payload: clause_id, regulation_id, clause_text, requirement_type, subject_category
+        - Embedded on upload, re-embedded during analysis for freshness
+      </regulation_clauses>
+    </qdrant_collections>
+  </database_schema>
+
+  <api_endpoints_summary>
+    <authentication>
+      - POST /api/auth/register
+      - POST /api/auth/login
+      - GET /api/auth/me
+    </authentication>
+    <policies>
+      - GET /api/policies (list with search, filter, pagination)
+      - GET /api/policies/{id} (detail with clauses)
+      - POST /api/policies/upload (file upload)
+      - PUT /api/policies/{id} (update metadata)
+      - DELETE /api/policies/{id}
+      - GET /api/policies/{id}/versions (version history)
+      - GET /api/policies/{id}/versions/{version}/diff (diff between versions)
+      - POST /api/policies/{id}/link-regulation (AI-suggested or manual)
+      - PUT /api/policies/{id}/clauses/{clause_id} (edit clause - human-in-the-loop)
+      - POST /api/policies/{id}/clauses (add clause)
+      - DELETE /api/policies/{id}/clauses/{clause_id} (delete clause)
+    </policies>
+    <approval_workflows>
+      - POST /api/policies/{id}/submit-for-review
+      - GET /api/policies/{id}/approval-status
+      - POST /api/policies/{id}/approve
+      - POST /api/policies/{id}/reject
+    </approval_workflows>
+    <regulations>
+      - GET /api/regulations (list with search, filter)
+      - GET /api/regulations/{id} (detail with clauses)
+      - POST /api/regulations/upload (file upload)
+      - GET /api/regulations/{id}/versions (version history)
+      - GET /api/regulations/{id}/diff (diff between versions with AI summary)
+      - POST /api/regulations/trigger-crawl (manual crawl trigger)
+    </regulations>
+    <regulation_updates>
+      - GET /api/regulation-updates (feed of new circulars)
+      - GET /api/regulation-updates/{id} (impact package detail)
+      - POST /api/regulation-updates/{id}/review (mark as reviewed)
+    </regulation_updates>
+    <gap_analysis>
+      - POST /api/gap-analysis/run (with mode: quick_scan or deep_analysis)
+      - POST /api/gap-analysis/run-stream (SSE streaming progress)
+      - GET /api/gap-analysis/history (list past analyses)
+      - GET /api/gap-analysis/{id} (detail with all gaps)
+      - PUT /api/gap-analysis/{id}/gaps/{gap_index} (human correction on gap)
+      - POST /api/gap-analysis/{id}/generate-checklist
+      - GET /api/gap-analysis/{id}/export (PDF/Excel/JSON)
+      - GET /api/gap-analysis/{id}/source-reference/{clause_id} (PDF page image with highlight)
+    </gap_analysis>
+    <audit_assessment>
+      - POST /api/audit/create (create audit session)
+      - GET /api/audit/sessions (list sessions)
+      - GET /api/audit/{id} (session detail with artefact status)
+      - POST /api/audit/{id}/generate-report (full audit-ready PDF)
+      - GET /api/audit/{id}/artefact-status (expected vs uploaded per clause)
+      - POST /api/audit/{id}/sign-off (compliance officer sign-off)
+    </audit_assessment>
+    <tasks>
+      - GET /api/tasks (list with search, filter, sort)
+      - POST /api/tasks (create task)
+      - GET /api/tasks/{id} (detail with dependencies, evidence, clauses)
+      - PUT /api/tasks/{id} (update task)
+      - DELETE /api/tasks/{id}
+      - PATCH /api/tasks/{id}/status (update status)
+      - POST /api/tasks/{id}/timer/start
+      - POST /api/tasks/{id}/timer/stop
+      - POST /api/tasks/{id}/assign (AI auto-assign or manual)
+      - GET /api/tasks/{id}/dependencies (dependency graph)
+      - POST /api/tasks/{id}/dependencies (add dependency)
+      - DELETE /api/tasks/{id}/dependencies/{dep_id}
+      - GET /api/tasks/reminders/pending
+      - GET /api/tasks/export (Excel/PDF)
+      - POST /api/tasks/bulk-create
+    </tasks>
+    <los_lms>
+      - POST /api/los-lms/upload (file upload CSV/Excel)
+      - POST /api/los-lms/connect (REST API connector config)
+      - GET /api/los-lms/mappings (saved field mappings)
+      - POST /api/los-lms/mappings (save mapping config)
+      - POST /api/los-lms/mappings/ai-suggest (AI-assisted mapping)
+      - POST /api/los-lms/scan (run compliance scan)
+      - GET /api/los-lms/scan/{id} (scan results: loan-level + portfolio-level)
+      - GET /api/los-lms/exceptions (exception list)
+      - GET /api/los-lms/exceptions/{id} (exception detail with linked task/evidence)
+    </los_lms>
+    <evidence>
+      - GET /api/evidence (list with search, filter)
+      - POST /api/evidence/upload (file upload with OCR)
+      - GET /api/evidence/{id} (detail with validation results)
+      - POST /api/evidence/{id}/validate (trigger AI validation)
+      - POST /api/evidence/{id}/approve (human approve)
+      - POST /api/evidence/{id}/reject (human reject)
+      - POST /api/evidence/{id}/override (human override AI decision)
+      - GET /api/evidence/{id}/audit-log (append-only action history)
+      - GET /api/evidence/templates (evidence requirement templates)
+      - POST /api/evidence/templates (create template)
+      - PUT /api/evidence/templates/{id} (update template)
+    </evidence>
+    <chat>
+      - GET /api/chat/threads (list threads)
+      - POST /api/chat/threads (create topic thread)
+      - GET /api/chat/threads/{id}/messages (thread messages)
+      - POST /api/chat (send message with action trigger capability)
+      - GET /api/chat/search (search across messages)
+    </chat>
+    <analytics>
+      - GET /api/dashboard/stats (main dashboard data)
+      - GET /api/analytics/compliance-score (overall and per regulation/policy)
+      - GET /api/analytics/regulation-coverage
+      - GET /api/analytics/sla-performance
+      - GET /api/analytics/gaps-heatmap
+      - GET /api/analytics/evidence-progress
+      - GET /api/analytics/regulatory-impact
+      - GET /api/analytics/team-workload
+      - GET /api/analytics/trends (time-series data)
+      - GET /api/analytics/export (PDF/Excel report)
+    </analytics>
+    <notifications>
+      - GET /api/notifications (user's notifications)
+      - PATCH /api/notifications/{id}/read (mark as read)
+      - PATCH /api/notifications/read-all
+      - GET /api/notifications/preferences
+      - PUT /api/notifications/preferences
+    </notifications>
+    <calendar>
+      - GET /api/calendar/events (list events)
+      - POST /api/calendar/events (create manual event)
+      - PUT /api/calendar/events/{id}
+      - DELETE /api/calendar/events/{id}
+    </calendar>
+    <departments>
+      - GET /api/departments
+      - POST /api/departments
+      - GET /api/department-members
+      - POST /api/department-members
+    </departments>
+    <upload_jobs>
+      - GET /api/upload-jobs (background job tracking)
+      - GET /api/upload-jobs/active
+      - POST /api/upload-jobs/{id}/cancel
+    </upload_jobs>
+    <websocket>
+      - WS /ws/{token} (real-time updates)
+    </websocket>
+    <health>
+      - GET /api/health (server + DB status)
+    </health>
+  </api_endpoints_summary>
+
+  <ui_layout>
+    <main_structure>
+      Collapsible left sidebar navigation with main content area.
+      Sidebar contains: Dashboard, Policies, Regulations, Gap Analysis, Tasks, Evidence, Audit, LOS/LMS, Calendar, Chat, Analytics, Notifications, Settings.
+      Sidebar can be collapsed to icons-only for maximum content space.
+      Top bar with: search, notification bell, user profile menu.
+      Dense power-user layout: data tables, multiple panels, split views.
+    </main_structure>
+
+    <pages>
+      <login>Login/Register with JWT authentication</login>
+      <dashboard>Role-based overview: compliance score, recent activity, alerts, quick actions</dashboard>
+      <policies>Policy list (table with search/filter) → Policy detail (tabs: Clauses, Versions, Approval, Linked Regulations)</policies>
+      <regulations>Regulation list (table with search/filter) → Regulation detail (tabs: Clauses, Versions, Diff View, Impact)</regulations>
+      <gap_analysis>Run new analysis (select policy + regulation + mode) → Results view (gaps table, source viewer, remediation panel, export)</gap_analysis>
+      <tasks>Task list (table with Kanban toggle) → Task detail (description, dependencies graph, evidence, timeline)</tasks>
+      <evidence>Evidence list (table) → Evidence detail (document viewer, AI validation results, audit log)</evidence>
+      <audit>Audit sessions list → Session detail (artefact status matrix, report generator, sign-off)</audit>
+      <los_lms>Data connectors config → Field mapping UI → Scan results → Exceptions list</los_lms>
+      <calendar>Calendar view with regulatory deadlines, review dates, AI-extracted dates, manual entries</calendar>
+      <chat>Chat interface with thread sidebar, action capability, streaming responses</chat>
+      <analytics>Full analytics suite with charts, heatmaps, trend lines, exportable reports</analytics>
+      <notifications>Notification center + preference settings</notifications>
+      <regulatory_updates>Feed of new circulars with impact analysis, affected policies, auto-created tasks</regulatory_updates>
+    </pages>
+  </ui_layout>
+
+  <design_system>
+    <design_direction>Corporate enterprise - clean, formal, trustworthy. Dense power-user oriented.</design_direction>
+    <color_palette>
+      <primary>Deep emerald green (#059669, #047857, #065F46)</primary>
+      <primary_light>Light emerald (#D1FAE5, #A7F3D0, #6EE7B7)</primary_light>
+      <background>Clean white (#FFFFFF) and light gray (#F9FAFB, #F3F4F6)</background>
+      <surface>White (#FFFFFF) with subtle borders (#E5E7EB)</surface>
+      <text_primary>Dark gray (#111827)</text_primary>
+      <text_secondary>Medium gray (#6B7280)</text_secondary>
+      <success>Green (#10B981) - compliance passed, evidence approved</success>
+      <warning>Amber (#F59E0B) - partial compliance, pending review</warning>
+      <error>Red (#EF4444) - critical gaps, failed validation, overdue</error>
+      <info>Blue (#3B82F6) - informational, links</info>
+      <ai_accent>Indigo (#6366F1) - AI-powered features, chat, suggestions</ai_accent>
+    </color_palette>
+    <typography>
+      <headings>Inter or similar professional sans-serif (bold, clean)</headings>
+      <body>Inter (regular, readable at small sizes for dense layouts)</body>
+      <code>JetBrains Mono (clause IDs, technical data, JSON)</code>
+      <data_tables>13-14px for dense readability</data_tables>
+    </typography>
+    <layout_principles>
+      - Dense data tables as primary content display
+      - Multi-panel layouts for detail views (list + detail side by side)
+      - Minimal whitespace - every pixel counts for power users
+      - Consistent 4px/8px spacing grid
+      - Cards for dashboard widgets
+      - Tabs for content organization within pages
+      - Split panes for comparison views (diff, source reference)
+    </layout_principles>
+    <components>
+      - Shadcn/UI as component foundation (Radix primitives)
+      - Custom data tables with sorting, filtering, column resize, pagination
+      - Collapsible sidebar with icon-only mode
+      - Toast notifications (Sonner)
+      - Modal dialogs for confirmations
+      - Skeleton loading states
+      - Progress bars for long operations
+      - Status badges (color-coded: green/amber/red)
+      - Breadcrumbs for navigation depth
+    </components>
+  </design_system>
+
+  <implementation_steps>
+    <step number="1">
+      <title>Foundation and Refactor</title>
+      <tasks>
+        - Refactor server.py into routers/ (auth, policies, regulations, gap_analysis, tasks, evidence, audit, calendar, chat, departments, analytics, notifications, los_lms, upload_jobs, health)
+        - Extract services into services/ directory
+        - Centralize models in models/ directory
+        - Set up Qdrant Docker container and client integration
+        - Implement embedding service for clause vectorization
+        - Apply new emerald corporate design system to frontend
+        - Implement collapsible sidebar navigation
+        - Set up notification system foundation
+        - Add health endpoint with MongoDB + Qdrant status
+      </tasks>
+    </step>
+    <step number="2">
+      <title>Core Module Enhancement - Policies</title>
+      <tasks>
+        - Implement full policy versioning (all versions stored, diff view)
+        - Implement multi-step approval workflow (submit → review → approve)
+        - Add AI-suggested regulation linking
+        - Support DOCX and TXT upload (in addition to PDF)
+        - Add auto-detection of policy type
+        - Implement clause editing UI (human-in-the-loop)
+        - Embed all policy clauses to Qdrant on upload
+        - Enhanced policy detail page with tabs (Clauses, Versions, Approval, Linked Regulations)
+      </tasks>
+    </step>
+    <step number="3">
+      <title>Core Module Enhancement - Regulations</title>
+      <tasks>
+        - Implement regulation version history with diff views (side-by-side + inline)
+        - Add AI change summary for regulation updates
+        - Enhance regulation detail page with tabs
+        - Embed all regulation clauses to Qdrant on upload
+        - Enhanced regulation listing with filters by regulatory body
+      </tasks>
+    </step>
+    <step number="4">
+      <title>Gap Analysis Engine Overhaul</title>
+      <tasks>
+        - Consolidate 3 gap analysis services into unified engine
+        - Implement Quick Scan and Deep Analysis modes
+        - Add Qdrant-powered semantic clause matching
+        - Implement regulatory-weighted severity scoring
+        - Build full remediation package generation (draft clause, citations, cross-references)
+        - Build source reference viewer (PDF page rendering with highlighted paragraph)
+        - Add human-in-the-loop correction interface on gap results
+        - Implement gap report export (PDF, Excel, JSON)
+        - Add checklist generation from gaps
+      </tasks>
+    </step>
+    <step number="5">
+      <title>Regulatory Update Engine</title>
+      <tasks>
+        - Production-ready daily RBI/FIU-IND/NPCI crawler (scheduled)
+        - Full auto pipeline: ingest → extract → impact analysis → create tasks → notify
+        - AI-extracted calendar deadlines from circulars
+        - Full impact package generation
+        - Regulatory updates feed UI
+        - Configurable notification system (in-app + email + frequency settings)
+        - Calendar integration with reminders
+      </tasks>
+    </step>
+    <step number="6">
+      <title>Evidence and Audit</title>
+      <tasks>
+        - Deep AI validation with confidence-based routing
+        - Full AI comprehension (structured field extraction, context understanding)
+        - Append-only integrity logging (evidence_audit_log collection)
+        - SHA-256 hash verification
+        - Evidence lifecycle UI (upload → validate → approve/route)
+        - Evidence templates per regulation type
+        - Full audit-ready report generator (PDF export with sign-off fields)
+        - Audit artefact status matrix (expected vs uploaded)
+        - Human override interface
+      </tasks>
+    </step>
+    <step number="7">
+      <title>LOS/LMS Module</title>
+      <tasks>
+        - REST API connector interface
+        - File upload connector (CSV/Excel parsing)
+        - AI-assisted field mapping UI
+        - Loan-level compliance scanning engine
+        - Portfolio-level compliance metrics
+        - Exception → task → evidence pipeline
+        - Mock data for POC demonstration
+        - LOS/LMS scan results and history views
+      </tasks>
+    </step>
+    <step number="8">
+      <title>Task System Enhancement</title>
+      <tasks>
+        - Full dependency graph (blocking, parent/child, related)
+        - Visual dependency view (Gantt or network diagram)
+        - Auto-task generation from all sources (gap analysis, audit, regulatory, evidence, LOS/LMS)
+        - AI auto-assignment with workload balancing
+        - SLA escalation with auto-reassignment
+        - Bulk task operations
+        - Enhanced task detail page with dependencies, evidence, timeline
+      </tasks>
+    </step>
+    <step number="9">
+      <title>AI Copilot Chat</title>
+      <tasks>
+        - Full platform context awareness (policies, regulations, tasks, analytics)
+        - Action triggers from natural language commands
+        - Topic-based thread management
+        - Proactive insights generation
+        - Chat message search
+        - Streaming responses
+      </tasks>
+    </step>
+    <step number="10">
+      <title>Analytics Suite</title>
+      <tasks>
+        - Role-based dashboard views
+        - Compliance score dashboard (overall, per regulation, per policy)
+        - Regulation coverage metrics
+        - SLA performance charts
+        - Critical gaps heatmap
+        - Evidence collection progress
+        - Regulatory impact tracker
+        - Team workload distribution
+        - Trend analysis over time
+        - Exportable analytics reports (PDF, Excel)
+      </tasks>
+    </step>
+  </implementation_steps>
+
+  <success_criteria>
+    <functionality>
+      - All 10 core modules are functional end-to-end
+      - Policy upload → clause extraction → gap analysis → task generation → evidence collection flow works completely
+      - Regulatory update pipeline runs automatically (daily crawl → impact → tasks → notifications)
+      - AI copilot can answer questions and trigger actions
+      - LOS/LMS module works with mock data
+      - All CRUD operations work for every entity
+      - Human-in-the-loop correction available on every AI output
+    </functionality>
+    <user_experience>
+      - New emerald corporate design applied consistently across all pages
+      - Dense power-user layouts with data-rich tables
+      - Collapsible sidebar works smoothly
+      - Loading states and progress indicators on all long operations
+      - Toast notifications for all user actions
+      - Streaming progress for gap analysis and AI operations
+    </user_experience>
+    <technical_quality>
+      - Clean code organization: routers/ + services/ + models/
+      - MongoDB collections properly indexed
+      - Qdrant integration working for semantic search
+      - All API endpoints documented via FastAPI auto-docs
+      - WebSocket real-time updates functioning
+      - Error handling on all endpoints
+      - Append-only evidence audit log enforced
+    </technical_quality>
+    <data_integrity>
+      - SHA-256 hash verification on evidence documents
+      - Full audit trail on policy changes
+      - Append-only evidence action log
+      - No mock data in production paths
+      - Data persists across server restarts
+    </data_integrity>
+    <ai_quality>
+      - Clause extraction produces structured, enriched output
+      - Gap analysis identifies missing, weak, conflicting, and partial gaps
+      - Evidence validation provides explainable pass/fail decisions
+      - All AI outputs can be reviewed, edited, and corrected by humans
+      - Corrections are tracked for future improvement
+    </ai_quality>
+    <poc_readiness>
+      - Platform is demonstrable to investors and potential clients
+      - All flows navigable even if some modules use mock data
+      - Working prototype suitable for short demo
+      - Core policy and regulation modules work with real data
+    </poc_readiness>
+  </success_criteria>
+</project_specification>

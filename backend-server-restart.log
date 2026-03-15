@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 1, in <module>
+    from fastapi import FastAPI, APIRouter, HTTPException, UploadFile, File, Depends, Header, Body, WebSocket, WebSocketDisconnect, BackgroundTasks
+ModuleNotFoundError: No module named 'fastapi'

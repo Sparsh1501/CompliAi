@@ -1,0 +1,9 @@
+01:24:13 [INFO] Qdrant connected at http://localhost:6333
+01:24:14 [INFO] Using local LLM: True
+01:24:14 [INFO] Using Ollama provider with model: llama3.1:8b
+01:24:14 [INFO] LLM Provider: ollama (model: llama3.1:8b)
+01:24:17 [INFO] NPCI circular clauses indexes created
+01:24:19 [INFO] Processing: [upi] UPI | OC No. 230 | FY 2025-26 | Implementation of Switching fee Rebate for UPI U (npci_id=3877)
+01:24:19 [WARNING] No text extracted from PDF (may be scanned): /tmp/uploads/npci/npci_circular_3877.pdf
+01:24:19 [INFO] PDF text extraction insufficient, attempting LLM fallback for: /tmp/uploads/npci/npci_circular_3877.pdf
+01:24:19 [INFO] Using local LLM fallback for PDF text extraction

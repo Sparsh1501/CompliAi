@@ -1,0 +1,315 @@
+- generic:
+  - generic:
+    - generic:
+      - generic:
+        - complementary:
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - img
+                - generic:
+                  - heading [level=2]: CompliAI
+                  - paragraph: Compliance OS
+          - navigation:
+            - button:
+              - img
+              - generic: Dashboard
+            - button:
+              - img
+              - generic: Policies
+            - button:
+              - img
+              - generic: Regulations
+            - button:
+              - img
+              - generic: Regulatory Updates
+            - button:
+              - img
+              - generic: Gap Analysis
+            - button:
+              - img
+              - generic: Tasks
+            - button:
+              - img
+              - generic: Evidence
+            - button:
+              - img
+              - generic: Audit
+            - button:
+              - img
+              - generic: LOS/LMS
+            - button:
+              - img
+              - generic: Calendar
+            - button:
+              - img
+              - generic: Chat
+            - button:
+              - img
+              - generic: Analytics
+            - button:
+              - img
+              - generic: Notifications
+            - button:
+              - img
+              - generic: Settings
+          - generic:
+            - generic:
+              - generic: Feature 67 Test User
+              - generic: Test NBFC
+            - button:
+              - img
+              - text: Logout
+          - button:
+            - img
+        - main:
+          - generic:
+            - generic:
+              - generic:
+                - navigation:
+                  - list:
+                    - listitem:
+                      - link:
+                        - /url: /dashboard
+                        - text: Dashboard
+                    - listitem:
+                      - generic: /
+                      - generic: LOS/LMS
+              - generic:
+                - generic:
+                  - img
+                  - textbox:
+                    - /placeholder: Search...
+                - generic:
+                  - button:
+                    - img
+                - generic:
+                  - button:
+                    - generic: F6
+                    - img
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - img
+                  - generic:
+                    - heading [level=1]: LOS / LMS
+                    - paragraph: Loan Origination & Management System compliance
+                - button:
+                  - img
+                  - text: Upload File
+              - generic:
+                - tablist:
+                  - tab [selected]:
+                    - img
+                    - text: Uploads
+                  - tab:
+                    - img
+                    - text: Field Mapping
+                - tabpanel:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - table:
+                          - rowgroup:
+                            - row:
+                              - columnheader: File Name
+                              - columnheader: Records
+                              - columnheader: Status
+                              - columnheader: Compliance
+                              - columnheader: Uploaded
+                              - columnheader: Actions
+                          - rowgroup:
+                            - row:
+                              - cell: test_loans_feature67.csv
+                              - cell: "5"
+                              - cell:
+                                - generic:
+                                  - img
+                                  - text: Scanned
+                              - cell:
+                                - generic:
+                                  - progressbar
+                                  - generic: 40%
+                              - cell: 07/02/2026
+                              - cell:
+                                - generic:
+                                  - button:
+                                    - img
+                                  - button:
+                                    - img
+    - region "Notifications alt+T"
+  - dialog "Compliance Scan Results" [ref=e301]:
+    - generic [ref=e302]:
+      - heading "Compliance Scan Results" [level=2] [ref=e303]
+      - paragraph [ref=e304]: Loan-level and portfolio-level compliance analysis
+    - generic [ref=e308]:
+      - generic [ref=e309]:
+        - heading "Portfolio-Level Metrics" [level=3] [ref=e310]
+        - generic [ref=e311]:
+          - generic [ref=e313]:
+            - generic [ref=e314]: 40%
+            - generic [ref=e315]: Compliance Score
+          - generic [ref=e317]:
+            - generic [ref=e318]: "2"
+            - generic [ref=e319]: Compliant
+          - generic [ref=e321]:
+            - generic [ref=e322]: "3"
+            - generic [ref=e323]: Non-Compliant
+          - generic [ref=e325]:
+            - generic [ref=e326]: "5"
+            - generic [ref=e327]: Total Loans
+          - generic [ref=e329]:
+            - generic [ref=e330]: ₹31.5L
+            - generic [ref=e331]: Total Amount
+          - generic [ref=e333]:
+            - generic [ref=e334]: 26.9%
+            - generic [ref=e335]: Avg Interest
+          - generic [ref=e337]:
+            - generic [ref=e338]: 60%
+            - generic [ref=e339]: KYC Compliance
+          - generic [ref=e341]:
+            - generic [ref=e342]: 60%
+            - generic [ref=e343]: CIBIL Consent
+      - generic [ref=e344]:
+        - heading "Exception Summary" [level=3] [ref=e345]
+        - generic [ref=e346]:
+          - generic [ref=e348]:
+            - generic [ref=e349]: "9"
+            - generic [ref=e350]: Total Exceptions
+          - generic [ref=e352]:
+            - generic [ref=e353]: "4"
+            - generic [ref=e354]: Critical
+          - generic [ref=e356]:
+            - generic [ref=e357]: "4"
+            - generic [ref=e358]: High
+          - generic [ref=e360]:
+            - generic [ref=e361]: "1"
+            - generic [ref=e362]: Medium
+      - generic [ref=e363]:
+        - heading "Loan-Level Results" [level=3] [ref=e364]
+        - generic [ref=e365]:
+          - generic [ref=e368]:
+            - generic [ref=e369]:
+              - img [ref=e370]
+              - generic [ref=e373]:
+                - generic [ref=e374]: Rajesh Kumar
+                - generic [ref=e375]: "Loan Amount: ₹500000 • 0 exceptions"
+            - generic [ref=e376]: Compliant
+          - generic [ref=e379]:
+            - generic [ref=e380]:
+              - img [ref=e381]
+              - generic [ref=e385]:
+                - generic [ref=e386]: Priya Sharma
+                - generic [ref=e387]: "Loan Amount: ₹750000 • 4 exceptions"
+            - generic [ref=e388]: Non-Compliant
+          - generic [ref=e391]:
+            - generic [ref=e392]:
+              - img [ref=e393]
+              - generic [ref=e397]:
+                - generic [ref=e398]: Amit Patel
+                - generic [ref=e399]: "Loan Amount: ₹300000 • 3 exceptions"
+            - generic [ref=e400]: Non-Compliant
+          - generic [ref=e403]:
+            - generic [ref=e404]:
+              - img [ref=e405]
+              - generic [ref=e408]:
+                - generic [ref=e409]: Sneha Gupta
+                - generic [ref=e410]: "Loan Amount: ₹1000000 • 0 exceptions"
+            - generic [ref=e411]: Compliant
+          - generic [ref=e414]:
+            - generic [ref=e415]:
+              - img [ref=e416]
+              - generic [ref=e420]:
+                - generic [ref=e421]: Vikram Singh
+                - generic [ref=e422]: "Loan Amount: ₹600000 • 2 exceptions"
+            - generic [ref=e423]: Non-Compliant
+      - generic [ref=e424]:
+        - heading "Exception Report" [level=3] [ref=e425]
+        - generic [ref=e426]:
+          - generic [ref=e429]:
+            - img [ref=e430]
+            - generic [ref=e434]:
+              - generic [ref=e435]:
+                - generic [ref=e436]: Priya Sharma - kyc_status
+                - generic [ref=e437]: Critical
+              - generic [ref=e438]: KYC not completed or missing
+              - generic [ref=e439]: 📋 RBI KYC Master Direction 2016
+              - generic [ref=e440]: 💡 Complete KYC verification before loan disbursement
+          - generic [ref=e443]:
+            - img [ref=e444]
+            - generic [ref=e448]:
+              - generic [ref=e449]:
+                - generic [ref=e450]: Priya Sharma - cibil_consent
+                - generic [ref=e451]: High
+              - generic [ref=e452]: CIBIL consent not obtained
+              - generic [ref=e453]: 📋 RBI Fair Practices Code
+              - generic [ref=e454]: 💡 Obtain explicit consent for credit bureau check
+          - generic [ref=e457]:
+            - img [ref=e458]
+            - generic [ref=e462]:
+              - generic [ref=e463]:
+                - generic [ref=e464]: Priya Sharma - interest_rate
+                - generic [ref=e465]: Critical
+              - generic [ref=e466]: Interest rate 42.0% exceeds RBI cap of 36%
+              - generic [ref=e467]: 📋 RBI NBFC Directions 2024
+              - generic [ref=e468]: 💡 Reduce interest rate to comply with RBI cap
+          - generic [ref=e471]:
+            - img [ref=e472]
+            - generic [ref=e476]:
+              - generic [ref=e477]:
+                - generic [ref=e478]: Priya Sharma - processing_fee
+                - generic [ref=e479]: Medium
+              - generic [ref=e480]: Processing fee ₹20000.0 exceeds 2% of loan amount
+              - generic [ref=e481]: 📋 RBI Fair Practices Code
+              - generic [ref=e482]: 💡 Reduce processing fee to reasonable levels
+          - generic [ref=e485]:
+            - img [ref=e486]
+            - generic [ref=e490]:
+              - generic [ref=e491]:
+                - generic [ref=e492]: Amit Patel - sanction_letter
+                - generic [ref=e493]: High
+              - generic [ref=e494]: Sanction letter not issued
+              - generic [ref=e495]: 📋 RBI Fair Practices Code
+              - generic [ref=e496]: 💡 Issue sanction letter with all terms before disbursement
+          - generic [ref=e499]:
+            - img [ref=e500]
+            - generic [ref=e504]:
+              - generic [ref=e505]:
+                - generic [ref=e506]: Amit Patel - loan_agreement
+                - generic [ref=e507]: Critical
+              - generic [ref=e508]: Loan agreement not signed
+              - generic [ref=e509]: 📋 RBI Lending Guidelines
+              - generic [ref=e510]: 💡 Obtain signed loan agreement before disbursement
+          - generic [ref=e513]:
+            - img [ref=e514]
+            - generic [ref=e518]:
+              - generic [ref=e519]:
+                - generic [ref=e520]: Amit Patel - credit_score
+                - generic [ref=e521]: High
+              - generic [ref=e522]: Credit score 250.0 below minimum threshold
+              - generic [ref=e523]: 📋 RBI Credit Assessment Guidelines
+              - generic [ref=e524]: 💡 Require minimum credit score of 300 or additional collateral
+          - generic [ref=e527]:
+            - img [ref=e528]
+            - generic [ref=e532]:
+              - generic [ref=e533]:
+                - generic [ref=e534]: Vikram Singh - kyc_status
+                - generic [ref=e535]: Critical
+              - generic [ref=e536]: KYC not completed or missing
+              - generic [ref=e537]: 📋 RBI KYC Master Direction 2016
+              - generic [ref=e538]: 💡 Complete KYC verification before loan disbursement
+          - generic [ref=e541]:
+            - img [ref=e542]
+            - generic [ref=e546]:
+              - generic [ref=e547]:
+                - generic [ref=e548]: Vikram Singh - cibil_consent
+                - generic [ref=e549]: High
+              - generic [ref=e550]: CIBIL consent not obtained
+              - generic [ref=e551]: 📋 RBI Fair Practices Code
+              - generic [ref=e552]: 💡 Obtain explicit consent for credit bureau check
+    - button "Close" [active] [ref=e553] [cursor=pointer]:
+      - img [ref=e554]
+      - generic [ref=e557]: Close

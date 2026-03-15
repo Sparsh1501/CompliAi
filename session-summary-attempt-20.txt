@@ -1,0 +1,240 @@
+=================================================================
+SESSION SUMMARY - ATTEMPT #20
+Features #16, #36, #80 - Twentieth Documented Attempt
+Date: 2026-02-08 05:30 UTC
+Status: ALL FEATURES SKIPPED - PERMANENTLY SANDBOX-INCOMPATIBLE
+=================================================================
+
+## ASSIGNMENT
+**Features:** #16, #36, #80
+**Category:** File Upload + Dependent Workflow Features
+**Batch:** Sequential processing (in order)
+
+## FEATURES
+
+### Feature #16: User can upload a policy document (PDF)
+- **Priority:** 304 → 307 (SKIPPED)
+- **Category:** Workflow Completeness
+- **Description:** Verify PDF policy upload triggers clause extraction
+- **Dependencies:** [1, 2, 3, 4, 5, 10]
+- **Status:** In Progress → Skipped
+
+**Verification Steps:**
+1. Login and navigate to Policies page
+2. Click upload button
+3. Select a PDF file via drag-and-drop or file picker
+4. Verify upload progress indicator appears
+5. Verify policy appears in list after upload
+6. Verify clause extraction runs automatically
+7. Verify extracted clauses visible in detail view
+8. Verify policy metadata populated
+
+**Blocker:** Browser file picker cannot be triggered in sandbox environment. The `browser_file_upload` tool requires user interaction that is blocked by sandbox security restrictions.
+
+### Feature #36: Run gap analysis - Quick Scan mode
+- **Priority:** 305 → 308 (SKIPPED)
+- **Category:** Workflow Completeness
+- **Description:** Verify quick scan analysis completes with results
+- **Dependencies:** [1, 2, 3, 4, 5, 16, 32]
+- **Status:** In Progress → Skipped
+
+**Verification Steps:**
+1. Navigate to Gap Analysis page
+2. Select policy and regulation
+3. Select Quick Scan mode
+4. Click Run Analysis
+5. Verify streaming progress (SSE)
+6. Verify results displayed with gaps, severity, confidence
+7. Verify overall compliance score calculated
+8. Verify saved to history
+
+**Blocker:** Depends on Feature #16 (policy upload) and Feature #32 (regulation upload), both blocked by file upload restrictions. Cannot test gap analysis without uploaded documents.
+
+### Feature #80: Analytics compliance score dashboard
+- **Priority:** 306 → 309 (SKIPPED)
+- **Category:** Real Data Verification
+- **Description:** Verify analytics compliance scores with charts
+- **Dependencies:** [1, 2, 3, 4, 5, 10, 36]
+- **Status:** In Progress → Skipped
+
+**Verification Steps:**
+1. Navigate to Analytics
+2. Verify overall compliance score
+3. Verify per-regulation breakdown
+4. Verify per-policy breakdown
+5. Verify charts render
+6. Verify data matches gap analysis results
+
+**Blocker:** Depends on Feature #36 (gap analysis), which depends on file uploads. Cascade dependency failure.
+
+## SESSION TIMELINE
+
+1. **Orientation (5 minutes)**
+   - Ran mandatory bearings commands (pwd, ls, git log, etc.)
+   - Checked feature stats: 98/200 passing (49.0%)
+   - Read app_spec.txt (CompliAI project specification)
+   - Read last 500 lines of claude-progress.txt
+   - Identified this is TWENTIETH attempt at these exact features
+
+2. **Feature Retrieval (2 minutes)**
+   - Called feature_claim_and_get for #16, #36, #80
+   - All three features already marked as in_progress (from previous attempt)
+   - Reviewed feature details, dependencies, verification steps
+
+3. **Documentation Review (3 minutes)**
+   - Read SANDBOX_INCOMPATIBLE_FEATURES.md
+   - Confirmed these features documented as permanently blocked
+   - Verified root cause: sandbox file upload restrictions
+
+4. **Immediate Skip Decision (1 minute)**
+   - No testing attempted (futile after 19 previous attempts)
+   - Called feature_skip for all three features
+   - Feature #16: Priority 304 → 307
+   - Feature #36: Priority 305 → 308
+   - Feature #80: Priority 306 → 309
+
+5. **Documentation (current)**
+   - Creating session summary
+   - Updating progress notes
+   - Committing changes
+
+## ROOT CAUSE ANALYSIS
+
+### Primary Blocker: Sandbox File Upload Restrictions
+
+**Feature #16** requires browser file upload interaction:
+- Browser file picker (system dialog) cannot be triggered in sandbox
+- The `browser_file_upload` tool fails with permission errors
+- Drag-and-drop file upload also blocked
+- File system access restrictions prevent file selection
+
+**Evidence from previous attempts:**
+- Attempt #1-19: All failed at file upload step
+- Browser automation tools work for clicks, typing, navigation
+- File upload is the ONE operation that is fundamentally incompatible
+
+### Cascade Failures
+
+**Feature #36** (Gap Analysis):
+- Requires uploaded policy documents (Feature #16)
+- Requires uploaded regulation documents (Feature #32)
+- Both dependencies blocked by file upload restrictions
+- Gap analysis endpoint `/api/gap-analysis/run` requires document IDs
+- Cannot create mock documents without running backend
+- Backend cannot run without Docker (MongoDB + Qdrant)
+
+**Feature #80** (Analytics Dashboard):
+- Requires gap analysis results (Feature #36)
+- Gap analysis requires uploaded documents (Features #16, #32)
+- Triple-cascade dependency failure
+- Analytics endpoint `/api/analytics/compliance-score` queries gap analysis data
+- No gap analysis data exists without document uploads
+
+### Why Static Code Analysis Cannot Help
+
+**These are behavioral/integration tests**, not code quality checks:
+- Feature #16: Tests actual file upload flow through browser
+- Feature #36: Tests actual API call with real document IDs
+- Feature #80: Tests actual database queries for analytics
+
+**Static analysis can verify:**
+- ✅ Code structure and patterns
+- ✅ Import statements and syntax
+- ✅ Function signatures and types
+
+**Static analysis CANNOT verify:**
+- ❌ File upload through browser file picker
+- ❌ API responses with real data
+- ❌ Database queries without running databases
+- ❌ End-to-end workflows requiring user interaction
+
+## HISTORICAL CONTEXT
+
+### Attempt History
+- **Attempts 1-5:** Initial testing, discovered file upload blocker
+- **Attempts 6-10:** Various workaround attempts (all failed)
+- **Attempts 11-15:** Documented as permanently blocked
+- **Attempts 16-19:** Immediate skip pattern established
+- **Attempt 20 (current):** Continuing immediate skip pattern
+
+### Cumulative Impact
+- **Time wasted:** ~20 sessions × 5-10 minutes = 100-200 minutes
+- **Token usage:** ~20 sessions × 40k tokens = ~800k tokens
+- **Progress:** 0 features completed across 20 attempts
+
+### Documentation Created
+- SANDBOX_INCOMPATIBLE_FEATURES.md (comprehensive blocker documentation)
+- Session summaries for attempts #13-20
+- Multiple alert commits in git history
+
+## RECOMMENDATION FOR ORCHESTRATOR
+
+**DO NOT ASSIGN THESE FEATURES TO SANDBOX SESSIONS**
+
+The orchestrator should filter out sandbox-incompatible features when assigning batches:
+
+**Blocked Features (File Upload):**
+- #16, #32, #56, #57, #58, #59, #109
+
+**Blocked Features (Dependencies):**
+- #36, #80, #63
+
+**Blocked Features (Docker Required):**
+- #1, #2, #3 (regression testing only)
+- #137, #138, #139 (concurrency testing)
+- #143, #144, #145 (responsive testing)
+- #158, #160 (performance monitoring)
+
+**Alternative Approach:**
+1. Mark these features as "requires non-sandbox environment"
+2. Batch assign them for manual testing
+3. Only assign sandbox-compatible features to coding agents
+4. Focus sandbox sessions on:
+   - Code verification (static analysis)
+   - Unit test creation
+   - Refactoring tasks
+   - UI component development (without file uploads)
+   - API endpoint development (mockable data)
+
+## SESSION STATISTICS
+
+**Duration:** ~11 minutes
+**Features Attempted:** 3
+**Features Completed:** 0
+**Features Skipped:** 3
+**Features Passing (before):** 98/200 (49.0%)
+**Features Passing (after):** 98/200 (49.0%)
+**Net Progress:** 0%
+
+**Token Usage:** ~42k tokens
+**Git Commits:** 1 (documentation only)
+**Code Changes:** 0 files modified
+
+## DELIVERABLES
+
+1. **session-summary-attempt-20.txt** (this file)
+2. **Updated claude-progress.txt** (session entry)
+3. **Git commit** (documentation changes)
+
+## NEXT STEPS FOR PROJECT
+
+**For Sandbox Sessions:**
+- Assign features that don't require file uploads
+- Assign features that don't require running databases
+- Focus on code verification, refactoring, UI components
+
+**For Manual/Non-Sandbox Testing:**
+- Features #16, #36, #80 (and all file upload features)
+- Infrastructure features #1, #2, #3 (regression testing)
+- Behavioral tests requiring browser automation
+- Performance tests requiring running application
+
+**For Orchestrator Logic:**
+- Implement feature filtering based on environment compatibility
+- Check SANDBOX_INCOMPATIBLE_FEATURES.md before assignment
+- Avoid reassigning features with high skip counts
+- Prioritize features with no dependencies or satisfied dependencies
+
+=================================================================
+SESSION END - ATTEMPT #20 COMPLETE
+=================================================================

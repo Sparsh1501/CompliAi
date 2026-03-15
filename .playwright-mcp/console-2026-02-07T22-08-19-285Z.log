@@ -1,0 +1,13 @@
+[   22721ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYmVkM2I4MmEtMDE0YS00YjM3LWFkZTAtNjIzYjk2NjhiN2VhIiwiZW1haWwiOiJSRVNUQVJUX1RFU1RfMTIzNDVAdGVzdC5jb20iLCJleHAiOjE3NzExMDY5MjF9.eskDkqVIaLDWR6UmfiPED--troNCgESUo505-6N4orc." {file: "http://localhost:3000/static/js/bundle.js" line: 119497}] @ http://localhost:3000/static/js/bundle.js:119497
+[   22728ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   22860ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   22860ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[  109047ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYmVkM2I4MmEtMDE0YS00YjM3LWFkZTAtNjIzYjk2NjhiN2VhIiwiZW1haWwiOiJSRVNUQVJUX1RFU1RfMTIzNDVAdGVzdC5jb20iLCJleHAiOjE3NzExMDcwMDh9.l1Adl2YT2EDLNAeMw5f6_0n8PojqeqWMcDtYp0wRhrU." {file: "http://localhost:3000/static/js/bundle.js" line: 119497}] @ http://localhost:3000/static/js/bundle.js:119497
+[  109052ms] [ERROR] [JavaScript Error: "The connection to ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYmVkM2I4MmEtMDE0YS00YjM3LWFkZTAtNjIzYjk2NjhiN2VhIiwiZW1haWwiOiJSRVNUQVJUX1RFU1RfMTIzNDVAdGVzdC5jb20iLCJleHAiOjE3NzExMDcwMDh9.l1Adl2YT2EDLNAeMw5f6_0n8PojqeqWMcDtYp0wRhrU was interrupted while the page was loading." {file: "http://localhost:3000/static/js/bundle.js" line: 119497}] @ http://localhost:3000/static/js/bundle.js:119497
+[  109053ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[  109143ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[  109143ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0

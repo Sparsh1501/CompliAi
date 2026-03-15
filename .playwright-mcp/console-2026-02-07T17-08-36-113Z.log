@@ -1,0 +1,24 @@
+[   20587ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNTc5NWNkYzktMWQ4Zi00ODZkLTk0YjktZWU0YzE1OWU1ZGU3IiwiZW1haWwiOiJmZWF0dXJlMTA3dGVzdEBleGFtcGxlLmNvbSIsImV4cCI6MTc3MTA4ODkzNn0.8HapiBObKshGTOGoUC299MEnHQfMr8pUzwQqzftc2yE." {file: "http://localhost:3000/static/js/bundle.js" line: 118473}] @ http://localhost:3000/static/js/bundle.js:118473
+[   20599ms] [ERROR] [JavaScript Error: "The connection to ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNTc5NWNkYzktMWQ4Zi00ODZkLTk0YjktZWU0YzE1OWU1ZGU3IiwiZW1haWwiOiJmZWF0dXJlMTA3dGVzdEBleGFtcGxlLmNvbSIsImV4cCI6MTc3MTA4ODkzNn0.8HapiBObKshGTOGoUC299MEnHQfMr8pUzwQqzftc2yE was interrupted while the page was loading." {file: "http://localhost:3000/static/js/bundle.js" line: 118473}] @ http://localhost:3000/static/js/bundle.js:118473
+[   20599ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   20676ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   20677ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   27521ms] [ERROR] Error 
+
+The above error occurred in the <SelectItem> component.
+
+React will try to recreate this component tree from scratch using the error boundary you provided, ErrorBoundary.
+ @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   27523ms] [ERROR] ErrorBoundary caught an error: Error JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   62986ms] [ERROR] Error 
+
+The above error occurred in the <SelectItem> component.
+
+React will try to recreate this component tree from scratch using the error boundary you provided, ErrorBoundary.
+ @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   62987ms] [ERROR] ErrorBoundary caught an error: Error JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   63021ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNTc5NWNkYzktMWQ4Zi00ODZkLTk0YjktZWU0YzE1OWU1ZGU3IiwiZW1haWwiOiJmZWF0dXJlMTA3dGVzdEBleGFtcGxlLmNvbSIsImV4cCI6MTc3MTA4ODkzNn0.8HapiBObKshGTOGoUC299MEnHQfMr8pUzwQqzftc2yE." {file: "http://localhost:3000/static/js/bundle.js" line: 118473}] @ http://localhost:3000/static/js/bundle.js:118473
+[   63021ms] [ERROR] [JavaScript Error: "The connection to ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNTc5NWNkYzktMWQ4Zi00ODZkLTk0YjktZWU0YzE1OWU1ZGU3IiwiZW1haWwiOiJmZWF0dXJlMTA3dGVzdEBleGFtcGxlLmNvbSIsImV4cCI6MTc3MTA4ODkzNn0.8HapiBObKshGTOGoUC299MEnHQfMr8pUzwQqzftc2yE was interrupted while the page was loading." {file: "http://localhost:3000/static/js/bundle.js" line: 118473}] @ http://localhost:3000/static/js/bundle.js:118473
+[   63021ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0

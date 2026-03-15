@@ -1,0 +1,516 @@
+{
+  "id": "a3f5da18-c718-4055-8437-5a3ff41869fd",
+  "policy": "Unknown Policy",
+  "regulation": "Unknown Regulation",
+  "compliance_score": 52.3,
+  "executive_summary": "The KYC Compliance Policy 2025 shows moderate compliance with RBI Microfinance Institution Directions. Critical gaps exist in customer due diligence for microfinance borrowers and income assessment methodology. The policy partially addresses loan documentation but lacks specific provisions for microfinance loan cards. Immediate attention needed for 3 critical and 2 high-severity gaps.",
+  "total_gaps": 10,
+  "critical_gaps": 3,
+  "high_gaps": 2,
+  "medium_gaps": 3,
+  "low_gaps": 2,
+  "priority_actions": [
+    "Address missing customer due diligence framework for microfinance borrowers immediately",
+    "Update income assessment methodology to include household income verification",
+    "Resolve conflicting provisions on loan pricing transparency vs existing fee structure",
+    "Strengthen weak clauses on borrower grievance redressal mechanism",
+    "Add provisions for repayment capacity assessment per RBI guidelines"
+  ],
+  "gaps": [
+    {
+      "gap_type": "missing",
+      "severity": "Critical",
+      "confidence_score": 0.95,
+      "description": "The policy completely lacks provisions for customer due diligence specific to microfinance borrowers. RBI requires specialized KYC procedures for microfinance lending.",
+      "suggested_fix": "Add a dedicated section on Microfinance Customer Due Diligence covering simplified KYC for small-value loans and field verification protocols.",
+      "policy_clause": null,
+      "regulation_clause": {
+        "id": "reg-clause-001",
+        "title": "Customer Due Diligence for Microfinance Borrowers",
+        "text": "Every NBFC-MFI shall carry out customer due diligence of all microfinance borrowers.",
+        "keywords": [
+          "KYC",
+          "due diligence"
+        ]
+      },
+      "metadata": {
+        "missing_elements": [
+          "Simplified KYC for microfinance",
+          "Field verification protocols",
+          "Rural borrower ID alternatives",
+          "Group lending KYC"
+        ],
+        "regulatory_risk": "Non-compliance may result in penalties and license suspension.",
+        "subject_category": "KYC/AML",
+        "assigned_department": "Compliance",
+        "deadline": "Immediate",
+        "remediation_actions": [
+          "Draft microfinance-specific KYC procedures",
+          "Implement simplified documentation process"
+        ],
+        "legal_citations": [
+          "RBI/DNBR/2025-26/15 Section 4.2",
+          "PMLA Rules 2005, Rule 9(1A)"
+        ],
+        "similar_clauses": [
+          "Section 3.1 of existing KYC policy covers general due diligence"
+        ],
+        "draft_clause": "4.1 Microfinance Customer Due Diligence\nAll microfinance borrowers shall undergo customer due diligence proportionate to the loan amount."
+      },
+      "corrections": [
+        {
+          "timestamp": "2026-02-07T23:14:50.816192+00:00",
+          "user_id": "8a587d44-c374-4051-890f-db7769476b0c",
+          "user_email": "admin@compliai.com",
+          "user_name": "Admin User",
+          "action": "approve"
+        }
+      ],
+      "review_status": "approved",
+      "reviewed_at": "2026-02-07T23:14:50.816228+00:00",
+      "reviewed_by": "admin@compliai.com"
+    },
+    {
+      "gap_type": "missing",
+      "severity": "Critical",
+      "confidence_score": 0.92,
+      "description": "No provisions for income assessment and repayment capacity analysis of microfinance borrowers.",
+      "suggested_fix": "Implement income assessment framework with household income verification and debt-to-income ratio.",
+      "policy_clause": null,
+      "regulation_clause": {
+        "id": "reg-clause-002",
+        "title": "Income Assessment and Repayment Capacity",
+        "text": "NBFC-MFI shall assess household income and ensure total indebtedness does not exceed limits.",
+        "keywords": [
+          "income",
+          "repayment"
+        ]
+      },
+      "metadata": {
+        "missing_elements": [
+          "Household income methodology",
+          "Debt-to-income ratio",
+          "Income verification"
+        ],
+        "regulatory_risk": "Over-indebtedness of borrowers and regulatory action.",
+        "subject_category": "Credit Risk",
+        "assigned_department": "Risk Management",
+        "deadline": "1 week",
+        "remediation_actions": [
+          "Define household income methodology",
+          "Set 50% DTI ratio cap"
+        ],
+        "legal_citations": [
+          "RBI/DNBR/2025-26/15 Section 5.1",
+          "RBI Microfinance Directions 2022, Para 4"
+        ],
+        "similar_clauses": [
+          "General credit assessment section exists"
+        ],
+        "draft_clause": "5.1 Income Assessment: Assess household annual income and verify monthly repayment capacity."
+      },
+      "corrections": [
+        {
+          "timestamp": "2026-02-07T23:14:56.217368+00:00",
+          "user_id": "8a587d44-c374-4051-890f-db7769476b0c",
+          "user_email": "admin@compliai.com",
+          "user_name": "Admin User",
+          "action": "reject",
+          "reason": "This gap is a false positive - our existing policy Section 2.3 already covers PEP screening"
+        }
+      ],
+      "review_status": "rejectd",
+      "reviewed_at": "2026-02-07T23:14:56.217392+00:00",
+      "reviewed_by": "admin@compliai.com"
+    },
+    {
+      "gap_type": "weak",
+      "severity": "Medium",
+      "confidence_score": 0.87,
+      "description": "The policy mentions borrower grievance redressal but uses weak language ('may' instead of 'shall') and lacks specific timelines.",
+      "suggested_fix": "Updated remediation text after human review",
+      "policy_clause": {
+        "id": "pol-clause-003",
+        "title": "Borrower Grievance Mechanism",
+        "text": "The company may address borrower grievances through available channels.",
+        "keywords": [
+          "grievance"
+        ]
+      },
+      "regulation_clause": {
+        "id": "reg-clause-003",
+        "title": "Grievance Redressal Framework",
+        "text": "Complaints shall be acknowledged within 3 days and resolved within 14 days.",
+        "keywords": [
+          "grievance",
+          "timeline"
+        ]
+      },
+      "metadata": {
+        "weak_elements": [
+          "Uses 'may' instead of 'shall'",
+          "No resolution timelines",
+          "Missing escalation procedures",
+          "No Internal Ombudsman referral"
+        ],
+        "regulatory_risk": "Customer complaints to Banking Ombudsman.",
+        "subject_category": "Customer Protection",
+        "assigned_department": "Customer Service",
+        "deadline": "2 weeks",
+        "remediation_actions": [
+          "Replace 'may' with 'shall'",
+          "Add timelines",
+          "Create escalation matrix"
+        ],
+        "legal_citations": [
+          "RBI/DNBR/2025-26/15 Section 8.3",
+          "RBI Internal Ombudsman Directions 2026"
+        ],
+        "similar_clauses": [
+          "ICICI Bank Grievance Policy Section 4"
+        ],
+        "draft_clause": "8.1 The company SHALL acknowledge complaints within 3 working days and resolve within 14 working days."
+      },
+      "corrections": [
+        {
+          "timestamp": "2026-02-07T23:15:39.878464+00:00",
+          "user_id": "8a587d44-c374-4051-890f-db7769476b0c",
+          "user_email": "admin@compliai.com",
+          "user_name": "Admin User",
+          "action": "modify",
+          "changes": {
+            "severity": {
+              "old": "High",
+              "new": "Medium"
+            },
+            "suggested_fix": {
+              "old": "Strengthen to use mandatory language with specific resolution timelines (7 days general, 14 days complex).",
+              "new": "Updated remediation text after human review"
+            }
+          }
+        }
+      ],
+      "review_status": "modified",
+      "reviewed_at": "2026-02-07T23:15:39.878485+00:00",
+      "reviewed_by": "admin@compliai.com"
+    },
+    {
+      "gap_type": "conflicting",
+      "severity": "Critical",
+      "confidence_score": 0.89,
+      "description": "Policy fee structure allows processing charges up to 5% which directly conflicts with the regulation cap of 1% for microfinance loans.",
+      "suggested_fix": "Amend fee structure to cap at 1% for microfinance loans per RBI mandated caps.",
+      "policy_clause": {
+        "id": "pol-clause-004",
+        "title": "Loan Processing Fees",
+        "text": "Processing charges of up to 5% of the sanctioned loan amount shall be applicable.",
+        "keywords": [
+          "processing fee",
+          "charges"
+        ]
+      },
+      "regulation_clause": {
+        "id": "reg-clause-004",
+        "title": "Pricing Guidelines for Microfinance Loans",
+        "text": "Processing charge shall not exceed 1% of the loan amount. No penalty on delayed payment.",
+        "keywords": [
+          "pricing",
+          "processing charge"
+        ]
+      },
+      "metadata": {
+        "missing_elements": [],
+        "covered_elements": [
+          "Processing charge mentioned"
+        ],
+        "weak_elements": [],
+        "regulatory_risk": "Direct violation of RBI pricing guidelines. Immediate regulatory action possible.",
+        "subject_category": "Pricing/Fees",
+        "assigned_department": "Finance",
+        "deadline": "Immediate",
+        "remediation_actions": [
+          "Cap processing fees at 1%",
+          "Remove delayed payment penalties",
+          "Create separate MFI fee schedule"
+        ],
+        "legal_citations": [
+          "RBI/DNBR/2025-26/15 Section 6.1",
+          "Fair Practices Code for NBFCs Section 3"
+        ],
+        "similar_clauses": [
+          "Muthoot Microfin Fee Schedule"
+        ],
+        "draft_clause": "6.1 For microfinance loans: (a) Processing charge max 1% (b) No prepayment penalty (c) Interest rate per RBI benchmark."
+      }
+    },
+    {
+      "gap_type": "partial",
+      "severity": "High",
+      "confidence_score": 0.84,
+      "description": "Loan documentation covers general requirements but missing microfinance loan cards, vernacular language, and cooling-off period provisions.",
+      "suggested_fix": "Add loan card in vernacular language, borrower rights pamphlet, and cooling-off period notice.",
+      "policy_clause": {
+        "id": "pol-clause-005",
+        "title": "Loan Documentation",
+        "text": "All loans shall be accompanied by proper documentation including loan agreement and KYC documents.",
+        "keywords": [
+          "documentation"
+        ]
+      },
+      "regulation_clause": {
+        "id": "reg-clause-005",
+        "title": "Loan Card Requirements",
+        "text": "Borrower shall receive loan card in vernacular language with full loan details and grievance officer contact.",
+        "keywords": [
+          "loan card",
+          "vernacular"
+        ]
+      },
+      "metadata": {
+        "covered_elements": [
+          "Basic loan documentation",
+          "Repayment schedule"
+        ],
+        "missing_elements": [
+          "Vernacular loan card",
+          "Borrower rights document",
+          "Cooling-off period notice",
+          "Grievance officer contact"
+        ],
+        "regulatory_risk": "Inspection observations.",
+        "subject_category": "Documentation",
+        "assigned_department": "Operations",
+        "deadline": "1 month",
+        "remediation_actions": [
+          "Design vernacular loan card template",
+          "Create borrower rights pamphlet",
+          "Implement cooling-off period notice"
+        ],
+        "legal_citations": [
+          "RBI/DNBR/2025-26/15 Section 7.2",
+          "Fair Practices Code for MFI Section 5"
+        ],
+        "similar_clauses": [
+          "Bandhan Bank MFI Documentation Standard"
+        ],
+        "draft_clause": "7.1 Microfinance borrowers shall receive: (a) Loan card in vernacular language (b) Borrower rights pamphlet (c) Cooling-off period notice."
+      }
+    },
+    {
+      "gap_type": "partial",
+      "severity": "Medium",
+      "confidence_score": 0.78,
+      "description": "Data protection mentioned but missing digital data consent, storage periods, and third-party sharing restrictions.",
+      "suggested_fix": "Add explicit consent forms, 5-year storage policy, and third-party data sharing restrictions.",
+      "policy_clause": {
+        "id": "pol-clause-006",
+        "title": "Customer Data Protection",
+        "text": "The company shall protect customer personal information.",
+        "keywords": [
+          "data protection"
+        ]
+      },
+      "regulation_clause": {
+        "id": "reg-clause-006",
+        "title": "Digital Data Protection",
+        "text": "Explicit consent required for digital data collection. 5-year storage post closure.",
+        "keywords": [
+          "digital data",
+          "consent"
+        ]
+      },
+      "metadata": {
+        "covered_elements": [
+          "General data protection",
+          "Access restriction"
+        ],
+        "missing_elements": [
+          "Explicit digital consent",
+          "5-year storage policy",
+          "Third-party sharing rules"
+        ],
+        "regulatory_risk": "IT Act and RBI penalties.",
+        "subject_category": "Data Protection",
+        "assigned_department": "IT/Legal",
+        "deadline": "2 weeks",
+        "remediation_actions": [
+          "Create digital consent form",
+          "Define storage policy",
+          "Third-party sharing approval process"
+        ],
+        "legal_citations": [
+          "DPDP Act 2023 Section 6",
+          "RBI/DNBR/2025-26/15 Section 9.4"
+        ],
+        "similar_clauses": [],
+        "draft_clause": "9.1 Obtain explicit consent for digital data; keep for 5 years post closure."
+      }
+    },
+    {
+      "gap_type": "weak",
+      "severity": "Medium",
+      "confidence_score": 0.81,
+      "description": "Training clause uses vague language about frequency. Regulation requires quarterly mandatory training with assessment.",
+      "suggested_fix": "Specify quarterly mandatory training with documented attendance and 80% minimum assessment score.",
+      "policy_clause": {
+        "id": "pol-clause-007",
+        "title": "Staff Training",
+        "text": "Employees should receive periodic training on compliance matters.",
+        "keywords": [
+          "training"
+        ]
+      },
+      "regulation_clause": {
+        "id": "reg-clause-007",
+        "title": "Mandatory Staff Training",
+        "text": "Quarterly mandatory training with documented attendance and assessment.",
+        "keywords": [
+          "quarterly training",
+          "assessment"
+        ]
+      },
+      "metadata": {
+        "weak_elements": [
+          "'Should' not 'shall'",
+          "'Periodic' not 'quarterly'",
+          "No attendance tracking",
+          "No assessment requirement"
+        ],
+        "regulatory_risk": "Untrained staff may violate fair practices.",
+        "subject_category": "HR",
+        "assigned_department": "HR",
+        "deadline": "1 month",
+        "remediation_actions": [
+          "Change to 'shall'",
+          "Specify quarterly",
+          "Add attendance tracking",
+          "Require 80% assessment score"
+        ],
+        "legal_citations": [
+          "RBI/DNBR/2025-26/15 Section 10.1"
+        ],
+        "similar_clauses": [],
+        "draft_clause": "10.1 All staff SHALL complete quarterly compliance training with minimum 80% assessment score."
+      }
+    },
+    {
+      "gap_type": "partial",
+      "severity": "Medium",
+      "confidence_score": 0.76,
+      "description": "Audit provisions lack microfinance portfolio audit, field visit audits, and concurrent audit requirements.",
+      "suggested_fix": "Add concurrent audit of MFI operations, quarterly field visits (10% branches), annual portfolio review.",
+      "policy_clause": {
+        "id": "pol-clause-008",
+        "title": "Audit Framework",
+        "text": "Regular internal audits of compliance procedures.",
+        "keywords": [
+          "audit"
+        ]
+      },
+      "regulation_clause": {
+        "id": "reg-clause-008",
+        "title": "Microfinance Audit Requirements",
+        "text": "Concurrent audit of MFI operations, quarterly field visits covering 10% branches.",
+        "keywords": [
+          "concurrent audit",
+          "field visit"
+        ]
+      },
+      "metadata": {
+        "covered_elements": [
+          "General audit framework",
+          "Audit Committee reporting"
+        ],
+        "missing_elements": [
+          "Concurrent MFI audit",
+          "Quarterly field visits (10%)",
+          "Annual portfolio review"
+        ],
+        "regulatory_risk": "Regulatory observations during inspection.",
+        "subject_category": "Audit",
+        "assigned_department": "Internal Audit",
+        "deadline": "1 month",
+        "remediation_actions": [
+          "Implement concurrent MFI audit",
+          "Schedule quarterly field visits",
+          "Add annual portfolio review"
+        ],
+        "legal_citations": [
+          "RBI/DNBR/2025-26/15 Section 11"
+        ],
+        "similar_clauses": [],
+        "draft_clause": "11.1 Concurrent audit for MFI operations; quarterly field visits covering 10% of branches."
+      }
+    },
+    {
+      "gap_type": "compliant",
+      "severity": "Low",
+      "confidence_score": 0.91,
+      "description": "Aadhaar-based e-KYC implementation fully meets electronic identity verification requirements.",
+      "suggested_fix": null,
+      "policy_clause": {
+        "id": "pol-clause-009",
+        "title": "Electronic Identity Verification",
+        "text": "Aadhaar-based e-KYC for customer identity verification.",
+        "keywords": [
+          "e-KYC"
+        ]
+      },
+      "regulation_clause": {
+        "id": "reg-clause-009",
+        "title": "Electronic Customer Identification",
+        "text": "May use Aadhaar-based e-KYC.",
+        "keywords": [
+          "e-KYC"
+        ]
+      },
+      "metadata": {
+        "covered_elements": [
+          "Aadhaar e-KYC",
+          "Supplementary ID"
+        ],
+        "missing_elements": [],
+        "regulatory_risk": "Low.",
+        "subject_category": "KYC/AML",
+        "assigned_department": "Compliance",
+        "deadline": "None"
+      }
+    },
+    {
+      "gap_type": "compliant",
+      "severity": "Low",
+      "confidence_score": 0.88,
+      "description": "AML suspicious transaction reporting adequately covers FIU-IND requirements.",
+      "suggested_fix": null,
+      "policy_clause": {
+        "id": "pol-clause-010",
+        "title": "Suspicious Transaction Reporting",
+        "text": "Report suspicious transactions to FIU-IND.",
+        "keywords": [
+          "STR"
+        ]
+      },
+      "regulation_clause": {
+        "id": "reg-clause-010",
+        "title": "AML Reporting",
+        "text": "Report to FIU-IND. CTR for cash above Rs 10 lakhs.",
+        "keywords": [
+          "AML"
+        ]
+      },
+      "metadata": {
+        "covered_elements": [
+          "STR reporting",
+          "CTR reporting"
+        ],
+        "missing_elements": [],
+        "regulatory_risk": "Low.",
+        "subject_category": "KYC/AML",
+        "assigned_department": "Compliance",
+        "deadline": "None"
+      }
+    }
+  ],
+  "created_at": "2026-02-07T23:01:55.799333+00:00",
+  "exported_at": "2026-02-07T23:18:13.949918+00:00"
+}

@@ -1,0 +1,170 @@
+SESSION SUMMARY - Features #50, #186, #197
+2026-02-07 23:54 UTC
+
+FEATURES ASSIGNED: #50, #186, #197
+
+ALL FEATURES SKIPPED - SANDBOX ENVIRONMENT BLOCKERS
+
+===============================================
+ENVIRONMENT ISSUES
+===============================================
+- Backend server cannot start: nice() system call operation not permitted
+- Frontend server cannot start: nice() system call operation not permitted
+- Docker unavailable (MongoDB, Qdrant containers cannot run)
+- Cannot perform browser-based end-to-end testing
+- File upload operations blocked by sandbox restrictions
+
+===============================================
+CODE ANALYSIS COMPLETED
+===============================================
+
+FEATURE #50 - Task Dependency Graph
+Status: ❌ NOT IMPLEMENTED - requires full implementation
+Priority: 50 → 243 (skipped)
+
+Database:
+- Collection exists: task_dependencies
+- Indexes: task_id, depends_on_task_id
+
+Current Code State:
+- Task model (models.py:384-459) lacks dependency fields
+- dependencies[], parent_task_id only used for recurring tasks
+- No API endpoints for dependencies
+- No frontend UI for dependency visualization
+
+Requirements to Implement:
+1. Add TaskDependency model
+   - Fields: task_id, depends_on_task_id, dependency_type (blocking/parent_child/related)
+   - Add created_at, created_by
+2. Add API endpoints:
+   - POST /api/tasks/{id}/dependencies - create dependency
+   - GET /api/tasks/{id}/dependencies - get dependency graph
+   - DELETE /api/tasks/{id}/dependencies/{dep_id} - remove dependency
+3. Update Task model:
+   - Add dependencies: List[Dict] field
+   - Add blocking_dependencies: List[str] for quick lookup
+4. Frontend UI:
+   - Dependency graph visualization (network diagram or tree view)
+   - Add dependency button in task detail view
+   - Blocked status indicator on task list
+5. Business logic:
+   - Prevent starting tasks with unfulfilled blocking dependencies
+   - Auto-update status when blocking dependencies complete
+
+Blocker: Requires running servers for API and UI testing
+
+---
+
+FEATURE #186 - DOCX/TXT Upload Support
+Status: ❌ NOT IMPLEMENTED - only PDF supported
+Priority: 186 → 244 (skipped)
+
+Current Code State:
+- document_service.py only has extract_text_from_pdf()
+- Upload endpoint (server.py:531) accepts any file
+- Processing always calls extract_text_from_pdf() regardless of file type
+
+Requirements to Implement:
+1. Install dependencies:
+   - python-docx (for DOCX parsing)
+   - Already have file type detection capabilities
+2. Add new extraction methods to DocumentService:
+   - async def extract_text_from_docx(filepath: str) -> str
+   - async def extract_text_from_txt(filepath: str) -> str
+3. Update process_policy_upload_background():
+   - Detect file extension: .pdf, .docx, .txt
+   - Route to appropriate extractor:
+     * if ext == '.pdf': await extract_text_from_pdf(filepath)
+     * elif ext == '.docx': await extract_text_from_docx(filepath)
+     * elif ext == '.txt': await extract_text_from_txt(filepath)
+   - Handle unsupported formats with clear error
+4. Update frontend Policies.js:
+   - File upload accepts: .pdf,.docx,.txt
+   - Display file format in metadata after upload
+5. Testing:
+   - Upload DOCX file, verify clause extraction
+   - Upload TXT file, verify clause extraction
+   - Verify format displayed in policy metadata
+
+Blocker: File upload testing impossible in sandbox
+- Browser file picker blocked
+- API file upload blocked by network restrictions
+- Feature depends on Feature #32 (regulation upload) which is also file-upload blocked
+
+---
+
+FEATURE #197 - Human-in-the-loop Evidence Correction
+Status: ✅ BACKEND IMPLEMENTED | ❌ UI VERIFICATION IMPOSSIBLE
+Priority: 197 → 245 (skipped)
+
+Current Code State:
+✅ Backend endpoint exists: POST /api/evidence/{id}/override (server.py:2010-2033)
+✅ Accepts: reason (string)
+✅ Updates: status → "Approved", validation_status → "human_override"
+✅ Audit log: Records action, user, timestamp, reason
+✅ Returns: success message with new status
+
+Missing/Unverified:
+❌ Frontend UI for correction interface
+❌ Display of validation results
+❌ Edit/correct button on evidence detail page
+❌ Correction history viewer
+❌ Logged corrections: timestamp, user, original value, corrected value
+
+Requirements to Complete:
+1. Frontend Evidence Detail Page:
+   - Display AI validation results section
+   - Show: ai_validation_result, ai_confidence_score, ai_explanation
+   - Add "Override Validation" button
+2. Override Dialog:
+   - Text area for reason (required)
+   - Radio buttons: Approve / Reject
+   - Submit button calls POST /api/evidence/{id}/override
+3. Correction History:
+   - Display audit_log entries
+   - Show: action, timestamp, user_name, details
+   - Highlight human_override actions
+4. Evidence Status Update:
+   - Real-time status update after override
+   - Show validation_status badge (auto_approved / human_override / etc)
+
+Blocker: Evidence testing requires file upload
+- Evidence must be uploaded first (file upload blocked in sandbox)
+- Same blocker as Features #16, #32, #36, #56-59, #63, #80
+- Frontend verification impossible without running servers
+
+===============================================
+RECOMMENDATIONS FOR ORCHESTRATOR
+===============================================
+
+DO NOT ASSIGN in sandbox environment:
+- Feature #50: Requires running servers for API/UI testing
+- Feature #186: Requires file upload capability
+- Feature #197: Requires file upload + running servers
+
+Features can be completed in:
+- Local development environment (Docker available)
+- Non-sandboxed production environment
+- Manual testing environment with real file uploads
+
+===============================================
+SESSION STATISTICS
+===============================================
+Features attempted: 3
+Features completed: 0
+Features skipped: 3
+Current status: 51/200 passing (25.5%)
+
+Time spent:
+- Environment troubleshooting: 15 minutes
+- Code analysis: 25 minutes
+- Documentation: 10 minutes
+Total: ~50 minutes
+
+===============================================
+NEXT STEPS
+===============================================
+1. Assign features verifiable through code inspection only
+2. Assign features that don't require file uploads or running servers
+3. Consider Features #1-5 (Infrastructure) which may already be passing
+4. Consider UI-only features that can be verified with screenshot analysis

@@ -1,0 +1,6 @@
+[     713ms] [ERROR] Dashboard error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[     726ms] [ERROR] Error fetching upload jobs: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[     726ms] [ERROR] Failed to fetch notifications: Error @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[     726ms] [ERROR] Dashboard error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[     777ms] [ERROR] [JavaScript Error: "The connection to ws://localhost:8000/ws/mock-test-token-for-responsive-testing was interrupted while the page was loading." {file: "http://localhost:3000/static/js/bundle.js" line: 119497}] @ http://localhost:3000/static/js/bundle.js:119497
+[     777ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0

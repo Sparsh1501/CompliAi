@@ -1,0 +1,104 @@
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/services/multi_llm_service_new.py:12: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py:4787: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("startup")
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py:4817: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("shutdown")
+INFO:     Started server process [36633]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     ('127.0.0.1', 50927) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:51025 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51035 - "OPTIONS /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51037 - "OPTIONS /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51037 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51035 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51040 - "POST /api/auth/login HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:51123 - "POST /api/auth/login HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:51142 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51143 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 51148) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzEwOTI1ODh9.aANJnaBztEYtGaAjGcBMk4bg7HRVDZZC3MbKonWmmCc" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:51147 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51146 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51147 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51146 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:51151 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51146 - "GET /api/tasks/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51147 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51153 - "GET /api/tasks/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51152 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51146 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51147 - "GET /api/tasks/stats HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 51159) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzEwOTI1ODh9.aANJnaBztEYtGaAjGcBMk4bg7HRVDZZC3MbKonWmmCc" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:51147 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51146 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51147 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51160 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51146 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51152 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51161 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51177 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51176 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51180 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51179 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51185 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51184 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51274 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51275 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51276 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51276 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51283 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51282 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51379 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51378 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51398 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51397 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51407 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51408 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51411 - "GET / HTTP/1.1" 404 Not Found
+INFO:     connection closed
+INFO:     127.0.0.1:51516 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51514 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51620 - "OPTIONS /api/auth/register HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51620 - "POST /api/auth/register HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:51629 - "POST /api/auth/register HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51629 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51630 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 51631) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiY2UzNjQ0NTAtOGYxMy00N2JkLWJhYjktOTlmZWFkMDNkNDFjIiwiZW1haWwiOiJSRVNUQVJUX1RFU1RfMTIzNDVAdGVzdC5jb20iLCJleHAiOjE3NzEwOTMwMzB9.iq3WDsser4uwtgNznzNhqGx1kCohevfGPQkjzBV1jd8" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:51632 - "OPTIONS /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51633 - "OPTIONS /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51630 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51629 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51632 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51629 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51633 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51629 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51629 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51630 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51629 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51633 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51637 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51636 - "GET /api/notifications HTTP/1.1" 200 OK

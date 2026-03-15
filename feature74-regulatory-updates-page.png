@@ -1,0 +1,110 @@
+- generic [ref=e2]:
+  - generic [ref=e47]:
+    - complementary [ref=e48]:
+      - generic [ref=e51]:
+        - img [ref=e53]
+        - generic [ref=e55]:
+          - heading "CompliAI" [level=2] [ref=e56]
+          - paragraph [ref=e57]: Compliance OS
+      - navigation [ref=e58]:
+        - button "Dashboard" [ref=e59] [cursor=pointer]:
+          - img [ref=e60]
+          - generic [ref=e65]: Dashboard
+        - button "Policies" [ref=e66] [cursor=pointer]:
+          - img [ref=e67]
+          - generic [ref=e73]: Policies
+        - button "Regulations" [ref=e74] [cursor=pointer]:
+          - img [ref=e75]
+          - generic [ref=e77]: Regulations
+        - button "Regulatory Updates" [active] [ref=e78] [cursor=pointer]:
+          - img [ref=e79]
+          - generic [ref=e82]: Regulatory Updates
+        - button "Gap Analysis" [ref=e83] [cursor=pointer]:
+          - img [ref=e84]
+          - generic [ref=e90]: Gap Analysis
+        - button "Tasks" [ref=e91] [cursor=pointer]:
+          - img [ref=e92]
+          - generic [ref=e98]: Tasks
+        - button "Evidence" [ref=e99] [cursor=pointer]:
+          - img [ref=e100]
+          - generic [ref=e103]: Evidence
+        - button "Audit" [ref=e104] [cursor=pointer]:
+          - img [ref=e105]
+          - generic [ref=e113]: Audit
+        - button "LOS/LMS" [ref=e114] [cursor=pointer]:
+          - img [ref=e115]
+          - generic [ref=e118]: LOS/LMS
+        - button "Calendar" [ref=e119] [cursor=pointer]:
+          - img [ref=e120]
+          - generic [ref=e125]: Calendar
+        - button "Chat" [ref=e126] [cursor=pointer]:
+          - img [ref=e127]
+          - generic [ref=e129]: Chat
+        - button "Analytics" [ref=e130] [cursor=pointer]:
+          - img [ref=e131]
+          - generic [ref=e136]: Analytics
+        - button "Notifications" [ref=e137] [cursor=pointer]:
+          - img [ref=e138]
+          - generic [ref=e141]: Notifications
+        - button "Settings" [ref=e142] [cursor=pointer]:
+          - img [ref=e143]
+          - generic [ref=e146]: Settings
+      - generic [ref=e147]:
+        - generic [ref=e148]:
+          - generic [ref=e149]: Feature 74 Test User
+          - generic [ref=e150]: Test Org
+        - button "Logout" [ref=e151] [cursor=pointer]:
+          - img
+          - text: Logout
+      - button [ref=e152] [cursor=pointer]:
+        - img [ref=e153]
+    - main [ref=e155]:
+      - generic [ref=e157]:
+        - navigation "Breadcrumb" [ref=e159]:
+          - list [ref=e160]:
+            - listitem [ref=e161]:
+              - link "Dashboard" [ref=e162] [cursor=pointer]:
+                - /url: /dashboard
+            - listitem [ref=e449]:
+              - generic [ref=e450]: /
+              - generic [ref=e451]: Regulatory Updates
+        - generic [ref=e163]:
+          - generic [ref=e164]:
+            - img [ref=e165]
+            - textbox "Search..." [ref=e168]
+          - button [ref=e170] [cursor=pointer]:
+            - img [ref=e171]
+          - button "F7" [ref=e175] [cursor=pointer]:
+            - generic [ref=e176]: F7
+            - img [ref=e177]
+      - generic [ref=e452]:
+        - generic [ref=e454]:
+          - img [ref=e456]
+          - generic [ref=e459]:
+            - heading "Regulatory Updates" [level=1] [ref=e460]
+            - paragraph [ref=e461]: Track new circulars and their impact on your policies
+        - generic [ref=e462]:
+          - generic [ref=e465]:
+            - generic [ref=e466]:
+              - paragraph [ref=e467]: Total Updates
+              - paragraph [ref=e468]: "0"
+            - img [ref=e469]
+          - generic [ref=e477]:
+            - generic [ref=e478]:
+              - paragraph [ref=e479]: Pending Review
+              - paragraph [ref=e480]: "0"
+            - img [ref=e481]
+          - generic [ref=e486]:
+            - generic [ref=e487]:
+              - paragraph [ref=e488]: Reviewed
+              - paragraph [ref=e489]: "0"
+            - img [ref=e490]
+        - generic [ref=e493]:
+          - generic [ref=e494]:
+            - generic [ref=e495]: Recent Updates
+            - generic [ref=e496]: Timeline of new regulatory circulars and amendments
+          - generic [ref=e498]:
+            - img [ref=e499]
+            - paragraph [ref=e502]: No regulatory updates found
+            - paragraph [ref=e503]: New circulars will appear here
+  - region "Notifications alt+T"

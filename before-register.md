@@ -1,0 +1,40 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - img [ref=e7]
+      - generic [ref=e9]:
+        - heading "CompliAI" [level=1] [ref=e10]
+        - paragraph [ref=e11]: Compliance OS
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - generic [ref=e14]: Welcome Back
+        - generic [ref=e15]: AI-powered compliance management for regulated entities
+      - generic [ref=e17]:
+        - tablist [ref=e18]:
+          - tab "Login" [ref=e19] [cursor=pointer]
+          - tab "Register" [selected] [ref=e20] [cursor=pointer]
+        - tabpanel "Register" [ref=e29]:
+          - generic [ref=e30]:
+            - generic [ref=e31]:
+              - text: Full Name
+              - textbox "Full Name" [ref=e32]:
+                - /placeholder: John Doe
+                - text: Restart Test User
+            - generic [ref=e33]:
+              - text: Email
+              - textbox "Email" [ref=e34]:
+                - /placeholder: your@email.com
+                - text: RESTART_TEST_12345@test.com
+            - generic [ref=e35]:
+              - text: Organization
+              - textbox "Organization" [ref=e36]:
+                - /placeholder: Your NBFC/FinTech
+                - text: Test Org
+            - generic [ref=e37]:
+              - text: Password
+              - textbox "Password" [active] [ref=e38]:
+                - /placeholder: ••••••••
+                - text: TestPassword123!
+            - button "Register" [ref=e39] [cursor=pointer]
+    - paragraph [ref=e28]: AI-powered compliance management for regulated entities
+  - region "Notifications alt+T"

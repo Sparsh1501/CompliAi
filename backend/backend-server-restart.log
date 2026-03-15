@@ -1,0 +1,1735 @@
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/services/multi_llm_service_new.py:12: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py:4349: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("startup")
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py:4379: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("shutdown")
+INFO:     Started server process [58228]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:60464 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60464 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 60465) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMWZjYWMyMjctYWY0Yi00NTZjLTgyN2YtMzU1MjcyNWI5OGEzIiwiZW1haWwiOiJSRVNUQVJUX1RFU1RfMTIzNDVAdGVzdC5jb20iLCJleHAiOjE3NzEwODkzOTh9.4YyLmx9zmS4ECo5OLsajBG1E8sN3utcuYIpwkReTvnM" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     ('127.0.0.1', 60466) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMWZjYWMyMjctYWY0Yi00NTZjLTgyN2YtMzU1MjcyNWI5OGEzIiwiZW1haWwiOiJSRVNUQVJUX1RFU1RfMTIzNDVAdGVzdC5jb20iLCJleHAiOjE3NzEwODkzOTh9.4YyLmx9zmS4ECo5OLsajBG1E8sN3utcuYIpwkReTvnM" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:60464 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60464 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 349, in asgi_send
+    await self.send(data)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 618, in send
+    await self.ensure_open()
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 916, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1000 (OK) User logged out; then sent 1000 (OK) User logged out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 97, in send
+    await self._send(message)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 50, in sender
+    await send(message)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 365, in asgi_send
+    raise ClientDisconnected from exc
+uvicorn.protocols.utils.ClientDisconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 255, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 77, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 373, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 96, in app
+    await wrap_app_handling_exceptions(app, session)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 94, in app
+    await func(session)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 348, in app
+    await dependant.call(**values)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 4222, in websocket_endpoint
+    await websocket.send_json({
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 198, in send_json
+    await self.send({"type": "websocket.send", "text": text})
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 100, in send
+    raise WebSocketDisconnect(code=1006)
+starlette.websockets.WebSocketDisconnect
+INFO:     127.0.0.1:60470 - "OPTIONS /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60471 - "OPTIONS /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60468 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60470 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60468 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60468 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60464 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60472 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60471 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60464 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60470 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60468 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60480 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60479 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60482 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60483 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:60570 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60570 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60784 - "OPTIONS /api/auth/register HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60784 - "POST /api/auth/register HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 60785) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZmM1Y2RiN2UtYWUwYS00YjI5LTg5MGUtYTIwODM0MmVmM2EyIiwiZW1haWwiOiJmZWF0dXJlMl90ZXN0QHRlc3QuY29tIiwiZXhwIjoxNzcxMDg5NTQ3fQ.-pg9WZ3vNd7ot0W2fPcbMUqkTblosipCyGw0ikVou0A" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     ('127.0.0.1', 60786) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZmM1Y2RiN2UtYWUwYS00YjI5LTg5MGUtYTIwODM0MmVmM2EyIiwiZW1haWwiOiJmZWF0dXJlMl90ZXN0QHRlc3QuY29tIiwiZXhwIjoxNzcxMDg5NTQ3fQ.-pg9WZ3vNd7ot0W2fPcbMUqkTblosipCyGw0ikVou0A" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:60784 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60787 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60784 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 349, in asgi_send
+    await self.send(data)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 618, in send
+    await self.ensure_open()
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/websockets/legacy/protocol.py", line 916, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1000 (OK) User logged out; then sent 1000 (OK) User logged out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 97, in send
+    await self._send(message)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 50, in sender
+    await send(message)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 365, in asgi_send
+    raise ClientDisconnected from exc
+uvicorn.protocols.utils.ClientDisconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 255, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 77, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 373, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 96, in app
+    await wrap_app_handling_exceptions(app, session)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 94, in app
+    await func(session)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 348, in app
+    await dependant.call(**values)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 4222, in websocket_endpoint
+    await websocket.send_json({
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 198, in send_json
+    await self.send({"type": "websocket.send", "text": text})
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/websockets.py", line 100, in send
+    raise WebSocketDisconnect(code=1006)
+starlette.websockets.WebSocketDisconnect
+INFO:     127.0.0.1:60787 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60788 - "OPTIONS /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60789 - "OPTIONS /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60784 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60788 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60789 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60784 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60787 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60784 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60789 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60788 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:60815 - "POST /api/auth/register HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:60833 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60833 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 60835) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMWZjYWMyMjctYWY0Yi00NTZjLTgyN2YtMzU1MjcyNWI5OGEzIiwiZW1haWwiOiJSRVNUQVJUX1RFU1RfMTIzNDVAdGVzdC5jb20iLCJleHAiOjE3NzEwODk2MTN9.ljBUcRq-vKhexL3c3zu4Bq8JVWKDPNnAMQGKeWOykRo" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:60833 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60837 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60833 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60833 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60837 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60833 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60839 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60838 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 60841) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMWZjYWMyMjctYWY0Yi00NTZjLTgyN2YtMzU1MjcyNWI5OGEzIiwiZW1haWwiOiJSRVNUQVJUX1RFU1RfMTIzNDVAdGVzdC5jb20iLCJleHAiOjE3NzEwODk2MTN9.ljBUcRq-vKhexL3c3zu4Bq8JVWKDPNnAMQGKeWOykRo" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     connection closed
+INFO:     127.0.0.1:60954 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60954 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60954 - "OPTIONS /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60957 - "OPTIONS /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60957 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60957 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60961 - "GET /api/dashboard/stats HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 419, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 3934, in get_dashboard_stats
+    org = user_doc.get('organization', 'Default')
+          ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:60959 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60957 - "GET /api/dashboard/stats HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 419, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 3934, in get_dashboard_stats
+    org = user_doc.get('organization', 'Default')
+          ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:60959 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60954 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60954 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 60966) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:60954 - "OPTIONS /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60959 - "OPTIONS /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60959 - "GET /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60954 - "GET /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60968 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60968 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60954 - "OPTIONS /api/policies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60959 - "OPTIONS /api/policies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60959 - "GET /api/policies HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 419, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 576, in get_policies
+    user_role = user_doc.get('role', 'user')
+                ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:60954 - "GET /api/policies HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 419, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 576, in get_policies
+    user_role = user_doc.get('role', 'user')
+                ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:60971 - "OPTIONS /api/regulation-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60972 - "OPTIONS /api/regulation-updates HTTP/1.1" 200 OK
+ERROR:__main__:Error fetching regulation updates: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 1300, in get_regulation_updates
+    organization = user_doc.get('organization', 'Default')
+                   ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:60971 - "GET /api/regulation-updates HTTP/1.1" 500 Internal Server Error
+ERROR:__main__:Error fetching regulation updates: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 1300, in get_regulation_updates
+    organization = user_doc.get('organization', 'Default')
+                   ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:60971 - "GET /api/regulation-updates HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:60977 - "OPTIONS /api/gap-analysis/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60971 - "GET /api/policies HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 419, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 576, in get_policies
+    user_role = user_doc.get('role', 'user')
+                ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:60979 - "OPTIONS /api/gap-analysis/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60979 - "GET /api/policies HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 419, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 576, in get_policies
+    user_role = user_doc.get('role', 'user')
+                ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+ERROR:__main__:Error fetching gap analysis history: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:60977 - "GET /api/gap-analysis/history HTTP/1.1" 500 Internal Server Error
+ERROR:__main__:Error fetching gap analysis history: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:60977 - "GET /api/gap-analysis/history HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:60972 - "GET /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60977 - "GET /api/regulations HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:60977 - "OPTIONS /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60972 - "OPTIONS /api/tasks/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60977 - "OPTIONS /api/department-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60982 - "OPTIONS /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60984 - "OPTIONS /api/tasks/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60972 - "OPTIONS /api/department-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60984 - "GET /api/tasks/stats HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 419, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 2520, in get_task_stats
+    organization=user_doc.get('organization')
+                 ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:60986 - "GET /api/tasks HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 419, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 2438, in get_tasks
+    user_role = user_doc.get('role', 'user')
+                ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:60982 - "GET /api/tasks/stats HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 419, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 2520, in get_task_stats
+    organization=user_doc.get('organization')
+                 ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:60972 - "GET /api/tasks HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 419, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 2438, in get_tasks
+    user_role = user_doc.get('role', 'user')
+                ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:60977 - "GET /api/department-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60977 - "GET /api/department-members HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 61082) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:60987 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61086 - "GET /api/policies HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 419, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 576, in get_policies
+    user_role = user_doc.get('role', 'user')
+                ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:60987 - "GET /api/notifications HTTP/1.1" 200 OK
+ERROR:__main__:Error fetching gap analysis history: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:61089 - "GET /api/gap-analysis/history HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:61090 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61093 - "GET /api/policies HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 419, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 576, in get_policies
+    user_role = user_doc.get('role', 'user')
+                ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+ERROR:__main__:Error fetching gap analysis history: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:61089 - "GET /api/gap-analysis/history HTTP/1.1" 500 Internal Server Error
+INFO:     connection closed
+INFO:     ('127.0.0.1', 61097) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjViN2E1ODMtNDBkYi00YjQ5LTg4NjMtZjdkY2YyYzQ4MjAxIiwiZW1haWwiOiJzaGl2aWNoYW45OEBnbWFpbC5jb20iLCJleHAiOjE3NzEwNzc2MzZ9.zYT25HtVgKnMSXJbK_fEsu7okRpv5hLqGNDI8w-hfCY" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:61100 - "GET /api/dashboard/stats HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 419, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 3934, in get_dashboard_stats
+    org = user_doc.get('organization', 'Default')
+          ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:61090 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61103 - "GET /api/dashboard/stats HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 419, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 3934, in get_dashboard_stats
+    org = user_doc.get('organization', 'Default')
+          ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:61090 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60987 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61101 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60987 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61101 - "OPTIONS /api/notifications/preferences HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61108 - "OPTIONS /api/notifications/preferences HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61090 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60987 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61090 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60987 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61101 - "GET /api/notifications/preferences HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61101 - "GET /api/notifications/preferences HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61101 - "OPTIONS /api/analytics/compliance-score HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60987 - "OPTIONS /api/analytics/sla-performance HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61090 - "OPTIONS /api/analytics/gaps-heatmap HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61108 - "OPTIONS /api/analytics/compliance-score HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61101 - "OPTIONS /api/analytics/sla-performance HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60987 - "OPTIONS /api/analytics/gaps-heatmap HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60987 - "GET /api/analytics/compliance-score HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 419, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 3222, in get_analytics_compliance_score
+    org = user_doc.get('organization', 'Default')
+          ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:61101 - "GET /api/analytics/gaps-heatmap HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 419, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 3309, in get_analytics_gaps_heatmap
+    org = user_doc.get('organization', 'Default')
+          ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:61108 - "GET /api/analytics/sla-performance HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 419, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 3261, in get_analytics_sla
+    org = user_doc.get('organization', 'Default')
+          ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:61090 - "GET /api/analytics/compliance-score HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 419, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 3222, in get_analytics_compliance_score
+    org = user_doc.get('organization', 'Default')
+          ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:61111 - "GET /api/analytics/gaps-heatmap HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 419, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 3309, in get_analytics_gaps_heatmap
+    org = user_doc.get('organization', 'Default')
+          ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:61112 - "GET /api/analytics/sla-performance HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 419, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 3261, in get_analytics_sla
+    org = user_doc.get('organization', 'Default')
+          ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:61115 - "OPTIONS /api/chat/threads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61116 - "OPTIONS /api/chat/threads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61116 - "GET /api/chat/threads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61116 - "GET /api/chat/threads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61116 - "OPTIONS /api/calendar/events HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61115 - "OPTIONS /api/calendar/events HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61115 - "GET /api/calendar/events HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 419, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 3093, in get_calendar_events
+    events = await db.calendar_events.find({"organization": user_doc.get('organization')}, {"_id": 0}).to_list(1000)
+                                                            ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:61116 - "GET /api/calendar/events HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 419, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 3093, in get_calendar_events
+    events = await db.calendar_events.find({"organization": user_doc.get('organization')}, {"_id": 0}).to_list(1000)
+                                                            ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:61130 - "OPTIONS /api/los-lms/uploads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61131 - "OPTIONS /api/los-lms/uploads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61131 - "GET /api/los-lms/uploads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61131 - "GET /api/los-lms/uploads HTTP/1.1" 200 OK
+ERROR:__main__:Error fetching regulation updates: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 1300, in get_regulation_updates
+    organization = user_doc.get('organization', 'Default')
+                   ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:61131 - "GET /api/regulation-updates HTTP/1.1" 500 Internal Server Error
+ERROR:__main__:Error fetching regulation updates: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 1300, in get_regulation_updates
+    organization = user_doc.get('organization', 'Default')
+                   ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:61131 - "GET /api/regulation-updates HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:61131 - "GET /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61130 - "GET /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61130 - "GET /api/policies HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 419, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 576, in get_policies
+    user_role = user_doc.get('role', 'user')
+                ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:61131 - "GET /api/policies HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 419, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 576, in get_policies
+    user_role = user_doc.get('role', 'user')
+                ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:61135 - "GET /api/dashboard/stats HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 419, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 3934, in get_dashboard_stats
+    org = user_doc.get('organization', 'Default')
+          ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:61137 - "GET /api/dashboard/stats HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 419, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 3934, in get_dashboard_stats
+    org = user_doc.get('organization', 'Default')
+          ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+INFO:     127.0.0.1:61141 - "OPTIONS /api/auth/register HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61141 - "POST /api/auth/register HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:61144 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61145 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61371 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61370 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61487 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61485 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61491 - "POST /api/auth/register HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:61496 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61496 - "POST /api/auth/login HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:61502 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61503 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61504 - "POST /api/auth/register HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 61505) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNTRlNjljMGUtYTljOC00ZmY1LWJkNTItMjUwYmFlODViMDlhIiwiZW1haWwiOiJyZXN0YXJ0X2ZlYjdfMTcyMEB0ZXN0LmNvbSIsImV4cCI6MTc3MTA4OTc4MH0._DaZLlAyLaQjuNLkzzWoK2RUvcL-A_FZaVfbz0b7DxY" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:61504 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61506 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61507 - "OPTIONS /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61508 - "OPTIONS /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61507 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61509 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61510 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61506 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61507 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61504 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61508 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61504 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61510 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61509 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61518 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61517 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61519 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61520 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:61522 - "GET /api/auth/me HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61700 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61699 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61810 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61808 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61815 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61823 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61822 - "GET /api/notifications HTTP/1.1" 200 OK

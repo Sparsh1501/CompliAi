@@ -1,0 +1,38 @@
+[    6840ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzc0MjBjNjEtNjRjYS00OGFjLWEyYWMtODFmNGVjNDBiNThjIiwiZW1haWwiOiJ0ZXN0MTk0QHRlc3QuY29tIiwiZXhwIjoxNzcxMTE4NzkzfQ.nCgUW8OhQmf4PbhurW8UilX1Y56K25MhTcwydqWkefQ." {file: "http://localhost:3000/static/js/bundle.js" line: 120630}] @ http://localhost:3000/static/js/bundle.js:120630
+[    6850ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[    6954ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[    6955ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   22157ms] [ERROR] In HTML, <div> cannot be a descendant of <p>.
+This will cause a hydration error.
+
+  ...
+    <FocusScope asChild={true} loop={true} trapped={true} onMountAutoFocus={undefined} ...>
+      <Primitive.div tabIndex={-1} asChild={true} ref={function} onKeyDown={function}>
+        <Primitive.div.Slot tabIndex={-1} onKeyDown={function} ref={function}>
+          <Primitive.div.SlotClone tabIndex={-1} onKeyDown={function} ref={function}>
+            <DismissableLayer role="dialog" id="radix-_r_17_" aria-describedby="radix-_r_19_" ...>
+              <Primitive.div role="dialog" id="radix-_r_17_" aria-describedby="radix-_r_19_" ...>
+                <div role="dialog" id="radix-_r_17_" aria-describedby="radix-_r_19_" aria-labelledby="radix-_r_18_" ...>
+                  <DialogHeader>
+                    <div className="flex flex-...">
+                      <div className="flex items...">
+                        <div className="flex-1">
+                          <_c7>
+                          <_c9 className="mt-1">
+                            <DialogDescription ref={null} className="text-sm te...">
+                              <Primitive.p id="radix-_r_19_" className="text-sm te..." ref={null}>
+>                               <p id="radix-_r_19_" className="text-sm text-muted-foreground mt-1" ref={null}>
+                                  <div className="flex flex-...">
+                                    <Badge className="bg-[#80808...">
+>                                     <div
+>                                       className="inline-flex items-center rounded-lg px-2.5 py-0.5 text-xs font-semi..."
+>                                     >
+                                    ...
+                        ...
+                  ...
+                  ...
+ @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   22157ms] [ERROR] <p> cannot contain a nested <div>.
+See this log for the ancestor stack trace. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0

@@ -1,0 +1,6 @@
+[   40023ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMmRjN2ZjODEtMzY1YS00YjIzLWFlZTktODk3ZDEyYzA5MWE5IiwiZW1haWwiOiJmZWF0dXJlNjZ0ZXN0QHRlc3QuY29tIiwiZXhwIjoxNzcxMDg1MTI2fQ.zX6HcSQN20s8s3f9pWPTcVSyGuQnpPI_lK15td_VYDo." {file: "http://localhost:3000/static/js/bundle.js" line: 116291}] @ http://localhost:3000/static/js/bundle.js:116291
+[   40025ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   40107ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   40107ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0

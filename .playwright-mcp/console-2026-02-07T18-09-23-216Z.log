@@ -1,0 +1,9 @@
+[     341ms] [ERROR] Error 
+
+The above error occurred in the <SelectItem> component.
+
+React will try to recreate this component tree from scratch using the error boundary you provided, ErrorBoundary.
+ @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[     342ms] [ERROR] ErrorBoundary caught an error: Error JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[     370ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMGI3OTA1OWUtZWVlYi00NGIyLWIxZTMtNDYyOWMzNmM2NmVkIiwiZW1haWwiOiJ0ZXN0dXNlckBleGFtcGxlLmNvbSIsImV4cCI6MTc3MTA5MjQxMH0.ngDpiZP49ej3TccX4hmIlSkvex-fiCXmKSqWXHb2YjI." {file: "http://localhost:3000/static/js/bundle.js" line: 119353}] @ http://localhost:3000/static/js/bundle.js:119353
+[     373ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0

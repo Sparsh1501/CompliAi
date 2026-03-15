@@ -1,0 +1,120 @@
+[    8608ms] [ERROR] [JavaScript Error: "Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at http://localhost:8000/api/auth/login. (Reason: CORS request did not succeed). Status code: (null)."] @ :0
+[    8608ms] [ERROR] [JavaScript Error: "Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at http://localhost:8000/api/auth/login. (Reason: CORS request did not succeed). Status code: (null)."] @ :0
+[   23874ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzExMTc0NjR9.D0VGWyYkxEhwMyr1Whg_XutINM94FRRsrcYq5zx0cjs." {file: "http://localhost:3000/static/js/bundle.js" line: 120592}] @ http://localhost:3000/static/js/bundle.js:120592
+[   23882ms] [ERROR] [JavaScript Error: "The connection to ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzExMTc0NjR9.D0VGWyYkxEhwMyr1Whg_XutINM94FRRsrcYq5zx0cjs was interrupted while the page was loading." {file: "http://localhost:3000/static/js/bundle.js" line: 120592}] @ http://localhost:3000/static/js/bundle.js:120592
+[   23883ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   24049ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   24049ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   28933ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzExMTc0NjR9.D0VGWyYkxEhwMyr1Whg_XutINM94FRRsrcYq5zx0cjs." {file: "http://localhost:3000/static/js/bundle.js" line: 120592}] @ http://localhost:3000/static/js/bundle.js:120592
+[   28934ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   29864ms] [ERROR] [JavaScript Error: "Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at http://localhost:8000/api/audit/sessions. (Reason: CORS request did not succeed). Status code: (null)."] @ :0
+[   29865ms] [ERROR] [JavaScript Error: "Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at http://localhost:8000/api/audit/sessions. (Reason: CORS request did not succeed). Status code: (null)."] @ :0
+[   29865ms] [ERROR] [JavaScript Error: "Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at http://localhost:8000/api/audit/sessions. (Reason: CORS request did not succeed). Status code: (null)."] @ :0
+[   29893ms] [ERROR] [JavaScript Error: "Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at http://localhost:8000/api/audit/sessions. (Reason: CORS request did not succeed). Status code: (null)."] @ :0
+[   31756ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzExMTc0NjR9.D0VGWyYkxEhwMyr1Whg_XutINM94FRRsrcYq5zx0cjs." {file: "http://localhost:3000/static/js/bundle.js" line: 120592}] @ http://localhost:3000/static/js/bundle.js:120592
+[   31756ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   33943ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzExMTc0NjR9.D0VGWyYkxEhwMyr1Whg_XutINM94FRRsrcYq5zx0cjs." {file: "http://localhost:3000/static/js/bundle.js" line: 120592}] @ http://localhost:3000/static/js/bundle.js:120592
+[   33944ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   36778ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzExMTc0NjR9.D0VGWyYkxEhwMyr1Whg_XutINM94FRRsrcYq5zx0cjs." {file: "http://localhost:3000/static/js/bundle.js" line: 120592}] @ http://localhost:3000/static/js/bundle.js:120592
+[   36779ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   38954ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzExMTc0NjR9.D0VGWyYkxEhwMyr1Whg_XutINM94FRRsrcYq5zx0cjs." {file: "http://localhost:3000/static/js/bundle.js" line: 120592}] @ http://localhost:3000/static/js/bundle.js:120592
+[   38954ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   41795ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzExMTc0NjR9.D0VGWyYkxEhwMyr1Whg_XutINM94FRRsrcYq5zx0cjs." {file: "http://localhost:3000/static/js/bundle.js" line: 120592}] @ http://localhost:3000/static/js/bundle.js:120592
+[   41796ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   69812ms] NotFoundError: Node.removeChild: The node to be removed is not a child of this node
+    at hide (http://localhost:3000/static/js/bundle.js:111833:19)
+    at ./node_modules/webpack-dev-server/client/overlay/fsm.js/createMachine/send/< (http://localhost:3000/static/js/bundle.js:112040:50)
+    at send (http://localhost:3000/static/js/bundle.js:112038:36)
+    at invalid (http://localhost:3000/static/js/bundle.js:110653:15)
+    at ./node_modules/webpack-dev-server/client/socket.js/initSocket/< (http://localhost:3000/static/js/bundle.js:112402:29)
+    at ./node_modules/webpack-dev-server/client/clients/WebSocketClient.js/onMessage/this.client.onmessage (http://localhost:3000/static/js/bundle.js:110418:10)
+    at EventHandlerNonNull*onMessage (http://localhost:3000/static/js/bundle.js:110417:7)
+    at initSocket (http://localhost:3000/static/js/bundle.js:112395:10)
+    at ./node_modules/webpack-dev-server/client/index.js?protocol=ws%3A&hostname=127.0.0.1&port=3000&pathname=%2Fws&logging=none&overlay=%7B%22errors%22%3Atrue%2C%22warnings%22%3Afalse%7D&reconnect=10&hot=true&live-reload=true (http://localhost:3000/static/js/bundle.js:110810:55)
+    at options.factory (http://localhost:3000/static/js/bundle.js:155878:30)
+    at __webpack_require__ (http://localhost:3000/static/js/bundle.js:155269:32)
+    at  (http://localhost:3000/static/js/bundle.js:156416:30)
+    at  (http://localhost:3000/static/js/bundle.js:156420:12)
+[   71066ms] NotFoundError: Node.removeChild: The node to be removed is not a child of this node
+    at hide (http://localhost:3000/static/js/bundle.js:111833:19)
+    at ./node_modules/webpack-dev-server/client/overlay/fsm.js/createMachine/send/< (http://localhost:3000/static/js/bundle.js:112040:50)
+    at send (http://localhost:3000/static/js/bundle.js:112038:36)
+    at ok (http://localhost:3000/static/js/bundle.js:110713:15)
+    at ./node_modules/webpack-dev-server/client/socket.js/initSocket/< (http://localhost:3000/static/js/bundle.js:112402:29)
+    at ./node_modules/webpack-dev-server/client/clients/WebSocketClient.js/onMessage/this.client.onmessage (http://localhost:3000/static/js/bundle.js:110418:10)
+    at EventHandlerNonNull*onMessage (http://localhost:3000/static/js/bundle.js:110417:7)
+    at initSocket (http://localhost:3000/static/js/bundle.js:112395:10)
+    at ./node_modules/webpack-dev-server/client/index.js?protocol=ws%3A&hostname=127.0.0.1&port=3000&pathname=%2Fws&logging=none&overlay=%7B%22errors%22%3Atrue%2C%22warnings%22%3Afalse%7D&reconnect=10&hot=true&live-reload=true (http://localhost:3000/static/js/bundle.js:110810:55)
+    at options.factory (http://localhost:3000/static/js/bundle.js:155878:30)
+    at __webpack_require__ (http://localhost:3000/static/js/bundle.js:155269:32)
+    at  (http://localhost:3000/static/js/bundle.js:156416:30)
+    at  (http://localhost:3000/static/js/bundle.js:156420:12)
+[   75386ms] NotFoundError: Node.removeChild: The node to be removed is not a child of this node
+    at hide (http://localhost:3000/static/js/bundle.js:111833:19)
+    at ./node_modules/webpack-dev-server/client/overlay/fsm.js/createMachine/send/< (http://localhost:3000/static/js/bundle.js:112040:50)
+    at send (http://localhost:3000/static/js/bundle.js:112038:36)
+    at invalid (http://localhost:3000/static/js/bundle.js:110653:15)
+    at ./node_modules/webpack-dev-server/client/socket.js/initSocket/< (http://localhost:3000/static/js/bundle.js:112402:29)
+    at ./node_modules/webpack-dev-server/client/clients/WebSocketClient.js/onMessage/this.client.onmessage (http://localhost:3000/static/js/bundle.js:110418:10)
+    at EventHandlerNonNull*onMessage (http://localhost:3000/static/js/bundle.js:110417:7)
+    at initSocket (http://localhost:3000/static/js/bundle.js:112395:10)
+    at ./node_modules/webpack-dev-server/client/index.js?protocol=ws%3A&hostname=127.0.0.1&port=3000&pathname=%2Fws&logging=none&overlay=%7B%22errors%22%3Atrue%2C%22warnings%22%3Afalse%7D&reconnect=10&hot=true&live-reload=true (http://localhost:3000/static/js/bundle.js:110810:55)
+    at options.factory (http://localhost:3000/static/js/bundle.js:155878:30)
+    at __webpack_require__ (http://localhost:3000/static/js/bundle.js:155269:32)
+    at  (http://localhost:3000/static/js/bundle.js:156416:30)
+    at  (http://localhost:3000/static/js/bundle.js:156420:12)
+[   76216ms] NotFoundError: Node.removeChild: The node to be removed is not a child of this node
+    at hide (http://localhost:3000/static/js/bundle.js:111833:19)
+    at ./node_modules/webpack-dev-server/client/overlay/fsm.js/createMachine/send/< (http://localhost:3000/static/js/bundle.js:112040:50)
+    at send (http://localhost:3000/static/js/bundle.js:112038:36)
+    at ok (http://localhost:3000/static/js/bundle.js:110713:15)
+    at ./node_modules/webpack-dev-server/client/socket.js/initSocket/< (http://localhost:3000/static/js/bundle.js:112402:29)
+    at ./node_modules/webpack-dev-server/client/clients/WebSocketClient.js/onMessage/this.client.onmessage (http://localhost:3000/static/js/bundle.js:110418:10)
+    at EventHandlerNonNull*onMessage (http://localhost:3000/static/js/bundle.js:110417:7)
+    at initSocket (http://localhost:3000/static/js/bundle.js:112395:10)
+    at ./node_modules/webpack-dev-server/client/index.js?protocol=ws%3A&hostname=127.0.0.1&port=3000&pathname=%2Fws&logging=none&overlay=%7B%22errors%22%3Atrue%2C%22warnings%22%3Afalse%7D&reconnect=10&hot=true&live-reload=true (http://localhost:3000/static/js/bundle.js:110810:55)
+    at options.factory (http://localhost:3000/static/js/bundle.js:155878:30)
+    at __webpack_require__ (http://localhost:3000/static/js/bundle.js:155269:32)
+    at  (http://localhost:3000/static/js/bundle.js:156416:30)
+    at  (http://localhost:3000/static/js/bundle.js:156420:12)
+[   80256ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzExMTc0NjR9.D0VGWyYkxEhwMyr1Whg_XutINM94FRRsrcYq5zx0cjs." {file: "http://localhost:3000/static/js/bundle.js" line: 120592}] @ http://localhost:3000/static/js/bundle.js:120592
+[   80257ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   84049ms] [ERROR] Failed to fetch notifications: Error @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   84051ms] [ERROR] [JavaScript Error: "Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at http://localhost:8000/api/notifications. (Reason: CORS request did not succeed). Status code: (null)."] @ :0
+[   84051ms] [ERROR] [JavaScript Error: "Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at http://localhost:8000/api/notifications/unread-count. (Reason: CORS request did not succeed). Status code: (null)."] @ :0
+[   84646ms] NotFoundError: Node.removeChild: The node to be removed is not a child of this node
+    at hide (http://localhost:3000/static/js/bundle.js:111833:19)
+    at ./node_modules/webpack-dev-server/client/overlay/fsm.js/createMachine/send/< (http://localhost:3000/static/js/bundle.js:112040:50)
+    at send (http://localhost:3000/static/js/bundle.js:112038:36)
+    at invalid (http://localhost:3000/static/js/bundle.js:110653:15)
+    at ./node_modules/webpack-dev-server/client/socket.js/initSocket/< (http://localhost:3000/static/js/bundle.js:112402:29)
+    at ./node_modules/webpack-dev-server/client/clients/WebSocketClient.js/onMessage/this.client.onmessage (http://localhost:3000/static/js/bundle.js:110418:10)
+    at EventHandlerNonNull*onMessage (http://localhost:3000/static/js/bundle.js:110417:7)
+    at initSocket (http://localhost:3000/static/js/bundle.js:112395:10)
+    at ./node_modules/webpack-dev-server/client/index.js?protocol=ws%3A&hostname=127.0.0.1&port=3000&pathname=%2Fws&logging=none&overlay=%7B%22errors%22%3Atrue%2C%22warnings%22%3Afalse%7D&reconnect=10&hot=true&live-reload=true (http://localhost:3000/static/js/bundle.js:110810:55)
+    at options.factory (http://localhost:3000/static/js/bundle.js:155878:30)
+    at __webpack_require__ (http://localhost:3000/static/js/bundle.js:155269:32)
+    at  (http://localhost:3000/static/js/bundle.js:156416:30)
+    at  (http://localhost:3000/static/js/bundle.js:156420:12)
+[   85273ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzExMTc0NjR9.D0VGWyYkxEhwMyr1Whg_XutINM94FRRsrcYq5zx0cjs." {file: "http://localhost:3000/static/js/bundle.js" line: 120592}] @ http://localhost:3000/static/js/bundle.js:120592
+[   85273ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   85474ms] NotFoundError: Node.removeChild: The node to be removed is not a child of this node
+    at hide (http://localhost:3000/static/js/bundle.js:111833:19)
+    at ./node_modules/webpack-dev-server/client/overlay/fsm.js/createMachine/send/< (http://localhost:3000/static/js/bundle.js:112040:50)
+    at send (http://localhost:3000/static/js/bundle.js:112038:36)
+    at ok (http://localhost:3000/static/js/bundle.js:110713:15)
+    at ./node_modules/webpack-dev-server/client/socket.js/initSocket/< (http://localhost:3000/static/js/bundle.js:112402:29)
+    at ./node_modules/webpack-dev-server/client/clients/WebSocketClient.js/onMessage/this.client.onmessage (http://localhost:3000/static/js/bundle.js:110418:10)
+    at EventHandlerNonNull*onMessage (http://localhost:3000/static/js/bundle.js:110417:7)
+    at initSocket (http://localhost:3000/static/js/bundle.js:112395:10)
+    at ./node_modules/webpack-dev-server/client/index.js?protocol=ws%3A&hostname=127.0.0.1&port=3000&pathname=%2Fws&logging=none&overlay=%7B%22errors%22%3Atrue%2C%22warnings%22%3Afalse%7D&reconnect=10&hot=true&live-reload=true (http://localhost:3000/static/js/bundle.js:110810:55)
+    at options.factory (http://localhost:3000/static/js/bundle.js:155878:30)
+    at __webpack_require__ (http://localhost:3000/static/js/bundle.js:155269:32)
+    at  (http://localhost:3000/static/js/bundle.js:156416:30)
+    at  (http://localhost:3000/static/js/bundle.js:156420:12)
+[   90289ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzExMTc0NjR9.D0VGWyYkxEhwMyr1Whg_XutINM94FRRsrcYq5zx0cjs." {file: "http://localhost:3000/static/js/bundle.js" line: 120592}] @ http://localhost:3000/static/js/bundle.js:120592
+[   90290ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[   95337ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzExMTc0NjR9.D0VGWyYkxEhwMyr1Whg_XutINM94FRRsrcYq5zx0cjs." {file: "http://localhost:3000/static/js/bundle.js" line: 120592}] @ http://localhost:3000/static/js/bundle.js:120592
+[   95343ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0

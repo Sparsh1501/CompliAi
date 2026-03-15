@@ -1,0 +1,41 @@
+RBI MASTER DIRECTION - KNOW YOUR CUSTOMER (KYC) NORMS
+RESERVE BANK OF INDIA
+Circular No: RBI/2025-26/001
+Dated: February 7, 2025
+
+1. SCOPE AND APPLICABILITY
+1.1 These directions shall apply to all Non-Banking Financial Companies (NBFCs) registered with RBI.
+1.2 All NBFCs must ensure strict compliance with KYC requirements at the time of customer onboarding.
+
+2. CUSTOMER IDENTIFICATION REQUIREMENTS
+2.1 NBFCs must obtain and verify the following documents:
+    a) Officially Valid Document (OVD) - Aadhaar, PAN, Passport, Driving License, or Voter ID
+    b) Proof of address within last 3 months
+    c) Recent photograph
+2.2 Video-based Customer Identification Process (V-CIP) is permitted as per RBI guidelines.
+2.3 Face authentication or OTP-based e-KYC through UIDAI is acceptable.
+
+3. CUSTOMER DUE DILIGENCE (CDD)
+3.1 NBFCs must conduct Enhanced Due Diligence (EDD) for:
+    a) High Net Worth Individuals with transactions exceeding ₹1 crore
+    b) Politically Exposed Persons (PEPs)
+    c) Customers from high-risk countries as per FATF list
+3.2 Simplified Due Diligence (SDD) may be applied for low-risk customers with account balance below ₹50,000.
+
+4. PERIODIC UPDATION
+4.1 KYC information must be updated every 2 years for medium-risk customers.
+4.2 For high-risk customers, KYC must be updated annually.
+4.3 NBFCs must send reminders to customers 30 days before KYC expiry.
+
+5. RECORD KEEPING
+5.1 All KYC documents must be retained for 5 years after account closure.
+5.2 Transaction records must be maintained for 5 years.
+5.3 Records must be easily retrievable during RBI inspection or FIU-IND audit.
+
+6. COMPLIANCE AND PENALTIES
+6.1 Non-compliance with KYC norms may attract monetary penalties up to ₹1 lakh per day.
+6.2 Serious violations may lead to cancellation of NBFC registration.
+6.3 All KYC compliance reports must be submitted to RBI on a quarterly basis.
+
+This circular comes into effect from April 1, 2025.
+All NBFCs are required to ensure full compliance within 90 days from the date of this circular.

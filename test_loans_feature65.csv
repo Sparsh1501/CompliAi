@@ -1,0 +1,6 @@
+borrower_name,loan_amount,interest_rate,tenure_months,disbursement_date,processing_fee,insurance,emi_amount,annual_income,credit_score,kyc_status,cibil_consent,sanction_letter,loan_agreement
+Rajesh Kumar,500000,12.5,36,2024-01-15,5000,2500,16650,600000,750,Verified,Yes,Uploaded,Signed
+Priya Sharma,750000,11.8,48,2024-01-20,7500,3750,19580,900000,720,Verified,Yes,Uploaded,Signed
+Amit Patel,1000000,13.2,60,2024-02-01,10000,5000,22840,1200000,680,Verified,Yes,Uploaded,Pending
+Sunita Reddy,300000,14.0,24,2024-02-10,3000,1500,14250,450000,700,Pending,No,Missing,Missing
+Vikram Singh,1500000,10.9,72,2024-02-15,15000,7500,24180,1800000,780,Verified,Yes,Uploaded,Signed

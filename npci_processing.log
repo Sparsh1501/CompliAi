@@ -1,0 +1,10 @@
+01:19:18 [INFO] Connected to Qdrant at http://localhost:6333
+01:19:18 [INFO] NPCI circular clauses indexes created
+01:19:18 [INFO] === NPCI Circular Processing ===
+01:19:18 [INFO] Total circulars: 1333
+01:19:18 [INFO] Already processed: 0
+01:19:18 [INFO] To process: 1333
+01:19:18 [INFO] ================================
+01:19:18 [INFO] [1/1333] Processing: [upi] UPI | OC No. 230 | FY 2025-26 | Implementation of Switching fee Rebate (npci_id=3877)
+01:19:18 [WARNING] No text extracted from PDF (may be scanned): /tmp/uploads/npci/npci_circular_3877.pdf
+01:19:18 [INFO] Attempting Claude Vision fallback for: /tmp/uploads/npci/npci_circular_3877.pdf

@@ -1,0 +1,7 @@
+[    7484ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjM1YWY4MDYtZWRjMi00YmRjLWFmOTYtZjk4ODQwMjY0ZjQyIiwiZW1haWwiOiJuZXR0ZXN0QHRlc3QuY29tIiwiZXhwIjoxNzcxMDY4MjI5fQ.s-bWP7B6TKKOsRbZ6ELxHe_MNYg1lewBRKZeF0MxKaA." {file: "http://localhost:3000/static/js/bundle.js" line: 114624}] @ http://localhost:3000/static/js/bundle.js:114624
+[    7501ms] [ERROR] [JavaScript Error: "The connection to ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjM1YWY4MDYtZWRjMi00YmRjLWFmOTYtZjk4ODQwMjY0ZjQyIiwiZW1haWwiOiJuZXR0ZXN0QHRlc3QuY29tIiwiZXhwIjoxNzcxMDY4MjI5fQ.s-bWP7B6TKKOsRbZ6ELxHe_MNYg1lewBRKZeF0MxKaA was interrupted while the page was loading." {file: "http://localhost:3000/static/js/bundle.js" line: 114624}] @ http://localhost:3000/static/js/bundle.js:114624
+[    7501ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[    7596ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0
+[    7596ms] [WARNING] The width(200) and height(200) are both fixed numbers,
+       maybe you don't need to use a ResponsiveContainer. @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0

@@ -1,0 +1,10 @@
+[POST] https://us.i.posthog.com/flags/?v=2&config=true&ip=0&_=1770482753342&ver=1.342.1&compression=base64 => [200] 
+[POST] http://localhost:8000/api/auth/register => [200] OK
+[GET] http://localhost:8000/api/upload-jobs?include_completed=true&limit=50 => [200] OK
+[GET] http://localhost:8000/api/upload-jobs?include_completed=true&limit=50 => [200] OK
+[GET] http://localhost:8000/api/notifications => [200] OK
+[GET] http://localhost:8000/api/notifications/unread-count => [200] OK
+[GET] http://localhost:8000/api/notifications => [200] OK
+[GET] http://localhost:8000/api/notifications/unread-count => [200] OK
+[GET] http://localhost:8000/api/dashboard/stats => [200] OK
+[GET] http://localhost:8000/api/dashboard/stats => [200] OK

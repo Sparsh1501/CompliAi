@@ -1,0 +1,1064 @@
+INFO:     Will watch for changes in these directories: ['/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [99937] using WatchFiles
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/services/multi_llm_service_new.py:22: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [99939]
+INFO:     Waiting for application startup.
+================================================================================
+LIFESPAN STARTUP BEGINNING
+================================================================================
+Connecting to MongoDB at mongodb://localhost:27017, database: compli-ai
+INFO:     Application startup complete.
+INFO:     127.0.0.1:50641 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 50627) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzExMjA1ODB9.4yx647NL57Mc3znZFnk9HfIDNTy9YOKmAV0NQW5QDdU" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:50645 - "OPTIONS /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50646 - "OPTIONS /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50646 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50645 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 50653) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzExMjA1ODB9.4yx647NL57Mc3znZFnk9HfIDNTy9YOKmAV0NQW5QDdU" [accepted]
+INFO:     127.0.0.1:50645 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     connection open
+INFO:     127.0.0.1:50658 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50659 - "OPTIONS /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50655 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50646 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50645 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50655 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50646 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50658 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50658 - "GET /api/dashboard/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50658 - "OPTIONS /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50646 - "OPTIONS /api/regulations/crawl-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50655 - "OPTIONS /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50645 - "OPTIONS /api/regulations/crawl-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50646 - "GET /api/regulations/crawl-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50646 - "GET /api/regulations/crawl-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50658 - "GET /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50646 - "GET /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50646 - "OPTIONS /api/policies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50655 - "OPTIONS /api/gap-analysis/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50645 - "OPTIONS /api/policies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50673 - "OPTIONS /api/gap-analysis/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50646 - "GET /api/policies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50658 - "GET /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50655 - "GET /api/gap-analysis/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50673 - "GET /api/policies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50646 - "GET /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50658 - "GET /api/gap-analysis/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50679 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50680 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50689 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50690 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50689 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50690 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50701 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50700 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50711 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50717 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50716 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50717 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50716 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50734 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50733 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50790 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50789 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50789 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50790 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50859 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50858 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50874 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50873 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50887 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50886 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50907 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50905 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50956 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50955 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50979 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50978 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51044 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51044 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51043 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51043 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51057 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51057 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51056 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51056 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51072 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51072 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51071 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51071 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51074 - "GET /api/health HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'server.py'. Reloading...
+INFO:     Shutting down
+INFO:     connection closed
+INFO:     connection closed
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [99939]
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/services/multi_llm_service_new.py:22: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [7766]
+INFO:     Waiting for application startup.
+================================================================================
+LIFESPAN STARTUP BEGINNING
+================================================================================
+Connecting to MongoDB at mongodb://localhost:27017, database: compli-ai
+INFO:     Application startup complete.
+INFO:     ('127.0.0.1', 51085) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzExMjA1ODB9.4yx647NL57Mc3znZFnk9HfIDNTy9YOKmAV0NQW5QDdU" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 51093) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzExMjA1ODB9.4yx647NL57Mc3znZFnk9HfIDNTy9YOKmAV0NQW5QDdU" [accepted]
+INFO:     connection open
+WARNING:  WatchFiles detected changes in 'server.py'. Reloading...
+INFO:     Shutting down
+INFO:     connection closed
+INFO:     connection closed
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [7766]
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/services/multi_llm_service_new.py:22: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [8101]
+INFO:     Waiting for application startup.
+================================================================================
+LIFESPAN STARTUP BEGINNING
+================================================================================
+Connecting to MongoDB at mongodb://localhost:27017, database: compli-ai
+INFO:     Application startup complete.
+INFO:     ('127.0.0.1', 51099) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzExMjA1ODB9.4yx647NL57Mc3znZFnk9HfIDNTy9YOKmAV0NQW5QDdU" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 51107) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzExMjA1ODB9.4yx647NL57Mc3znZFnk9HfIDNTy9YOKmAV0NQW5QDdU" [accepted]
+INFO:     connection open
+WARNING:  WatchFiles detected changes in 'services/llm_provider.py'. Reloading...
+INFO:     Shutting down
+INFO:     connection closed
+INFO:     connection closed
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [8101]
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/services/multi_llm_service_new.py:22: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [8225]
+INFO:     Waiting for application startup.
+================================================================================
+LIFESPAN STARTUP BEGINNING
+================================================================================
+Connecting to MongoDB at mongodb://localhost:27017, database: compli-ai
+INFO:     Application startup complete.
+INFO:     127.0.0.1:51115 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51115 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51116 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51116 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 51125) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzExMjA1ODB9.4yx647NL57Mc3znZFnk9HfIDNTy9YOKmAV0NQW5QDdU" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 51127) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzExMjA1ODB9.4yx647NL57Mc3znZFnk9HfIDNTy9YOKmAV0NQW5QDdU" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     127.0.0.1:51116 - "OPTIONS /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51115 - "OPTIONS /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 51130) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzExMjA1ODB9.4yx647NL57Mc3znZFnk9HfIDNTy9YOKmAV0NQW5QDdU" [accepted]
+INFO:     127.0.0.1:51116 - "OPTIONS /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51133 - "OPTIONS /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     connection open
+INFO:     127.0.0.1:51115 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51134 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51115 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51134 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51133 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51133 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51134 - "GET /api/policies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51115 - "GET /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51116 - "GET /api/gap-analysis/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51134 - "GET /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51133 - "GET /api/policies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51115 - "GET /api/gap-analysis/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51144 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51136 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51136 - "OPTIONS /api/policies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51144 - "OPTIONS /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51136 - "OPTIONS /api/gap-analysis/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51146 - "GET /api/policies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51144 - "GET /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51136 - "GET /api/gap-analysis/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51148 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51152 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51156 - "OPTIONS /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51156 - "GET /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51152 - "GET /api/policies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51148 - "GET /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51155 - "GET /api/gap-analysis/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51168 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51167 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51168 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51167 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51182 - "GET /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51179 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51181 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51204 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51203 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51204 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51203 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51211 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51216 - "POST /api/auth/login HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:51219 - "POST /api/auth/register HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:51225 - "GET /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51222 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51224 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51230 - "POST /api/auth/login HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:51230 - "POST /api/auth/register HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 419, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 440, in register
+    role=user_data.role
+         ^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'UserCreate' object has no attribute 'role'
+INFO:     127.0.0.1:51232 - "POST /api/auth/login HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:51249 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51250 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51254 - "POST /api/auth/register HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 419, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 440, in register
+    role=user_data.role
+         ^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'UserCreate' object has no attribute 'role'
+INFO:     127.0.0.1:51256 - "POST /api/auth/login HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:51249 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51250 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51261 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51261 - "POST /api/auth/register HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 419, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/server.py", line 440, in register
+    role=user_data.role
+         ^^^^^^^^^^^^^^
+  File "/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/venv/lib/python3.12/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'UserCreate' object has no attribute 'role'
+INFO:     127.0.0.1:51264 - "GET /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51266 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51266 - "GET /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51266 - "POST /api/llm/mode HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51266 - "GET /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51266 - "POST /api/llm/mode HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51266 - "GET /api/llm/cost-summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51275 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51283 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51282 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51283 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51282 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51292 - "GET /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51307 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51307 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51306 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51306 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51313 - "GET /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51374 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51373 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51373 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51374 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'services/enhanced_gap_analysis_service.py'. Reloading...
+INFO:     Shutting down
+INFO:     connection closed
+INFO:     connection closed
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [8225]
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/services/multi_llm_service_new.py:22: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+WARNING:  WatchFiles detected changes in 'services/enhanced_gap_analysis_service.py'. Reloading...
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/services/multi_llm_service_new.py:22: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [13215]
+INFO:     Waiting for application startup.
+================================================================================
+LIFESPAN STARTUP BEGINNING
+================================================================================
+Connecting to MongoDB at mongodb://localhost:27017, database: compli-ai
+INFO:     Application startup complete.
+INFO:     ('127.0.0.1', 51379) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzExMjA1ODB9.4yx647NL57Mc3znZFnk9HfIDNTy9YOKmAV0NQW5QDdU" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 51388) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzExMjA1ODB9.4yx647NL57Mc3znZFnk9HfIDNTy9YOKmAV0NQW5QDdU" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:51402 - "GET /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51398 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51398 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51401 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51401 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'scripts/test_local_llm.py'. Reloading...
+INFO:     Shutting down
+INFO:     connection closed
+INFO:     connection closed
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [13215]
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/services/multi_llm_service_new.py:22: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [14234]
+INFO:     Waiting for application startup.
+================================================================================
+LIFESPAN STARTUP BEGINNING
+================================================================================
+Connecting to MongoDB at mongodb://localhost:27017, database: compli-ai
+INFO:     Application startup complete.
+INFO:     ('127.0.0.1', 51421) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzExMjA1ODB9.4yx647NL57Mc3znZFnk9HfIDNTy9YOKmAV0NQW5QDdU" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 51429) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzExMjA1ODB9.4yx647NL57Mc3znZFnk9HfIDNTy9YOKmAV0NQW5QDdU" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:51441 - "GET /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51439 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51439 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51440 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51440 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51506 - "GET /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51502 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51502 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51504 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51504 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51531 - "GET /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51527 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51530 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51527 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51530 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51546 - "OPTIONS /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51548 - "OPTIONS /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51550 - "OPTIONS /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51552 - "OPTIONS /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51553 - "OPTIONS /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51552 - "GET /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51553 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51546 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51553 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51546 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51571 - "GET /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51568 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51569 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51568 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51569 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     connection closed
+INFO:     127.0.0.1:51631 - "GET /api/health HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'server.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [14234]
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/services/multi_llm_service_new.py:22: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [20328]
+INFO:     Waiting for application startup.
+================================================================================
+LIFESPAN STARTUP BEGINNING
+================================================================================
+Connecting to MongoDB at mongodb://localhost:27017, database: compli-ai
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'server.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [20328]
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/services/multi_llm_service_new.py:22: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [20462]
+INFO:     Waiting for application startup.
+================================================================================
+LIFESPAN STARTUP BEGINNING
+================================================================================
+Connecting to MongoDB at mongodb://localhost:27017, database: compli-ai
+INFO:     Application startup complete.
+INFO:     ('127.0.0.1', 51764) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzExMjA1ODB9.4yx647NL57Mc3znZFnk9HfIDNTy9YOKmAV0NQW5QDdU" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:51768 - "OPTIONS /api/policies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51769 - "OPTIONS /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51772 - "OPTIONS /api/gap-analysis/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51773 - "OPTIONS /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51768 - "OPTIONS /api/policies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51769 - "OPTIONS /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51772 - "OPTIONS /api/gap-analysis/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51762 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51768 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51761 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51773 - "GET /api/policies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51761 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51762 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51772 - "GET /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51769 - "GET /api/gap-analysis/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51768 - "GET /api/policies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51762 - "GET /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51761 - "GET /api/gap-analysis/history HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     ('127.0.0.1', 51795) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzExMjA1ODB9.4yx647NL57Mc3znZFnk9HfIDNTy9YOKmAV0NQW5QDdU" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:51762 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51761 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51761 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51762 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51769 - "GET /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51761 - "GET /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51769 - "GET /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51762 - "GET /api/policies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51772 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51773 - "GET /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51768 - "GET /api/gap-analysis/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51761 - "GET /api/policies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51773 - "GET /api/gap-analysis/history HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     ('127.0.0.1', 51797) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzExMjA1ODB9.4yx647NL57Mc3znZFnk9HfIDNTy9YOKmAV0NQW5QDdU" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:51761 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51773 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51761 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51773 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51762 - "GET /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51762 - "GET /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51772 - "GET /api/upload-jobs?include_completed=true&limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51773 - "GET /api/policies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51761 - "GET /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51772 - "GET /api/policies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51768 - "GET /api/gap-analysis/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51773 - "GET /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51772 - "GET /api/gap-analysis/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51773 - "OPTIONS /api/regulations/crawl-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51768 - "OPTIONS /api/regulations/crawl-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51768 - "GET /api/regulations/crawl-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51768 - "GET /api/regulations/crawl-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51772 - "GET /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51768 - "GET /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51768 - "OPTIONS /api/notifications/preferences HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51772 - "GET /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51773 - "OPTIONS /api/llm/cost-summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51761 - "OPTIONS /api/notifications/preferences HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51762 - "OPTIONS /api/llm/cost-summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51773 - "GET /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51761 - "GET /api/llm/cost-summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51761 - "GET /api/llm/cost-summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51768 - "GET /api/notifications/preferences HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51768 - "GET /api/notifications/preferences HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51804 - "GET /api/regulations/crawl-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51804 - "GET /api/regulations/crawl-status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51803 - "GET /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51804 - "GET /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51804 - "OPTIONS /api/regulation-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51803 - "OPTIONS /api/regulation-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51804 - "GET /api/regulation-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51804 - "GET /api/regulation-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51804 - "GET /api/policies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51803 - "GET /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51810 - "GET /api/gap-analysis/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51812 - "GET /api/policies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51804 - "GET /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51803 - "GET /api/gap-analysis/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51803 - "OPTIONS /api/gap-analysis/b6e6400c-0ed3-485e-a733-a986b0d019bc HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51803 - "GET /api/gap-analysis/b6e6400c-0ed3-485e-a733-a986b0d019bc HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51803 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51815 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51828 - "GET /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51826 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51827 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51835 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51836 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51882 - "GET /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51881 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51880 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51892 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51891 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51906 - "GET /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51904 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51905 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51917 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51916 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51929 - "OPTIONS /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51929 - "GET /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51953 - "OPTIONS /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51954 - "OPTIONS /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51954 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51953 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51970 - "GET /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51982 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51982 - "GET /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51982 - "GET /api/settings/llm-mode HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51982 - "POST /api/settings/llm-mode HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51982 - "POST /api/settings/llm-mode HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51988 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51987 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52033 - "GET /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52032 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52030 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52043 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52044 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52048 - "GET /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52044 - "GET /api/policies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52046 - "GET /api/gap-analysis/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52043 - "GET /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52062 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52061 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52080 - "GET /api/llm/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52079 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52077 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52171 - "OPTIONS /api/settings/llm-mode HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52171 - "GET /api/settings/llm-mode HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52163 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52162 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52167 - "GET /api/policies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52169 - "GET /api/regulations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52170 - "GET /api/gap-analysis/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52181 - "GET /api/settings/llm-mode HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52180 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52178 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52202 - "GET /api/settings/llm-mode HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52201 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52199 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52215 - "GET /api/settings/llm-mode HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52212 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52214 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52236 - "GET /api/settings/llm-mode HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52235 - "GET /api/notifications/unread-count HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52233 - "GET /api/notifications HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:52392 - "GET /api/health HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'services/npci_scraper_service.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [20462]
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/services/multi_llm_service_new.py:22: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [34332]
+INFO:     Waiting for application startup.
+================================================================================
+LIFESPAN STARTUP BEGINNING
+================================================================================
+Connecting to MongoDB at mongodb://localhost:27017, database: compli-ai
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'server.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [34332]
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/services/multi_llm_service_new.py:22: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [34466]
+INFO:     Waiting for application startup.
+================================================================================
+LIFESPAN STARTUP BEGINNING
+================================================================================
+Connecting to MongoDB at mongodb://localhost:27017, database: compli-ai
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'server.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [34466]
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/services/multi_llm_service_new.py:22: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [34583]
+INFO:     Waiting for application startup.
+================================================================================
+LIFESPAN STARTUP BEGINNING
+================================================================================
+Connecting to MongoDB at mongodb://localhost:27017, database: compli-ai
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'server.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [34583]
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/services/multi_llm_service_new.py:22: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [34702]
+INFO:     Waiting for application startup.
+================================================================================
+LIFESPAN STARTUP BEGINNING
+================================================================================
+Connecting to MongoDB at mongodb://localhost:27017, database: compli-ai
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'server.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [34702]
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/services/multi_llm_service_new.py:22: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [34824]
+INFO:     Waiting for application startup.
+================================================================================
+LIFESPAN STARTUP BEGINNING
+================================================================================
+Connecting to MongoDB at mongodb://localhost:27017, database: compli-ai
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'server.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [34824]
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/services/multi_llm_service_new.py:22: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [34943]
+INFO:     Waiting for application startup.
+================================================================================
+LIFESPAN STARTUP BEGINNING
+================================================================================
+Connecting to MongoDB at mongodb://localhost:27017, database: compli-ai
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'routers/npci_router.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [34943]
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/services/multi_llm_service_new.py:22: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [35936]
+INFO:     Waiting for application startup.
+================================================================================
+LIFESPAN STARTUP BEGINNING
+================================================================================
+Connecting to MongoDB at mongodb://localhost:27017, database: compli-ai
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'server.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [35936]
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/services/multi_llm_service_new.py:22: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [36057]
+INFO:     Waiting for application startup.
+================================================================================
+LIFESPAN STARTUP BEGINNING
+================================================================================
+Connecting to MongoDB at mongodb://localhost:27017, database: compli-ai
+INFO:     Application startup complete.
+INFO:     127.0.0.1:52501 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52505 - "GET /api/npci/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52508 - "GET /api/npci/products HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52511 - "GET /api/npci/circulars?page=1&size=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52513 - "GET /api/npci/scrape/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52681 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52685 - "GET /api/npci/stats HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'services/npci_scheduler_service.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [36057]
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/services/multi_llm_service_new.py:22: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [42708]
+INFO:     Waiting for application startup.
+================================================================================
+LIFESPAN STARTUP BEGINNING
+================================================================================
+Connecting to MongoDB at mongodb://localhost:27017, database: compli-ai
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'routers/npci_router.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [42708]
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/services/multi_llm_service_new.py:22: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [42935]
+INFO:     Waiting for application startup.
+================================================================================
+LIFESPAN STARTUP BEGINNING
+================================================================================
+Connecting to MongoDB at mongodb://localhost:27017, database: compli-ai
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'routers/npci_router.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [42935]
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/services/multi_llm_service_new.py:22: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [43057]
+INFO:     Waiting for application startup.
+================================================================================
+LIFESPAN STARTUP BEGINNING
+================================================================================
+Connecting to MongoDB at mongodb://localhost:27017, database: compli-ai
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'server.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [43057]
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/services/multi_llm_service_new.py:22: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [43174]
+INFO:     Waiting for application startup.
+================================================================================
+LIFESPAN STARTUP BEGINNING
+================================================================================
+Connecting to MongoDB at mongodb://localhost:27017, database: compli-ai
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'server.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [43174]
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/services/multi_llm_service_new.py:22: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [43290]
+INFO:     Waiting for application startup.
+================================================================================
+LIFESPAN STARTUP BEGINNING
+================================================================================
+Connecting to MongoDB at mongodb://localhost:27017, database: compli-ai
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'server.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [43290]
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/services/multi_llm_service_new.py:22: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [43326]
+INFO:     Waiting for application startup.
+================================================================================
+LIFESPAN STARTUP BEGINNING
+================================================================================
+Connecting to MongoDB at mongodb://localhost:27017, database: compli-ai
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'server.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [43326]
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/services/multi_llm_service_new.py:22: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [43707]
+INFO:     Waiting for application startup.
+================================================================================
+LIFESPAN STARTUP BEGINNING
+================================================================================
+Connecting to MongoDB at mongodb://localhost:27017, database: compli-ai
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'server.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [43707]
+/Users/shivamchandrs/Desktop/legal-tech/compliAi/backend/services/multi_llm_service_new.py:22: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [43715]
+INFO:     Waiting for application startup.
+================================================================================
+LIFESPAN STARTUP BEGINNING
+================================================================================
+Connecting to MongoDB at mongodb://localhost:27017, database: compli-ai
+INFO:     Application startup complete.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [43715]
+INFO:     Stopping reloader process [99937]

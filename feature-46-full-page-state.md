@@ -1,0 +1,232 @@
+- generic [ref=e2]:
+  - generic [ref=e41]:
+    - complementary [ref=e42]:
+      - generic [ref=e45]:
+        - img [ref=e47]
+        - generic [ref=e49]:
+          - heading "CompliAI" [level=2] [ref=e50]
+          - paragraph [ref=e51]: Compliance OS
+      - navigation [ref=e52]:
+        - button "Dashboard" [ref=e53] [cursor=pointer]:
+          - img [ref=e54]
+          - generic [ref=e59]: Dashboard
+        - button "Policies" [ref=e60] [cursor=pointer]:
+          - img [ref=e61]
+          - generic [ref=e67]: Policies
+        - button "Regulations" [ref=e68] [cursor=pointer]:
+          - img [ref=e69]
+          - generic [ref=e71]: Regulations
+        - button "Regulatory Updates" [ref=e72] [cursor=pointer]:
+          - img [ref=e73]
+          - generic [ref=e76]: Regulatory Updates
+        - button "Gap Analysis" [ref=e77] [cursor=pointer]:
+          - img [ref=e78]
+          - generic [ref=e84]: Gap Analysis
+        - button "Tasks" [ref=e85] [cursor=pointer]:
+          - img [ref=e86]
+          - generic [ref=e92]: Tasks
+        - button "Evidence" [ref=e93] [cursor=pointer]:
+          - img [ref=e94]
+          - generic [ref=e97]: Evidence
+        - button "Audit" [ref=e98] [cursor=pointer]:
+          - img [ref=e99]
+          - generic [ref=e107]: Audit
+        - button "LOS/LMS" [ref=e108] [cursor=pointer]:
+          - img [ref=e109]
+          - generic [ref=e112]: LOS/LMS
+        - button "Calendar" [ref=e113] [cursor=pointer]:
+          - img [ref=e114]
+          - generic [ref=e119]: Calendar
+        - button "Chat" [ref=e120] [cursor=pointer]:
+          - img [ref=e121]
+          - generic [ref=e123]: Chat
+        - button "Analytics" [ref=e124] [cursor=pointer]:
+          - img [ref=e125]
+          - generic [ref=e130]: Analytics
+        - button "Notifications" [ref=e131] [cursor=pointer]:
+          - img [ref=e132]
+          - generic [ref=e135]: Notifications
+        - button "Settings" [ref=e136] [cursor=pointer]:
+          - img [ref=e137]
+          - generic [ref=e140]: Settings
+      - generic [ref=e141]:
+        - generic [ref=e142]:
+          - generic [ref=e143]: Feature46 Test User
+          - generic [ref=e144]: Test Org
+        - button "Logout" [ref=e145] [cursor=pointer]:
+          - img
+          - text: Logout
+      - button [ref=e146] [cursor=pointer]:
+        - img [ref=e147]
+    - main [ref=e149]:
+      - generic [ref=e151]:
+        - navigation "Breadcrumb" [ref=e153]:
+          - list [ref=e154]:
+            - listitem [ref=e155]:
+              - link "Dashboard" [ref=e156] [cursor=pointer]:
+                - /url: /dashboard
+            - listitem [ref=e443]:
+              - generic [ref=e444]: /
+              - generic [ref=e445]: Tasks
+        - generic [ref=e157]:
+          - generic [ref=e158]:
+            - img [ref=e159]
+            - textbox "Search..." [ref=e162]
+          - button [ref=e164] [cursor=pointer]:
+            - img [ref=e165]
+          - button "FT" [ref=e169] [cursor=pointer]:
+            - generic [ref=e170]: FT
+            - img [ref=e171]
+      - generic [ref=e446]:
+        - generic [ref=e447]:
+          - generic [ref=e448]:
+            - heading "Task Management" [level=1] [ref=e449]
+            - paragraph [ref=e450]: Track compliance tasks and their lifecycle
+          - generic [ref=e451]:
+            - button "Refresh" [ref=e452] [cursor=pointer]:
+              - img
+              - text: Refresh
+            - button "Create Task" [ref=e453] [cursor=pointer]:
+              - img
+              - text: Create Task
+        - generic [ref=e454]:
+          - generic [ref=e455]:
+            - generic [ref=e456]:
+              - img [ref=e457]
+              - text: Pending Tasks
+            - generic [ref=e461]: Tasks that are not yet completed or closed
+          - table [ref=e464]:
+            - rowgroup [ref=e465]:
+              - row "Task Status Assignee Department Due Date" [ref=e466]:
+                - columnheader "Task" [ref=e467]
+                - columnheader "Status" [ref=e468]
+                - columnheader "Assignee" [ref=e469]
+                - columnheader "Department" [ref=e470]
+                - columnheader "Due Date" [ref=e471]
+            - rowgroup [ref=e472]:
+              - row "High Priority Compliance Task This is a high priority task for testing filtering Open Unassigned — —" [ref=e700] [cursor=pointer]:
+                - cell "High Priority Compliance Task This is a high priority task for testing filtering" [ref=e701]:
+                  - generic [ref=e702]:
+                    - paragraph [ref=e703]: High Priority Compliance Task
+                    - paragraph [ref=e704]: This is a high priority task for testing filtering
+                - cell "Open" [ref=e705]:
+                  - generic [ref=e706]: Open
+                - cell "Unassigned" [ref=e707]
+                - cell "—" [ref=e708]
+                - cell "—" [ref=e709]
+              - row "Test Task for Feature 45 CRUD Testing create, read, update, delete operations for tasks Open Unassigned — —" [ref=e473] [cursor=pointer]:
+                - cell "Test Task for Feature 45 CRUD Testing create, read, update, delete operations for tasks" [ref=e474]:
+                  - generic [ref=e475]:
+                    - paragraph [ref=e476]: Test Task for Feature 45 CRUD
+                    - paragraph [ref=e477]: Testing create, read, update, delete operations for tasks
+                - cell "Open" [ref=e478]:
+                  - generic [ref=e479]: Open
+                - cell "Unassigned" [ref=e480]
+                - cell "—" [ref=e481]
+                - cell "—" [ref=e482]
+              - row "Test Task for Feature 45 CRUD Testing create, read, update, delete operations for tasks Open Unassigned — —" [ref=e483] [cursor=pointer]:
+                - cell "Test Task for Feature 45 CRUD Testing create, read, update, delete operations for tasks" [ref=e484]:
+                  - generic [ref=e485]:
+                    - paragraph [ref=e486]: Test Task for Feature 45 CRUD
+                    - paragraph [ref=e487]: Testing create, read, update, delete operations for tasks
+                - cell "Open" [ref=e488]:
+                  - generic [ref=e489]: Open
+                - cell "Unassigned" [ref=e490]
+                - cell "—" [ref=e491]
+                - cell "—" [ref=e492]
+              - row "TEST_TASK_CRUD_45 Testing task CRUD operations for feature 45 Open Unassigned — —" [ref=e493] [cursor=pointer]:
+                - cell "TEST_TASK_CRUD_45 Testing task CRUD operations for feature 45" [ref=e494]:
+                  - generic [ref=e495]:
+                    - paragraph [ref=e496]: TEST_TASK_CRUD_45
+                    - paragraph [ref=e497]: Testing task CRUD operations for feature 45
+                - cell "Open" [ref=e498]:
+                  - generic [ref=e499]: Open
+                - cell "Unassigned" [ref=e500]
+                - cell "—" [ref=e501]
+                - cell "—" [ref=e502]
+        - generic [ref=e503]:
+          - generic [ref=e505]:
+            - generic [ref=e506]:
+              - paragraph [ref=e507]: Total Tasks
+              - paragraph [ref=e508]: "1"
+            - img [ref=e510]
+          - generic [ref=e515]:
+            - generic [ref=e516]:
+              - paragraph [ref=e517]: Overdue
+              - paragraph [ref=e518]: "0"
+            - img [ref=e520]
+          - generic [ref=e525]:
+            - generic [ref=e526]:
+              - paragraph [ref=e527]: Due Today
+              - paragraph [ref=e528]: "0"
+            - img [ref=e530]
+          - generic [ref=e536]:
+            - generic [ref=e537]:
+              - paragraph [ref=e538]: Due This Week
+              - paragraph [ref=e539]: "0"
+            - img [ref=e541]
+          - generic [ref=e545]:
+            - generic [ref=e546]:
+              - paragraph [ref=e547]: Completion Rate
+              - paragraph [ref=e548]: 0%
+            - img [ref=e550]
+          - generic [ref=e554]:
+            - generic [ref=e555]:
+              - paragraph [ref=e556]: Avg Time
+              - paragraph [ref=e557]: "-"
+            - img [ref=e559]
+        - generic [ref=e567]:
+          - img [ref=e568]
+          - textbox "Search tasks..." [ref=e571]
+        - generic [ref=e572]:
+          - generic [ref=e710]:
+            - generic [ref=e711]:
+              - heading "Open" [level=3] [ref=e712]
+              - generic [ref=e713]: "4"
+            - generic [ref=e717]:
+              - generic [ref=e719] [cursor=pointer]:
+                - generic [ref=e720]:
+                  - heading "High Priority Compliance Task" [level=4] [ref=e721]
+                  - generic [ref=e722]: Critical
+                - paragraph [ref=e723]: This is a high priority task for testing filtering
+              - generic [ref=e725] [cursor=pointer]:
+                - generic [ref=e726]:
+                  - heading "Test Task for Feature 45 CRUD" [level=4] [ref=e727]
+                  - generic [ref=e728]: Medium
+                - paragraph [ref=e729]: Testing create, read, update, delete operations for tasks
+              - generic [ref=e731] [cursor=pointer]:
+                - generic [ref=e732]:
+                  - heading "Test Task for Feature 45 CRUD" [level=4] [ref=e733]
+                  - generic [ref=e734]: Medium
+                - paragraph [ref=e735]: Testing create, read, update, delete operations for tasks
+              - generic [ref=e737] [cursor=pointer]:
+                - generic [ref=e738]:
+                  - heading "TEST_TASK_CRUD_45" [level=4] [ref=e739]
+                  - generic [ref=e740]: Medium
+                - paragraph [ref=e741]: Testing task CRUD operations for feature 45
+          - generic [ref=e742]:
+            - generic [ref=e743]:
+              - heading "In Progress" [level=3] [ref=e744]
+              - generic [ref=e745]: "0"
+            - generic [ref=e750]: No tasks
+          - generic [ref=e751]:
+            - generic [ref=e752]:
+              - heading "Evidence" [level=3] [ref=e753]
+              - generic [ref=e754]: "0"
+            - generic [ref=e759]: No tasks
+          - generic [ref=e760]:
+            - generic [ref=e761]:
+              - heading "AI Review" [level=3] [ref=e762]
+              - generic [ref=e763]: "0"
+            - generic [ref=e768]: No tasks
+          - generic [ref=e769]:
+            - generic [ref=e770]:
+              - heading "Manual Review" [level=3] [ref=e771]
+              - generic [ref=e772]: "0"
+            - generic [ref=e777]: No tasks
+          - generic [ref=e778]:
+            - generic [ref=e779]:
+              - heading "Done" [level=3] [ref=e780]
+              - generic [ref=e781]: "0"
+            - generic [ref=e786]: No tasks
+  - region "Notifications alt+T"

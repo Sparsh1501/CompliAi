@@ -1,0 +1,2 @@
+[   12583ms] [ERROR] [JavaScript Error: "Firefox can’t establish a connection to the server at ws://localhost:8000/ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1ODdkNDQtYzM3NC00MDUxLTg5MGYtZGI3NzY5NDc2YjBjIiwiZW1haWwiOiJhZG1pbkBjb21wbGlhaS5jb20iLCJleHAiOjE3NzExMDkzNzV9.a6EBjBtfHFW4ItOmyL1aKlr3_5f-bJgeK1JQlxMPoQE." {file: "http://localhost:3000/static/js/bundle.js" line: 119512}] @ http://localhost:3000/static/js/bundle.js:119512
+[   12591ms] [ERROR] WebSocket error: JSHandle@object @ https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.342.1:0

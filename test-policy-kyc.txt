@@ -1,0 +1,77 @@
+KYC POLICY - TEST NBFC
+
+Version: 1.0
+Effective Date: January 1, 2026
+Department: Compliance
+
+1. INTRODUCTION
+
+This Know Your Customer (KYC) Policy outlines our commitment to preventing money laundering and terrorist financing activities.
+
+2. CUSTOMER IDENTIFICATION
+
+2.1 Individual Customers
+All individual customers must provide:
+- Valid government-issued photo identification (Aadhaar, PAN, Passport, or Driving License)
+- Proof of address not older than 3 months
+- Recent passport-size photograph
+
+2.2 Corporate Customers
+Corporate entities must submit:
+- Certificate of Incorporation
+- Memorandum and Articles of Association
+- Board Resolution authorizing account opening
+- PAN card of the company
+- Identity proof of beneficial owners holding 25% or more stake
+
+3. CUSTOMER DUE DILIGENCE (CDD)
+
+3.1 Risk Classification
+Customers shall be classified into Low, Medium, and High risk categories based on:
+- Nature of business
+- Geographic location
+- Transaction patterns
+- Ownership structure
+
+3.2 Enhanced Due Diligence
+High-risk customers require:
+- Senior management approval
+- Additional verification of source of funds
+- Enhanced ongoing monitoring
+
+4. ONGOING MONITORING
+
+4.1 Transaction Monitoring
+All customer transactions shall be monitored for unusual patterns.
+
+4.2 Periodic Review
+Customer information shall be updated:
+- Low risk: Every 3 years
+- Medium risk: Every 2 years
+- High risk: Annually
+
+5. RECORD KEEPING
+
+5.1 All KYC records shall be maintained for a minimum period of 10 years from the date of cessation of relationship.
+
+5.2 Records must be readily retrievable for regulatory inspections.
+
+6. COMPLIANCE OFFICER
+
+6.1 A Principal Officer shall be designated to ensure compliance with this policy.
+
+6.2 The Principal Officer shall report suspicious transactions to FIU-IND within prescribed timelines.
+
+7. TRAINING
+
+7.1 All staff handling customer onboarding shall receive KYC training annually.
+
+7.2 Training records shall be maintained for audit purposes.
+
+8. POLICY REVIEW
+
+This policy shall be reviewed annually or whenever there are regulatory changes.
+
+---
+Approved by: Board of Directors
+Date: January 1, 2026
