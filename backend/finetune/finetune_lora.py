@@ -1,14 +1,15 @@
 """
 LoRA Fine-tuning Script for CompliAI Local LLM
 
-This script fine-tunes Llama 3.1 8B using QLoRA (Quantized LoRA) for memory-efficient
-training on consumer hardware (8GB RAM/VRAM).
+This script fine-tunes Qwen 2.5 32B Instruct using QLoRA (Quantized LoRA) for
+memory-efficient training. Requires ~48GB VRAM for full fine-tuning; use
+gradient checkpointing + 4-bit quant for 24GB setups.
 
 Usage:
-    python finetune_lora.py --data ./training_data --output ./llama-compliai
+    python finetune_lora.py --data ./training_data --output ./qwen-compliai
 
-For Google Colab (free GPU), upload this script and training data, then run:
-    !python finetune_lora.py --data ./training_data --output ./llama-compliai --use-colab
+For Google Colab (A100 GPU), upload this script and training data, then run:
+    !python finetune_lora.py --data ./training_data --output ./qwen-compliai --use-colab
 """
 
 import os
@@ -40,8 +41,8 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Model configuration
-BASE_MODEL = "meta-llama/Llama-3.1-8B-Instruct"
-OLLAMA_MODEL_NAME = "llama3.1:8b-instruct-q4_K_M"
+BASE_MODEL = "Qwen/Qwen2.5-32B-Instruct"
+OLLAMA_MODEL_NAME = "qwen2.5:32b-instruct-q4_K_M"
 
 
 def setup_quantization_config():

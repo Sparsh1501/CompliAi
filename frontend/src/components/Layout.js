@@ -279,7 +279,7 @@ export default function Layout({ children }) {
         services: result.services,
       }));
       const label = result.mode === 'local'
-        ? `Local LLM - ${result.model || 'llama3.1:8b'}`
+        ? `Local LLM - ${result.model || 'qwen2.5:32b-instruct-q4_K_M'}`
         : `Cloud AI - ${result.model || 'claude-sonnet-4'}`;
       toast.success(`Switched to ${label}`);
       // Refresh full status
@@ -565,7 +565,7 @@ export default function Layout({ children }) {
                               )}
                             </div>
                             <p className="text-xs text-gray-500 mt-0.5 font-mono truncate">
-                              {llmStatus?.mode === 'local' ? llmStatus?.model : 'llama3.1:8b-instruct-q4_K_M'}
+                              {llmStatus?.mode === 'local' ? llmStatus?.model : 'qwen2.5:32b-instruct-q4_K_M'}
                             </p>
                             {ollamaReachable === false && llmStatus?.mode !== 'local' ? (
                               <p className="text-xs text-red-500 mt-0.5">

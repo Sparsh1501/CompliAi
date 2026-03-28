@@ -20,7 +20,7 @@ from peft import PeftModel
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-BASE_MODEL = "meta-llama/Llama-3.1-8B-Instruct"
+BASE_MODEL = "Qwen/Qwen2.5-32B-Instruct"
 
 
 def main():

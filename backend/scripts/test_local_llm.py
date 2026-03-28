@@ -2,8 +2,12 @@
 """
 Test script for Local LLM Integration
 
-Tests the Ollama-based local LLM provider to ensure it works correctly.
+Tests the Ollama-based local LLM provider (Qwen 2.5 32B Instruct) to ensure
+it works correctly for CompliAI's compliance workloads.
 Run this script with USE_LOCAL_LLM=true to test local mode.
+
+Expected model: qwen2.5:32b-instruct-q4_K_M
+Pull with:  ollama pull qwen2.5:32b-instruct-q4_K_M
 """
 
 import asyncio

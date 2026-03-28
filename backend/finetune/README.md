@@ -87,7 +87,7 @@ python finetune/create_ollama_model.py --model ./llama-compliai/merged
 ```bash
 # Set environment variables
 export USE_LOCAL_LLM=true
-export OLLAMA_MODEL=compliai-llama3.1
+export OLLAMA_MODEL=compliai-qwen2.5
 
 # Start Ollama server
 ollama serve
@@ -98,15 +98,15 @@ cd backend && python server.py
 
 ## Using Base Model (Without Fine-tuning)
 
-If you want to use Llama 3.1 without fine-tuning:
+If you want to use Qwen 2.5 32B without fine-tuning:
 
 ```bash
 # Pull the base model
-ollama pull llama3.1:8b-instruct-q4_K_M
+ollama pull qwen2.5:32b-instruct-q4_K_M
 
 # Set environment
 export USE_LOCAL_LLM=true
-export OLLAMA_MODEL=llama3.1:8b-instruct-q4_K_M
+export OLLAMA_MODEL=qwen2.5:32b-instruct-q4_K_M
 ```
 
 ## File Structure

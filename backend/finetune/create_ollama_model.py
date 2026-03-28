@@ -5,7 +5,7 @@ Converts a fine-tuned HuggingFace model to Ollama format using GGUF.
 Creates a Modelfile and registers the model with Ollama.
 
 Usage:
-    python create_ollama_model.py --model ./llama-compliai/merged
+    python create_ollama_model.py --model ./qwen-compliai/merged
 
 Requirements:
     - llama.cpp installed (for GGUF conversion)
@@ -21,23 +21,24 @@ from pathlib import Path
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-OLLAMA_MODEL_NAME = "compliai-llama3.1"
+OLLAMA_MODEL_NAME = "compliai-qwen2.5"
 
 
 def create_modelfile(model_path: Path, output_path: Path) -> Path:
     """Create an Ollama Modelfile for the fine-tuned model."""
     
-    modelfile_content = f'''# CompliAI Fine-tuned Llama 3.1 8B
+    modelfile_content = f'''# CompliAI Fine-tuned Qwen 2.5 32B Instruct
 # Specialized for Indian financial regulatory compliance
 
-FROM {model_path}/gguf/compliai-llama3.1-q4_K_M.gguf
+FROM {model_path}/gguf/compliai-qwen2.5-q4_K_M.gguf
 
 # Model parameters optimized for compliance analysis
+# Qwen 2.5 32B supports 128K context; 32768 balances throughput vs. VRAM
 PARAMETER temperature 0.3
 PARAMETER top_p 0.9
 PARAMETER top_k 40
-PARAMETER num_ctx 8192
-PARAMETER repeat_penalty 1.1
+PARAMETER num_ctx 32768
+PARAMETER repeat_penalty 1.05
 
 # System prompt for compliance tasks
 SYSTEM """You are CompliAI, an expert AI assistant specialized in Indian financial regulatory compliance.
@@ -57,11 +58,12 @@ When analyzing documents:
 4. Reference specific regulatory provisions
 5. Assign appropriate severity levels
 
+Always respond with valid, well-structured JSON when asked for structured output.
 Always be accurate, professional, and cite specific regulations when possible.
 If uncertain about something, clearly state your uncertainty."""
 
 # License and metadata
-LICENSE "Apache 2.0 (fine-tuned model), Llama 3.1 Community License (base model)"
+LICENSE "Apache 2.0 (fine-tuned model), Qwen 2.5 Research License (base model)"
 '''
     
     modelfile_path = output_path / "Modelfile"
@@ -74,10 +76,9 @@ LICENSE "Apache 2.0 (fine-tuned model), Llama 3.1 Community License (base model)
 
 def convert_to_gguf(model_path: Path) -> Path:
     """Convert HuggingFace model to GGUF format using llama.cpp."""
-    
     gguf_dir = model_path / "gguf"
     gguf_dir.mkdir(exist_ok=True)
-    gguf_file = gguf_dir / "compliai-llama3.1-q4_K_M.gguf"
+    gguf_file = gguf_dir / "compliai-qwen2.5-q4_K_M.gguf"
     
     logger.info("Converting to GGUF format...")
     logger.info("This requires llama.cpp to be installed.")
@@ -181,25 +182,21 @@ def main():
     )
     parser.add_argument(
         "--skip-register",
-        action="store_true",
-        help="Skip Ollama registration"
+        action="store_true",        help="Skip Ollama registration"
     )
-    
     args = parser.parse_args()
     model_path = Path(args.model)
-    
     logger.info("=" * 50)
     logger.info("Creating Ollama Model")
     logger.info("=" * 50)
     logger.info(f"Source model: {model_path}")
-    logger.info(f"Ollama model name: {OLLAMA_MODEL_NAME}")
-    
+    logger.info(f"Ollama model name: {OLLAMA_MODEL_NAME}")    
     # Convert to GGUF
     if not args.skip_convert:
         logger.info("\n📦 Converting to GGUF format...")
         gguf_file = convert_to_gguf(model_path)
     else:
-        gguf_file = model_path / "gguf" / "compliai-llama3.1-q4_K_M.gguf"
+        gguf_file = model_path / "gguf" / "compliai-qwen2.5-q4_K_M.gguf"
     
     # Create Modelfile
     logger.info("\n📝 Creating Modelfile...")

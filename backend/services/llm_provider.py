@@ -116,12 +116,12 @@ class ClaudeProvider(LLMProvider):
 
 
 class OllamaProvider(LLMProvider):
-    """Ollama local LLM provider - uses local Llama 3.1 8B model."""
+    """Ollama local LLM provider - uses local Qwen 2.5 32B Instruct model."""
     
     def __init__(self):
         self.base_url = os.getenv('OLLAMA_BASE_URL', 'http://localhost:11434')
-        self.model = os.getenv('OLLAMA_MODEL', 'llama3.1:8b')
-        self.timeout = httpx.Timeout(300.0)  # 5 minute timeout for slow CPU inference
+        self.model = os.getenv('OLLAMA_MODEL', 'qwen2.5:32b-instruct-q4_K_M')
+        self.timeout = httpx.Timeout(600.0)  # 10 minute timeout for 32B model inference
     
     async def _call_ollama(
         self, 
@@ -133,7 +133,10 @@ class OllamaProvider(LLMProvider):
     ) -> str:
         """Make a request to the Ollama API."""
         url = f"{self.base_url}/api/generate"
-        
+          # num_ctx: Qwen 2.5 32B supports 128K context; cap at 32768 for balanced
+        # throughput vs. memory. Override via OLLAMA_NUM_CTX env var if needed.
+        num_ctx = int(os.getenv('OLLAMA_NUM_CTX', '32768'))
+
         payload = {
             "model": self.model,
             "prompt": prompt,
@@ -141,7 +144,8 @@ class OllamaProvider(LLMProvider):
             "stream": False,
             "options": {
                 "num_predict": max_tokens,
-                "temperature": temperature
+                "temperature": temperature,
+                "num_ctx": num_ctx,
             }
         }
         
@@ -217,9 +221,8 @@ _ollama_provider: Optional[OllamaProvider] = None
 def get_llm_provider() -> LLMProvider:
     """
     Factory function to get the appropriate LLM provider.
-    
-    Uses USE_LOCAL_LLM environment variable to determine which provider to use:
-    - USE_LOCAL_LLM=true  -> OllamaProvider (local Llama 3.1 8B)
+      Uses USE_LOCAL_LLM environment variable to determine which provider to use:
+    - USE_LOCAL_LLM=true  -> OllamaProvider (local Qwen 2.5 32B Instruct)
     - USE_LOCAL_LLM=false -> ClaudeProvider (Anthropic API)
     
     Returns:
