@@ -14,6 +14,11 @@ import asyncio
 import os
 import sys
 
+# Ensure Unicode output works on Windows (cp1252 terminals)
+if sys.stdout.encoding and sys.stdout.encoding.lower() != 'utf-8':
+    import io
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+
 # Add project root to path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -119,26 +124,49 @@ async def test_multi_llm_service():
     
     try:
         from services.multi_llm_service_new import MultiLLMService
-        
+        from services.llm_provider import is_using_local_llm
+
         service = MultiLLMService()
-        print(f"use_local_llm = {service.use_local_llm}")
-        print(f"local_provider = {type(service.local_provider).__name__ if service.local_provider else None}")
-        
-        if service.use_local_llm:
-            # Test chat response
-            print("\n[3.1] Testing chat_response...")
+
+        # MultiLLMService reads USE_LOCAL_LLM per-call from the environment;
+        # it has no instance-level use_local_llm / local_provider attributes.
+        use_local = is_using_local_llm()
+        print(f"  USE_LOCAL_LLM env  = {os.environ.get('USE_LOCAL_LLM', 'not set')}")
+        print(f"  is_using_local_llm = {use_local}")
+        print(f"  MultiLLMService instantiated OK")
+
+        # Validate the local helper methods exist (they are called internally
+        # when USE_LOCAL_LLM=true)
+        assert hasattr(service, '_analyze_regulatory_circular_local'), \
+            "Missing _analyze_regulatory_circular_local"
+        assert hasattr(service, '_analyze_policy_document_local'), \
+            "Missing _analyze_policy_document_local"
+        assert hasattr(service, 'chat_response'), \
+            "Missing chat_response"
+        print("  ✓ Local LLM method hooks present on MultiLLMService")
+
+        # Only attempt a live call if Ollama is reachable
+        import httpx
+        try:
+            async with httpx.AsyncClient(timeout=httpx.Timeout(5.0)) as client:
+                resp = await client.get("http://localhost:11434/api/tags")
+                ollama_up = resp.status_code == 200
+        except Exception:
+            ollama_up = False
+
+        if ollama_up and use_local:
+            print("\n[3.1] Testing chat_response via local LLM...")
             response = await service.chat_response(
-                user_message="What are the key KYC requirements in India?",
+                user_message="What are the key KYC requirements in India? Be brief.",
                 context=[]
             )
             print(f"  Response preview: {response[:200]}...")
             print("  ✓ chat_response works!")
-            
-            return True
         else:
-            print("  ⚠️  Set USE_LOCAL_LLM=true to test local LLM integration")
-            return True
-            
+            print("  ⚠️  Ollama not running or USE_LOCAL_LLM not set — skipping live call")
+
+        return True
+
     except Exception as e:
         print(f"  ✗ Error: {e}")
         return False

@@ -133,7 +133,7 @@ class OllamaProvider(LLMProvider):
     ) -> str:
         """Make a request to the Ollama API."""
         url = f"{self.base_url}/api/generate"
-          # num_ctx: Qwen 2.5 32B supports 128K context; cap at 32768 for balanced
+        # num_ctx: Qwen 2.5 32B supports 128K context; cap at 32768 for balanced
         # throughput vs. memory. Override via OLLAMA_NUM_CTX env var if needed.
         num_ctx = int(os.getenv('OLLAMA_NUM_CTX', '32768'))
 
@@ -221,7 +221,8 @@ _ollama_provider: Optional[OllamaProvider] = None
 def get_llm_provider() -> LLMProvider:
     """
     Factory function to get the appropriate LLM provider.
-      Uses USE_LOCAL_LLM environment variable to determine which provider to use:
+
+    Uses USE_LOCAL_LLM environment variable to determine which provider to use:
     - USE_LOCAL_LLM=true  -> OllamaProvider (local Qwen 2.5 32B Instruct)
     - USE_LOCAL_LLM=false -> ClaudeProvider (Anthropic API)
     
