@@ -15,6 +15,7 @@ from typing import List, Dict, Any, Optional
 import logging
 import json
 import asyncio
+import re
 from openai import AsyncOpenAI
 from anthropic import AsyncAnthropic
 import google.generativeai as genai
@@ -466,29 +467,140 @@ Return JSON with keys: issues, risk_level, violations, recommended_actions"""
             logger.error(f"LOS/LMS analysis error: {str(e)}")
             return {"issues": [], "risk_level": "Low", "violations": [], "recommended_actions": []}
     
-    async def chat_response(self, user_message: str, context: List[Dict[str, str]]) -> str:
-        """CompliAI contextual chat using Claude Sonnet 4"""
+    async def chat_response(
+        self,
+        user_message: str,
+        context: List[Dict[str, str]],
+        db=None,
+        user_id: Optional[str] = None,
+        organization: Optional[str] = None,
+        vector_service=None,
+    ) -> str:
+        """
+        CompliAI contextual chat using Claude Sonnet 4 with optional RAG over
+        NPCI circulars, regulation clauses and the user's policy clauses.
+
+        The extra `db`, `user_id`, `organization` and `vector_service` kwargs
+        are accepted (and used when present) so that the chat answer can cite
+        actual scraped NPCI clauses for questions like "what device-binding
+        precautions does NPCI require?".
+        """
         if not self.anthropic_client:
             return "Chat service is not available. Please configure ANTHROPIC_API_KEY."
-        
+
+        rag_blocks: List[str] = []
+
+        # ---- 1. Vector RAG over regulation_clauses + policy_clauses ----
         try:
-            # Build conversation history for Claude
+            if vector_service is not None and organization:
+                reg_results = await vector_service.search_regulation_clauses(
+                    query_text=user_message,
+                    organization=organization,
+                    limit=5,
+                    score_threshold=0.25,
+                )
+                if reg_results:
+                    rag_blocks.append("== Relevant regulation clauses (vector search) ==")
+                    for r in reg_results[:5]:
+                        ref = r.get("title") or r.get("section") or r.get("regulation_id", "")
+                        text = (r.get("text") or "")[:500]
+                        rag_blocks.append(f"[{ref}] {text}")
+
+                # Policy clauses - the user's own policy text
+                try:
+                    pol_results = await vector_service.search_similar_clauses(
+                        query_text=user_message,
+                        organization=organization,
+                        limit=3,
+                        score_threshold=0.25,
+                    )
+                except AttributeError:
+                    pol_results = []
+                if pol_results:
+                    rag_blocks.append("\n== Relevant clauses from your uploaded policies ==")
+                    for r in pol_results[:3]:
+                        ref = r.get("section") or r.get("policy_id", "policy")
+                        text = (r.get("text") or "")[:400]
+                        rag_blocks.append(f"[{ref}] {text}")
+        except Exception as e:
+            logger.info(f"Chat RAG (vector) skipped: {e}")
+
+        # ---- 2. Mongo keyword-RAG over npci_circular_clauses ----
+        try:
+            if db is not None:
+                # Cheap keyword search: split query into salient tokens.
+                tokens = [
+                    t.strip()
+                    for t in re.split(r"[^\w-]+", user_message.lower())
+                    if t.strip() and len(t.strip()) >= 4
+                ]
+                # Boost domain keywords if user asked anything about device-binding/RASP
+                domain_keywords = [
+                    "device", "binding", "rasp", "root", "jailbreak", "tamper",
+                    "upi", "fraud", "emulator", "screen", "overlay", "obfusc",
+                    "hook", "frida", "tls", "certificate", "keystore",
+                ]
+                hot = [kw for kw in domain_keywords if kw in user_message.lower()]
+                tokens.extend(hot)
+
+                if tokens:
+                    pattern = "|".join(re.escape(t) for t in tokens[:8])
+                    cursor = db.npci_circular_clauses.find({
+                        "$or": [
+                            {"clause_text": {"$regex": pattern, "$options": "i"}},
+                            {"key_requirements": {"$elemMatch": {"$regex": pattern, "$options": "i"}}},
+                            {"circular_reference": {"$regex": pattern, "$options": "i"}},
+                        ],
+                    }).limit(5)
+                    npci_hits = []
+                    async for doc in cursor:
+                        ref = doc.get("circular_reference") or doc.get("clause_id") or "NPCI"
+                        text = (doc.get("clause_text") or "")[:500]
+                        if text:
+                            npci_hits.append(f"[{ref}] {text}")
+                    if npci_hits:
+                        rag_blocks.insert(0, "== NPCI circular clauses (keyword search) ==\n" + "\n".join(npci_hits))
+        except Exception as e:
+            logger.info(f"Chat RAG (NPCI Mongo) skipped: {e}")
+
+        # ---- Build messages with RAG context as a system addendum ----
+        try:
             messages = []
-            
-            # Add context (last 5 messages)
             for msg in context[-5:]:
-                role = "user" if msg['role'] == 'user' else "assistant"
-                messages.append({"role": role, "content": msg['content']})
-            
+                role = "user" if msg.get('role') == 'user' else "assistant"
+                messages.append({"role": role, "content": msg.get('content', '')})
             messages.append({"role": "user", "content": user_message})
-            
+
+            base_system = (
+                "You are CompliAI, a BFSI-focused compliance AI assistant "
+                "specializing in Indian financial regulations (RBI, SEBI, "
+                "NPCI, FIU-IND, IRDAI). You help with regulatory queries, "
+                "compliance questions, policy guidance, KYC/AML requirements, "
+                "device binding and RASP precautions for UPI / mobile "
+                "banking apps, and audit preparation. Be accurate, cite "
+                "the source circular when you use a quoted clause, and "
+                "recommend consulting compliance experts for critical "
+                "decisions."
+            )
+            if rag_blocks:
+                rag_context = "\n\n".join(rag_blocks)[:6000]
+                system_prompt = (
+                    base_system
+                    + "\n\nUse the following retrieved context where relevant; "
+                    + "when you cite from it, mention the source in square "
+                    + "brackets exactly as shown.\n\n"
+                    + rag_context
+                )
+            else:
+                system_prompt = base_system
+
             response_text, _, _ = await self._stream_anthropic(
                 model=self.OPUS_MODEL,
                 max_tokens=2048,
-                system="You are CompliAI, a BFSI-focused compliance AI assistant specializing in Indian financial regulations (RBI, SEBI, NPCI, FIU-IND, IRDAI). You help with regulatory queries, compliance questions, policy guidance, KYC/AML requirements, and audit preparation. Be accurate, cite regulations when possible, and recommend consulting compliance experts for critical decisions.",
-                messages=messages
+                system=system_prompt,
+                messages=messages,
             )
-            
+
             return response_text
         except Exception as e:
             logger.error(f"Chat error: {str(e)}")

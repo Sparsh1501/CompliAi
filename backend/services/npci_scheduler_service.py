@@ -191,60 +191,75 @@ class NPCISchedulerService:
         except Exception as e:
             logger.error(f"Failed to create NPCI notification: {e}")
 
-    async def _auto_process_circulars(self, circular_ids: List[str]):
+    async def _auto_process_circulars(self, circular_ids: List[str]) -> Dict[str, int]:
         """
-        Auto-trigger LLM clause extraction on newly scraped circulars.
+        Auto-trigger real LLM clause extraction on newly scraped circulars.
+
+        Uses the full NPCIProcessingService.process_circular() pipeline so that
+        a circular is only marked as processed (processing_status="completed",
+        processed_at=now) when actual LLM extraction succeeds. If the LLM is
+        unavailable (no API credits, Ollama not running, etc.) the circular is
+        marked processing_status="failed" instead of being silently flipped to
+        "processed" with placeholder data.
 
         Args:
             circular_ids: List of MongoDB _id strings for new circulars
-        """
-        if not circular_ids:
-            return
 
-        processed_count = 0
+        Returns:
+            Dict with counts: {"succeeded": int, "failed": int}
+        """
+        result = {"succeeded": 0, "failed": 0}
+        if not circular_ids:
+            return result
+
+        # Get the real processing service from server module (lazy import to
+        # avoid circulars; the scheduler is constructed before server module
+        # initializes the service).
+        try:
+            import sys
+            srv = sys.modules.get('__main__') or sys.modules.get('server')
+            processing_service = getattr(srv, 'npci_processing_service', None) if srv else None
+        except Exception:
+            processing_service = None
+
+        if processing_service is None:
+            logger.error(
+                "Auto-process skipped: NPCIProcessingService is not available on the server module. "
+                "New circulars will remain in 'pending' status."
+            )
+            result["failed"] = len(circular_ids)
+            return result
+
         for cid in circular_ids:
             try:
                 circular = await self.npci_scraper.get_circular_by_id(cid)
-                if not circular or circular.get("processed_at"):
+                if not circular:
+                    continue
+                if circular.get("processing_status") == "completed":
                     continue
 
-                # Download PDF if needed
-                if not circular.get("pdf_downloaded") and circular.get("pdf_url"):
-                    await self.npci_scraper.download_pdf(
-                        circular["pdf_url"],
-                        npci_id=circular.get("npci_id"),
+                proc_result = await processing_service.process_circular(cid)
+                if proc_result.get("success"):
+                    result["succeeded"] += 1
+                else:
+                    result["failed"] += 1
+                    logger.warning(
+                        f"Auto-process failed for circular {cid}: "
+                        f"{proc_result.get('error', 'Unknown error')}"
                     )
 
-                # Extract text
-                raw_text = circular.get("title", "No text available")
-
-                # Simple clause extraction (batch-safe, no LLM rate limit issues)
-                clauses = [{
-                    "clause_id": "C1",
-                    "title": circular.get("title", "Unknown"),
-                    "text": raw_text[:2000],
-                    "category": "General",
-                    "compliance_impact": "medium",
-                }]
-
-                from bson import ObjectId
-                await self.db.npci_circulars.update_one(
-                    {"_id": ObjectId(cid)},
-                    {"$set": {
-                        "raw_text": raw_text,
-                        "clauses": clauses,
-                        "processed_at": datetime.now(timezone.utc).isoformat(),
-                    }},
-                )
-                processed_count += 1
-
-                # Small delay
-                await asyncio.sleep(0.1)
+                # Be nice to the LLM provider
+                await asyncio.sleep(0.5)
 
             except Exception as e:
-                logger.error(f"Auto-process failed for circular {cid}: {e}")
+                result["failed"] += 1
+                logger.error(f"Auto-process exception for circular {cid}: {e}", exc_info=True)
 
-        logger.info(f"Auto-processed {processed_count}/{len(circular_ids)} new circulars")
+        logger.info(
+            f"Auto-processed new circulars: {result['succeeded']} succeeded, "
+            f"{result['failed']} failed (out of {len(circular_ids)} new)"
+        )
+        return result
 
     async def _auto_create_tasks(self, new_circulars: List[Dict]):
         """
@@ -351,7 +366,9 @@ class NPCISchedulerService:
                         size=stats["new"],
                     )
                     for item in recent.get("items", []):
-                        if item.get("_id") and not item.get("processed_at"):
+                        # Schedule for auto-processing if it hasn't been
+                        # successfully processed yet (pending or previously failed)
+                        if item.get("_id") and item.get("processing_status") != "completed":
                             all_new_circular_ids.append(item["_id"])
                             all_new_circulars.append(item)
 
@@ -378,8 +395,9 @@ class NPCISchedulerService:
 
         # Auto-process if enabled
         if config.get("auto_process", True) and all_new_circular_ids:
-            await self._auto_process_circulars(all_new_circular_ids)
-            result["auto_processed"] = len(all_new_circular_ids)
+            ap_result = await self._auto_process_circulars(all_new_circular_ids)
+            result["auto_processed"] = ap_result.get("succeeded", 0)
+            result["auto_process_failed"] = ap_result.get("failed", 0)
 
         # Auto-create tasks if enabled
         if config.get("auto_create_tasks", False) and all_new_circulars:

@@ -27,6 +27,7 @@ import Notifications from './pages/Notifications';
 import Settings from './pages/Settings';
 import LosLms from './pages/LosLms';
 import NPCICirculars from './pages/NPCICirculars';
+import DeviceBindingAdvisor from './pages/DeviceBindingAdvisor';
 import ComplianceDashboard from './pages/ComplianceDashboard';
 import GapAnalysisViewer from './pages/GapAnalysisViewer';
 import NotFound from './pages/NotFound';
@@ -238,6 +239,16 @@ function AppRoutes() {
           <PrivateRoute>
             <Layout>
               <NPCICirculars />
+            </Layout>
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/device-binding-advisor"
+        element={
+          <PrivateRoute>
+            <Layout>
+              <DeviceBindingAdvisor />
             </Layout>
           </PrivateRoute>
         }

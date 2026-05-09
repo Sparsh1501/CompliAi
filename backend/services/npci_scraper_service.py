@@ -557,7 +557,8 @@ class NPCIScraper:
         if search:
             query["title"] = {"$regex": search, "$options": "i"}
         if processed_only:
-            query["processed_at"] = {"$ne": None}
+            # Real LLM extraction succeeded — not just any processed_at marker
+            query["processing_status"] = "completed"
 
         try:
             total = await self.collection.count_documents(query)
@@ -586,8 +587,15 @@ class NPCIScraper:
         """
         Get circular counts per product.
 
+        A circular is counted as "processed" only when its processing_status is
+        "completed" (i.e. real LLM clause extraction succeeded). Circulars with
+        a `processed_at` timestamp but no `processing_status == "completed"`
+        (legacy placeholder runs) are NOT counted as processed; they appear in
+        `pending`.
+
         Returns:
-            List of dicts with 'product', 'label', 'total', 'processed', 'pending'
+            List of dicts with 'product', 'label', 'total', 'processed',
+            'pending', 'failed', 'in_progress'.
         """
         stats = []
 
@@ -597,7 +605,19 @@ class NPCIScraper:
                     "_id": "$product",
                     "total": {"$sum": 1},
                     "processed": {
-                        "$sum": {"$cond": [{"$ne": ["$processed_at", None]}, 1, 0]}
+                        "$sum": {"$cond": [
+                            {"$eq": ["$processing_status", "completed"]}, 1, 0
+                        ]}
+                    },
+                    "failed": {
+                        "$sum": {"$cond": [
+                            {"$eq": ["$processing_status", "failed"]}, 1, 0
+                        ]}
+                    },
+                    "in_progress": {
+                        "$sum": {"$cond": [
+                            {"$eq": ["$processing_status", "processing"]}, 1, 0
+                        ]}
                     },
                 }},
                 {"$sort": {"total": -1}},
@@ -605,12 +625,18 @@ class NPCIScraper:
 
             async for doc in self.collection.aggregate(pipeline):
                 product = doc["_id"]
+                processed = doc["processed"]
+                failed = doc["failed"]
+                in_progress = doc["in_progress"]
+                pending = doc["total"] - processed - failed - in_progress
                 stats.append({
                     "product": product,
                     "label": NPCI_PRODUCT_LABELS.get(product, product),
                     "total": doc["total"],
-                    "processed": doc["processed"],
-                    "pending": doc["total"] - doc["processed"],
+                    "processed": processed,
+                    "failed": failed,
+                    "in_progress": in_progress,
+                    "pending": pending,
                 })
         except Exception as e:
             logger.error(f"Error getting product stats: {e}")
@@ -624,6 +650,8 @@ class NPCIScraper:
                     "label": NPCI_PRODUCT_LABELS.get(product, product),
                     "total": 0,
                     "processed": 0,
+                    "failed": 0,
+                    "in_progress": 0,
                     "pending": 0,
                 })
 
@@ -633,13 +661,27 @@ class NPCIScraper:
         """
         Get overall scraping statistics.
 
+        "processed" means real LLM extraction succeeded
+        (processing_status == "completed"). A non-null `processed_at` alone is
+        NOT enough — legacy placeholder runs left rows in that state without
+        any real clause extraction.
+
         Returns:
-            Dict with total, processed, pending, by_product, last_scraped
+            Dict with total, processed, pending, failed, in_progress,
+            by_product, last_scraped.
         """
         try:
             total = await self.collection.count_documents({})
-            processed = await self.collection.count_documents({"processed_at": {"$ne": None}})
-            pending = total - processed
+            processed = await self.collection.count_documents(
+                {"processing_status": "completed"}
+            )
+            failed = await self.collection.count_documents(
+                {"processing_status": "failed"}
+            )
+            in_progress = await self.collection.count_documents(
+                {"processing_status": "processing"}
+            )
+            pending = total - processed - failed - in_progress
 
             # Get last scraped time
             last_doc = await self.collection.find_one(
@@ -654,6 +696,8 @@ class NPCIScraper:
                 "total": total,
                 "processed": processed,
                 "pending": pending,
+                "failed": failed,
+                "in_progress": in_progress,
                 "last_scraped": last_scraped,
                 "by_product": product_stats,
             }
@@ -663,6 +707,8 @@ class NPCIScraper:
                 "total": 0,
                 "processed": 0,
                 "pending": 0,
+                "failed": 0,
+                "in_progress": 0,
                 "last_scraped": None,
                 "by_product": [],
             }

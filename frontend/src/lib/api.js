@@ -475,6 +475,17 @@ export const npciApi = {
   getScheduleStatus: () => api.get('/npci/schedule/status').then(r => r.data),
   // Convert processed circulars to full regulation records
   convertToRegulations: () => api.post('/npci/circulars/convert-to-regulations', {}, { timeout: 600000 }),
+  // Demo Point #2: Required Evidences rollup per circular
+  getEvidenceRollup: (id) => api.get(`/npci/circulars/${id}/evidences`).then(r => r.data),
+};
+
+// Demo Point #3: Device Binding & RASP Advisor
+export const deviceBindingApi = {
+  getReport: (organization = 'system', includeSummary = true) =>
+    api.get('/npci/device-binding-advisor', {
+      params: { organization, include_summary: includeSummary },
+      timeout: 60000, // LLM summary can take a few seconds
+    }).then(r => r.data),
 };
 
 // PA/PG Compliance APIs

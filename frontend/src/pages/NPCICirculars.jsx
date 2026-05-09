@@ -27,8 +27,10 @@ import {
   Shield, Download, Search, RefreshCw, Loader2, FileText,
   Eye, Play, ChevronLeft, ExternalLink, CheckCircle, Clock,
   AlertCircle, Zap, Database, BarChart3, X, Timer, Settings2,
-  CalendarClock, ToggleLeft, ToggleRight, Rocket
+  CalendarClock, ToggleLeft, ToggleRight, Rocket, ClipboardList,
+  ListChecks, FileCheck2, Smartphone
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 
 const API_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000';
@@ -53,8 +55,9 @@ const YEARS = ['2025', '2024', '2023', '2022', '2021', '2020', '2019', '2018', '
 
 export default function NPCICirculars() {
   const { setShowPanel } = useUpload();
+  const navigate = useNavigate();
   // State
-  const [stats, setStats] = useState({ total: 0, processed: 0, pending: 0, by_product: [] });
+  const [stats, setStats] = useState({ total: 0, processed: 0, pending: 0, failed: 0, in_progress: 0, by_product: [] });
   const [circulars, setCirculars] = useState([]);
   const [totalCirculars, setTotalCirculars] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -67,6 +70,10 @@ export default function NPCICirculars() {
   // Detail view
   const [selectedCircular, setSelectedCircular] = useState(null);
   const [detailLoading, setDetailLoading] = useState(false);
+
+  // Demo Point #2: Required Evidences rollup
+  const [evidenceRollup, setEvidenceRollup] = useState(null);
+  const [evidenceLoading, setEvidenceLoading] = useState(false);
 
   // Scrape dialog
   const [scrapeOpen, setScrapeOpen] = useState(false);
@@ -206,9 +213,24 @@ export default function NPCICirculars() {
   // Open circular detail
   const openDetail = async (circular) => {
     setDetailLoading(true);
+    setEvidenceRollup(null);
     try {
       const data = await npciApi.getCircular(circular._id);
       setSelectedCircular(data);
+
+      // Demo Point #2: parallel-fetch the evidence rollup if circular is processed
+      if (data.processing_status === 'completed') {
+        setEvidenceLoading(true);
+        try {
+          const ev = await npciApi.getEvidenceRollup(circular._id);
+          setEvidenceRollup(ev);
+        } catch (e) {
+          // Non-fatal: evidence rollup is a value-add view, not blocking
+          console.warn('Evidence rollup fetch failed:', e);
+        } finally {
+          setEvidenceLoading(false);
+        }
+      }
     } catch (error) {
       toast.error('Failed to load circular details');
     } finally {
@@ -366,9 +388,19 @@ export default function NPCICirculars() {
     return (
       <div className="space-y-6" data-testid="npci-circular-detail">
         {/* Back button */}
-        <div className="flex items-center gap-3">
-          <Button variant="ghost" size="sm" onClick={() => setSelectedCircular(null)}>
+        <div className="flex items-center gap-3 justify-between">
+          <Button variant="ghost" size="sm" onClick={() => { setSelectedCircular(null); setEvidenceRollup(null); }}>
             <ChevronLeft className="h-4 w-4 mr-1" /> Back to Circulars
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => navigate('/device-binding-advisor')}
+            title="Open Device Binding & RASP Advisor"
+            className="text-emerald-700 border-emerald-200 hover:bg-emerald-50"
+          >
+            <Smartphone className="h-4 w-4 mr-1" />
+            Device Binding Advisor
           </Button>
         </div>
 
@@ -382,9 +414,17 @@ export default function NPCICirculars() {
                     {selectedCircular.product_label || selectedCircular.product}
                   </Badge>
                   <Badge variant="outline">{selectedCircular.year}</Badge>
-                  {selectedCircular.processed_at ? (
+                  {selectedCircular.processing_status === 'completed' ? (
                     <Badge className="bg-emerald-100 text-emerald-800">
-                      <CheckCircle className="h-3 w-3 mr-1" /> Processed
+                      <CheckCircle className="h-3 w-3 mr-1" /> AI Processed
+                    </Badge>
+                  ) : selectedCircular.processing_status === 'failed' ? (
+                    <Badge className="bg-red-100 text-red-800" title={selectedCircular.processing_error || 'LLM extraction failed'}>
+                      <AlertCircle className="h-3 w-3 mr-1" /> Failed
+                    </Badge>
+                  ) : selectedCircular.processing_status === 'processing' ? (
+                    <Badge className="bg-blue-100 text-blue-800">
+                      <Loader2 className="h-3 w-3 mr-1 animate-spin" /> Processing
                     </Badge>
                   ) : (
                     <Badge variant="secondary">
@@ -402,7 +442,7 @@ export default function NPCICirculars() {
                     </a>
                   </Button>
                 )}
-                {!selectedCircular.processed_at && (
+                {selectedCircular.processing_status !== 'completed' && selectedCircular.processing_status !== 'processing' && (
                   <Button
                     size="sm"
                     onClick={() => handleProcessCircular(selectedCircular._id)}
@@ -413,7 +453,7 @@ export default function NPCICirculars() {
                     ) : (
                       <Zap className="h-4 w-4 mr-1" />
                     )}
-                    Process with AI
+                    {selectedCircular.processing_status === 'failed' ? 'Retry AI Processing' : 'Process with AI'}
                   </Button>
                 )}
               </div>
@@ -421,12 +461,136 @@ export default function NPCICirculars() {
           </CardHeader>
         </Card>
 
+        {/* Demo Point #2: Required Evidences Rollup */}
+        {selectedCircular.processing_status === 'completed' && (
+          <Card data-testid="evidence-rollup">
+            <CardHeader>
+              <div className="flex items-start justify-between">
+                <div>
+                  <CardTitle className="text-base flex items-center gap-2">
+                    <ClipboardList className="h-4 w-4 text-emerald-600" />
+                    Required Evidences for Compliance
+                  </CardTitle>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    Aggregated from extracted clauses - what an auditor would expect to see for this circular.
+                  </p>
+                </div>
+                {evidenceLoading && <Loader2 className="h-4 w-4 animate-spin text-emerald-600" />}
+              </div>
+            </CardHeader>
+            <CardContent>
+              {evidenceRollup ? (
+                <div className="space-y-4">
+                  {/* Stats strip */}
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    <div className="p-3 rounded-lg bg-emerald-50 border border-emerald-100">
+                      <div className="text-2xl font-bold text-emerald-700">
+                        {evidenceRollup.evidence_items?.length || 0}
+                      </div>
+                      <div className="text-xs text-emerald-700">Required evidences</div>
+                    </div>
+                    <div className="p-3 rounded-lg bg-blue-50 border border-blue-100">
+                      <div className="text-2xl font-bold text-blue-700">
+                        {evidenceRollup.stats?.clauses || 0}
+                      </div>
+                      <div className="text-xs text-blue-700">Clauses analyzed</div>
+                    </div>
+                    <div className="p-3 rounded-lg bg-red-50 border border-red-100">
+                      <div className="text-2xl font-bold text-red-700">
+                        {evidenceRollup.stats?.impact?.high || 0}
+                      </div>
+                      <div className="text-xs text-red-700">High-impact</div>
+                    </div>
+                    <div className="p-3 rounded-lg bg-amber-50 border border-amber-100">
+                      <div className="text-2xl font-bold text-amber-700">
+                        {(evidenceRollup.stats?.entities?.length) || 0}
+                      </div>
+                      <div className="text-xs text-amber-700">Entities involved</div>
+                    </div>
+                  </div>
+
+                  {/* Categories chip row */}
+                  {evidenceRollup.stats?.categories && Object.keys(evidenceRollup.stats.categories).length > 0 && (
+                    <div className="flex flex-wrap gap-1.5">
+                      <span className="text-xs text-muted-foreground self-center mr-1">Categories:</span>
+                      {Object.entries(evidenceRollup.stats.categories).map(([cat, count]) => (
+                        <Badge key={cat} variant="outline" className="text-xs">
+                          {cat} <span className="ml-1 text-muted-foreground">·{count}</span>
+                        </Badge>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Evidence items */}
+                  {evidenceRollup.evidence_items?.length > 0 ? (
+                    <div className="space-y-2">
+                      {evidenceRollup.evidence_items.map((ev, idx) => (
+                        <div
+                          key={idx}
+                          className="p-3 rounded-lg border border-gray-100 bg-white hover:border-emerald-200 transition-colors"
+                        >
+                          <div className="flex items-start gap-3">
+                            <div className="flex-shrink-0 mt-0.5">
+                              <FileCheck2 className="h-4 w-4 text-emerald-600" />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center gap-2 flex-wrap mb-1">
+                                <Badge
+                                  variant="outline"
+                                  className={
+                                    ev.evidence_type === 'control' ? 'bg-blue-50 border-blue-200 text-blue-700' :
+                                    ev.evidence_type === 'document' ? 'bg-emerald-50 border-emerald-200 text-emerald-700' :
+                                    ev.evidence_type === 'record' ? 'bg-violet-50 border-violet-200 text-violet-700' :
+                                    ev.evidence_type === 'report' ? 'bg-amber-50 border-amber-200 text-amber-700' :
+                                    ev.evidence_type === 'training' ? 'bg-pink-50 border-pink-200 text-pink-700' :
+                                    'bg-gray-50 border-gray-200 text-gray-700'
+                                  }
+                                >
+                                  {ev.evidence_type}
+                                </Badge>
+                                {ev.mandatory && (
+                                  <Badge className="bg-red-50 text-red-700 border-red-200 text-xs" variant="outline">
+                                    mandatory
+                                  </Badge>
+                                )}
+                                <span className="text-xs text-muted-foreground">
+                                  Owner: {ev.owner_function}
+                                </span>
+                              </div>
+                              <p className="text-sm text-gray-800 mb-1">{ev.requirement}</p>
+                              <p className="text-xs text-muted-foreground">
+                                <span className="font-medium">Verification:</span> {ev.verification_method}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="text-sm text-muted-foreground italic">
+                      No structured evidences were extracted from this circular's clauses.
+                    </p>
+                  )}
+                </div>
+              ) : evidenceLoading ? (
+                <div className="flex items-center justify-center py-8 text-muted-foreground">
+                  <Loader2 className="h-5 w-5 animate-spin mr-2" /> Aggregating required evidences...
+                </div>
+              ) : (
+                <p className="text-sm text-muted-foreground italic">
+                  Evidence rollup unavailable. Try processing this circular with AI again.
+                </p>
+              )}
+            </CardContent>
+          </Card>
+        )}
+
         {/* Extracted Clauses */}
         {selectedCircular.clauses && selectedCircular.clauses.length > 0 && (
           <Card>
             <CardHeader>
               <CardTitle className="text-base flex items-center gap-2">
-                <FileText className="h-4 w-4" />
+                <ListChecks className="h-4 w-4" />
                 Extracted Clauses ({selectedCircular.clauses.length})
               </CardTitle>
             </CardHeader>
@@ -456,7 +620,22 @@ export default function NPCICirculars() {
                       </div>
                     </AccordionTrigger>
                     <AccordionContent>
-                      <p className="text-sm text-muted-foreground whitespace-pre-wrap">{clause.text}</p>
+                      <div className="space-y-2">
+                        <p className="text-sm text-muted-foreground whitespace-pre-wrap">{clause.text}</p>
+                        {clause.key_requirements && clause.key_requirements.length > 0 && (
+                          <div>
+                            <div className="text-xs font-semibold text-gray-700 uppercase tracking-wide mt-2 mb-1">Key Requirements</div>
+                            <ul className="space-y-0.5">
+                              {clause.key_requirements.map((req, ridx) => (
+                                <li key={ridx} className="text-xs text-gray-700 flex items-start gap-1.5">
+                                  <CheckCircle className="h-3 w-3 text-emerald-600 flex-shrink-0 mt-0.5" />
+                                  <span>{req}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </div>
                     </AccordionContent>
                   </AccordionItem>
                 ))}
@@ -500,14 +679,15 @@ export default function NPCICirculars() {
           <Button
             variant="outline"
             onClick={handleProcessAll}
-            disabled={processing || stats.pending === 0}
+            disabled={processing || (stats.pending === 0 && (stats.failed || 0) === 0)}
+            title={(stats.failed || 0) > 0 ? `Process ${stats.pending} pending + retry ${stats.failed} failed circular(s)` : `Process ${stats.pending} pending circular(s)`}
           >
             {processing ? (
               <Loader2 className="h-4 w-4 mr-2 animate-spin" />
             ) : (
               <Zap className="h-4 w-4 mr-2" />
             )}
-            Process All
+            Process All{(stats.failed || 0) > 0 ? ` (incl. ${stats.failed} failed)` : ''}
           </Button>
           <Dialog open={scrapeOpen} onOpenChange={setScrapeOpen}>
             <DialogTrigger asChild>
@@ -586,7 +766,7 @@ export default function NPCICirculars() {
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <Card>
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
@@ -602,7 +782,7 @@ export default function NPCICirculars() {
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-muted-foreground">Processed</p>
+                <p className="text-sm text-muted-foreground" title="Real LLM clause extraction succeeded">AI Processed</p>
                 <p className="text-2xl font-bold text-emerald-600">{stats.processed}</p>
               </div>
               <CheckCircle className="h-8 w-8 text-emerald-600 opacity-50" />
@@ -617,6 +797,22 @@ export default function NPCICirculars() {
                 <p className="text-2xl font-bold text-amber-600">{stats.pending}</p>
               </div>
               <Clock className="h-8 w-8 text-amber-600 opacity-50" />
+            </div>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardContent className="pt-6">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-muted-foreground" title="LLM extraction failed (no credits, Ollama down, unreadable PDF, etc.)">Failed</p>
+                <p className="text-2xl font-bold text-red-600">{stats.failed || 0}</p>
+                {(stats.in_progress || 0) > 0 && (
+                  <p className="text-xs text-muted-foreground mt-1">
+                    {stats.in_progress} in progress
+                  </p>
+                )}
+              </div>
+              <AlertCircle className="h-8 w-8 text-red-600 opacity-50" />
             </div>
           </CardContent>
         </Card>
@@ -920,9 +1116,17 @@ export default function NPCICirculars() {
                         </TableCell>
                         <TableCell className="text-sm">{circular.year}</TableCell>
                         <TableCell>
-                          {circular.processed_at ? (
+                          {circular.processing_status === 'completed' ? (
                             <Badge className="bg-emerald-100 text-emerald-800 text-xs">
-                              <CheckCircle className="h-3 w-3 mr-1" /> Processed
+                              <CheckCircle className="h-3 w-3 mr-1" /> AI Processed
+                            </Badge>
+                          ) : circular.processing_status === 'failed' ? (
+                            <Badge className="bg-red-100 text-red-800 text-xs" title={circular.processing_error || 'LLM extraction failed'}>
+                              <AlertCircle className="h-3 w-3 mr-1" /> Failed
+                            </Badge>
+                          ) : circular.processing_status === 'processing' ? (
+                            <Badge className="bg-blue-100 text-blue-800 text-xs">
+                              <Loader2 className="h-3 w-3 mr-1 animate-spin" /> Processing
                             </Badge>
                           ) : (
                             <Badge variant="secondary" className="text-xs">
@@ -935,13 +1139,13 @@ export default function NPCICirculars() {
                             <Button variant="ghost" size="sm" onClick={() => openDetail(circular)} title="View details">
                               <Eye className="h-4 w-4" />
                             </Button>
-                            {!circular.processed_at && (
+                            {circular.processing_status !== 'completed' && circular.processing_status !== 'processing' && (
                               <Button
                                 variant="ghost"
                                 size="sm"
                                 onClick={() => handleProcessCircular(circular._id)}
                                 disabled={processingId === circular._id}
-                                title="Process with AI"
+                                title={circular.processing_status === 'failed' ? 'Retry AI processing' : 'Process with AI'}
                               >
                                 {processingId === circular._id ? (
                                   <Loader2 className="h-4 w-4 animate-spin" />

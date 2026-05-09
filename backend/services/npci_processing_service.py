@@ -494,7 +494,8 @@ class NPCIProcessingService:
             return None
 
     async def _extract_clauses_with_llm(
-        self, text: str, title: str, product: str, year: str
+        self, text: str, title: str, product: str, year: str,
+        allow_fallback: bool = False,
     ) -> List[Dict[str, Any]]:
         """
         Use LLM to extract structured clauses from circular text.
@@ -505,9 +506,16 @@ class NPCIProcessingService:
             title: Circular title
             product: NPCI product slug
             year: Circular year
+            allow_fallback: If True, falls back to text-splitting heuristic on
+                LLM failure. Default False so that an LLM outage surfaces as
+                a real failure (status="failed") instead of silently producing
+                placeholder clauses that pretend AI ran.
 
         Returns:
             List of structured clause dicts
+
+        Raises:
+            RuntimeError: If LLM extraction fails and allow_fallback is False.
         """
         from services.llm_provider import get_llm_provider, is_using_local_llm, log_llm_cost
 
@@ -549,6 +557,14 @@ Text (first 8000 chars):
             # Parse JSON from response
             clauses = self._parse_clauses_response(response)
 
+            if not clauses:
+                # LLM returned a response but we couldn't parse any clauses.
+                # That's still a failure — don't silently fall back.
+                raise RuntimeError(
+                    f"LLM ({provider_name}) returned an unparseable response "
+                    f"({len(response)} chars); no clauses extracted"
+                )
+
             # Enrich clauses with circular metadata
             for clause in clauses:
                 clause["product"] = product
@@ -568,9 +584,15 @@ Text (first 8000 chars):
             return clauses
 
         except Exception as e:
-            logger.warning(f"LLM clause extraction failed: {e}")
-            # Fallback: create basic clauses from text
-            return self._fallback_clause_extraction(text, title, product)
+            if allow_fallback:
+                logger.warning(
+                    f"LLM clause extraction failed ({e}); allow_fallback=True so "
+                    f"using heuristic text split."
+                )
+                return self._fallback_clause_extraction(text, title, product)
+            # No fallback: propagate so process_circular marks the row as failed.
+            logger.error(f"LLM clause extraction failed: {e}")
+            raise RuntimeError(f"LLM clause extraction failed: {e}") from e
 
     def _parse_clauses_response(self, response: str) -> List[Dict[str, Any]]:
         """Parse LLM response into clause list."""
@@ -789,9 +811,8 @@ Text (first 8000 chars):
         """
         cursor = self.circulars_collection.find({
             "$or": [
-                {"processed_at": None},
-                {"processed_at": {"$exists": False}},
-                {"processing_status": "failed"},
+                {"processing_status": {"$exists": False}},
+                {"processing_status": {"$nin": ["completed", "processing"]}},
             ]
         })
 

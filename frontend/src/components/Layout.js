@@ -7,7 +7,7 @@ import {
   CheckCircle, Building2, Calendar as CalendarIcon, MessageCircle,
   Menu, X, ChevronLeft, ChevronRight, Search, Bell, User,
   BarChart3, Settings, CreditCard, ChevronDown, TrendingUp, CheckSquare,
-  Cloud, Server, Landmark
+  Cloud, Server, Landmark, Smartphone
 } from 'lucide-react';
 import { llmApi } from '../lib/api';
 import { toast } from 'sonner';
@@ -18,6 +18,7 @@ const navigation = [
   { name: 'Regulations', href: '/regulations', icon: Shield },
   { name: 'Regulatory Updates', href: '/regulatory-updates', icon: TrendingUp },
   { name: 'NPCI Circulars', href: '/npci-circulars', icon: Landmark },
+  { name: 'Device Binding Advisor', href: '/device-binding-advisor', icon: Smartphone },
   { name: 'Gap Analysis', href: '/gap-analysis', icon: Sparkles },
   { name: 'Compliance', href: '/compliance-dashboard', icon: Shield },
   { name: 'Tasks', href: '/tasks', icon: ListTodo },
@@ -39,6 +40,7 @@ const routeNames = {
   'regulations': 'Regulations',
   'regulatory-updates': 'Regulatory Updates',
   'npci-circulars': 'NPCI Circulars',
+  'device-binding-advisor': 'Device Binding Advisor',
   'gap-analysis': 'Gap Analysis',
   'tasks': 'Tasks',
   'evidence': 'Evidence',

@@ -48,6 +48,7 @@ from services.vector_service import VectorService
 from services.npci_scraper_service import NPCIScraper, NPCI_PRODUCTS, NPCI_PRODUCT_LABELS
 from services.npci_scheduler_service import NPCISchedulerService
 from services.npci_processing_service import NPCIProcessingService
+from services.device_binding_advisor_service import DeviceBindingAdvisorService
 from services.organization_profile_service import OrganizationProfileService
 from services.requirement_mapping_service import RequirementMappingService
 from services.batch_upload_service import BatchUploadService
@@ -107,7 +108,7 @@ async def lifespan(app: FastAPI):
     print("=" * 80)
     print("LIFESPAN STARTUP BEGINNING")
     print("=" * 80)
-    global regulation_first_gap_service, semantic_gap_service, task_service, upload_job_service, vector_service, npci_scraper, npci_scheduler, npci_processing_service, org_profile_service, requirement_mapping_service, batch_upload_service, gap_scoring_service, compliance_checks_service, remediation_service, policy_drafting_service, sop_templates_service, approval_workflow_service, policy_version_service, gap_report_service, audit_trail_service, regulatory_feed_service, report_export_service, i18n_service, document_encryption_service, confluence_integration_service, document_optimization_service, success_metrics_service
+    global regulation_first_gap_service, semantic_gap_service, task_service, upload_job_service, vector_service, npci_scraper, npci_scheduler, npci_processing_service, device_binding_advisor, org_profile_service, requirement_mapping_service, batch_upload_service, gap_scoring_service, compliance_checks_service, remediation_service, policy_drafting_service, sop_templates_service, approval_workflow_service, policy_version_service, gap_report_service, audit_trail_service, regulatory_feed_service, report_export_service, i18n_service, document_encryption_service, confluence_integration_service, document_optimization_service, success_metrics_service
 
     # Initialize MongoDB collections and indexes
     logger.info(f"Connecting to MongoDB at {mongo_url}, database: {db.name}")
@@ -209,6 +210,17 @@ async def lifespan(app: FastAPI):
         logger.info("Initialized NPCISchedulerService")
     except Exception as e:
         logger.error(f"Error initializing NPCISchedulerService: {e}")
+
+    # Demo Point #3: Initialize Device Binding & RASP Advisor Service
+    try:
+        device_binding_advisor = DeviceBindingAdvisorService(
+            db=db,
+            vector_service=vector_service,
+            llm_service=llm_service,
+        )
+        logger.info("Initialized DeviceBindingAdvisorService")
+    except Exception as e:
+        logger.error(f"Error initializing DeviceBindingAdvisorService: {e}")
 
     # Feature #213: Restore persisted LLM mode from MongoDB
     try:
@@ -329,6 +341,7 @@ vector_service = None  # Initialized after Qdrant client is ready
 npci_scraper = None  # Initialized after db is ready
 npci_scheduler = None  # Initialized after db is ready (Feature #220)
 npci_processing_service = None  # Initialized after db is ready (Feature #216)
+device_binding_advisor = None  # Initialized after db + vector_service are ready (Demo Point #3)
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -4252,7 +4265,10 @@ async def get_regulations(
                 existing_npci_ids.add(reg["source_circular_id"])
 
         try:
-            npci_query = {"processed_at": {"$ne": None}}
+            # Only include circulars where real LLM extraction succeeded.
+            # Legacy placeholder runs left processed_at != null without any
+            # actual analysis; those should NOT appear as regulations.
+            npci_query = {"processing_status": "completed"}
             npci_circulars = await db.npci_circulars.find(npci_query, {"_id": 0}).to_list(500)
             for circ in npci_circulars:
                 circ_npci_id = str(circ.get("npci_id", ""))
@@ -10862,7 +10878,7 @@ async def get_dashboard_stats(current_user: dict = Depends(get_current_user)):
     # Feature #219: Include NPCI circular stats in dashboard
     try:
         npci_circular_count = await db.npci_circulars.count_documents({})
-        npci_processed_count = await db.npci_circulars.count_documents({"processed_at": {"$ne": None}})
+        npci_processed_count = await db.npci_circulars.count_documents({"processing_status": "completed"})
         if npci_circular_count > 0:
             # Add NPCI to regulator overview if not already present
             npci_exists = any(r.get('regulator') == 'NPCI' for r in regulator_overview)

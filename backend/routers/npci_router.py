@@ -399,77 +399,95 @@ async def _process_npci_circular_background(job_id: str, circular_id: str):
     except Exception as e:
         logger.error(f"[NPCI PROCESS] Failed job {job_id}: {str(e)}", exc_info=True)
         await upload_job_service.fail_job(job_id, str(e), str(e.__class__.__name__))
+        # Also mark the circular row as failed so stats stay honest
+        # (do NOT set processed_at — only success sets that).
+        try:
+            from bson import ObjectId
+            processing_service = _get_processing_service()
+            await processing_service.circulars_collection.update_one(
+                {"_id": ObjectId(circular_id)},
+                {"$set": {
+                    "processing_status": "failed",
+                    "processing_error": str(e)[:500],
+                }}
+            )
+        except Exception as inner:
+            logger.error(f"[NPCI PROCESS] Could not update circular {circular_id} as failed: {inner}")
 
 
 # -------------------------------------------------------------------
 # POST /api/npci/circulars/process-all - Batch process with SSE
+#
+# IMPORTANT: This now uses the REAL NPCIProcessingService pipeline
+# (PDF text extraction + LLM clause extraction + Qdrant embeddings +
+# auto-conversion to Regulation). A circular is only marked
+# `processing_status="completed"` (and `processed_at=now`) when LLM
+# extraction actually succeeds; failures are recorded as
+# `processing_status="failed"` so stats stay honest. The previous
+# placeholder logic that hard-coded a single fake clause and flipped
+# `processed_at` without ever calling an LLM was removed because it
+# made the "Processed" count meaningless.
 # -------------------------------------------------------------------
 @npci_router.post("/circulars/process-all")
 async def process_all_circulars():
     """
     Batch process all unprocessed circulars with SSE progress streaming.
+    Uses the real NPCIProcessingService pipeline - no placeholders.
     """
     npci_scraper, db, get_current_user = _get_dependencies()
+    processing_service = _get_processing_service()
 
     async def generate_events():
         try:
-            # Find all unprocessed circulars
-            cursor = db.npci_circulars.find({"processed_at": None})
+            # Find all not-yet-completed circulars (pending OR previously failed)
+            cursor = db.npci_circulars.find({
+                "$or": [
+                    {"processing_status": {"$exists": False}},
+                    {"processing_status": {"$nin": ["completed", "processing"]}},
+                ]
+            })
             unprocessed = []
             async for doc in cursor:
                 doc["_id"] = str(doc["_id"])
                 unprocessed.append(doc)
 
             total = len(unprocessed)
-            yield f"data: {json.dumps({'event': 'start', 'total': total, 'message': f'Processing {total} circulars...'})}\n\n"
+            yield f"data: {json.dumps({'event': 'start', 'total': total, 'message': f'Processing {total} circulars with AI...'})}\n\n"
 
             processed = 0
-            errors = 0
+            failed = 0
 
             for doc in unprocessed:
                 circular_id = doc["_id"]
                 try:
-                    # Download PDF if needed
-                    if not doc.get("pdf_downloaded") and doc.get("pdf_url"):
-                        await npci_scraper.download_pdf(
-                            doc["pdf_url"],
-                            npci_id=doc.get("npci_id"),
+                    result = await processing_service.process_circular(circular_id)
+
+                    if result.get("success"):
+                        processed += 1
+                        msg = (
+                            f"Processed {processed}/{total} - "
+                            f"{result.get('clauses_extracted', 0)} clauses extracted"
                         )
-
-                    # Extract text
-                    raw_text = doc.get("title", "No text available")
-
-                    # Simple clause extraction (without LLM to avoid rate limits in batch)
-                    clauses = [{
-                        "clause_id": "C1",
-                        "title": doc.get("title", "Unknown"),
-                        "text": raw_text[:2000],
-                        "category": "General",
-                        "compliance_impact": "medium",
-                    }]
-
-                    from bson import ObjectId
-                    await db.npci_circulars.update_one(
-                        {"_id": ObjectId(circular_id)},
-                        {"$set": {
-                            "raw_text": raw_text,
-                            "clauses": clauses,
-                            "processed_at": datetime.now(timezone.utc).isoformat(),
-                        }},
-                    )
-
-                    processed += 1
-                    yield f"data: {json.dumps({'event': 'progress', 'processed': processed, 'total': total, 'current': doc.get('title', '')[:100], 'message': f'Processed {processed}/{total}'})}\n\n"
+                        yield f"data: {json.dumps({'event': 'progress', 'processed': processed, 'failed': failed, 'total': total, 'current': doc.get('title', '')[:100], 'message': msg})}\n\n"
+                    else:
+                        failed += 1
+                        err = result.get("error", "Unknown error")
+                        logger.warning(f"Failed to process circular {circular_id}: {err}")
+                        yield f"data: {json.dumps({'event': 'item_error', 'circular_id': circular_id, 'error': err, 'processed': processed, 'failed': failed, 'total': total})}\n\n"
 
                 except Exception as e:
-                    errors += 1
-                    logger.error(f"Error processing circular {circular_id}: {e}")
-                    yield f"data: {json.dumps({'event': 'item_error', 'circular_id': circular_id, 'error': str(e)})}\n\n"
+                    failed += 1
+                    logger.error(f"Error processing circular {circular_id}: {e}", exc_info=True)
+                    yield f"data: {json.dumps({'event': 'item_error', 'circular_id': circular_id, 'error': str(e), 'processed': processed, 'failed': failed, 'total': total})}\n\n"
 
-                # Small delay to avoid overwhelming the system
-                await asyncio.sleep(0.1)
+                # Small delay to be nice to the LLM provider / rate limits
+                await asyncio.sleep(0.3)
 
-            yield f"data: {json.dumps({'event': 'complete', 'processed': processed, 'errors': errors, 'total': total, 'message': f'Batch processing complete: {processed} processed, {errors} errors'})}\n\n"
+            msg = (
+                f"Batch processing complete: {processed} succeeded with real AI extraction, "
+                f"{failed} failed (likely LLM unavailable or PDF unreadable)"
+            )
+            yield f"data: {json.dumps({'event': 'complete', 'processed': processed, 'failed': failed, 'total': total, 'message': msg})}\n\n"
 
         except Exception as e:
             logger.error(f"Batch processing error: {e}", exc_info=True)
@@ -532,6 +550,59 @@ def _get_processing_service():
     """Get the NPCI processing service instance from server module."""
     srv = _get_server_module()
     return srv.npci_processing_service
+
+
+def _get_device_binding_advisor():
+    """Get the Device Binding Advisor service instance from server module."""
+    srv = _get_server_module()
+    return getattr(srv, "device_binding_advisor", None)
+
+
+# ===================================================================
+# Demo Helper #1: Required Evidences Rollup (Point #2 of demo)
+# ===================================================================
+
+@npci_router.get("/circulars/{circular_id}/evidences")
+async def get_circular_evidence_rollup(circular_id: str):
+    """
+    Aggregate every "what evidence is required" data point for a single
+    NPCI circular into one structured payload. Powers the demo's
+    "Required Evidences" view on the circular detail page.
+    """
+    advisor = _get_device_binding_advisor()
+    if advisor is None:
+        raise HTTPException(status_code=503, detail="Device binding advisor not initialized")
+
+    result = await advisor.aggregate_evidences_for_circular(circular_id)
+    if result.get("error"):
+        raise HTTPException(status_code=404, detail=result["error"])
+    return result
+
+
+# ===================================================================
+# Demo Helper #2: Device Binding & RASP Advisor (Point #3 of demo)
+# ===================================================================
+
+@npci_router.get("/device-binding-advisor")
+async def get_device_binding_advisor_report(
+    organization: str = Query("system", description="Organization scope for coverage data"),
+    include_summary: bool = Query(True, description="Whether to LLM-generate an executive summary"),
+):
+    """
+    Return a structured device-binding & RASP precaution advisor.
+    Combines NPCI's curated requirements with extracted clauses from
+    scraped circulars and (when available) live coverage data from
+    the most recent gap analysis.
+    """
+    advisor = _get_device_binding_advisor()
+    if advisor is None:
+        raise HTTPException(status_code=503, detail="Device binding advisor not initialized")
+
+    report = await advisor.get_advisor_report(
+        organization=organization,
+        include_summary=include_summary,
+    )
+    return report
 
 
 # -------------------------------------------------------------------
@@ -706,9 +777,8 @@ async def convert_circulars_to_regulations():
 
     async def generate_events():
         try:
-            # Find processed circulars that don't have a regulation record yet
+            # Find real-LLM-completed circulars that don't have a regulation record yet
             processed_cursor = db.npci_circulars.find({
-                "processed_at": {"$ne": None},
                 "processing_status": "completed",
             })
             circulars = []
