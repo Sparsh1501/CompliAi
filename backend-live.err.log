@@ -1,0 +1,22 @@
+D:\RegAI\reg-ai\backend\services\multi_llm_service_new.py:21: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [17336]
+INFO:     Waiting for application startup.
+WARNING:services.document_encryption_service:Using development encryption key. Set DOCUMENT_ENCRYPTION_KEY in production.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     ('127.0.0.1', 55508) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZTFiOTllMjUtMGRlZi00MWRhLTgwMmYtY2YzZjE2NTEwOWJhIiwiZW1haWwiOiJzcGFyc2guaW5kdXJrYXJAZ21haWwuY29tIiwicm9sZSI6ImNvbXBsaWFuY2VfaGVhZCIsImV4cCI6MTc3ODkyMDg1OH0.N7PbvbwVLbmQcnZwu_x_wm8XiLJ1T7KToSM2xc_Edpo" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     ('127.0.0.1', 59658) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZTFiOTllMjUtMGRlZi00MWRhLTgwMmYtY2YzZjE2NTEwOWJhIiwiZW1haWwiOiJzcGFyc2guaW5kdXJrYXJAZ21haWwuY29tIiwicm9sZSI6ImNvbXBsaWFuY2VfaGVhZCIsImV4cCI6MTc3ODkyMDg1OH0.N7PbvbwVLbmQcnZwu_x_wm8XiLJ1T7KToSM2xc_Edpo" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     ('127.0.0.1', 49670) - "WebSocket /ws/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZTFiOTllMjUtMGRlZi00MWRhLTgwMmYtY2YzZjE2NTEwOWJhIiwiZW1haWwiOiJzcGFyc2guaW5kdXJrYXJAZ21haWwuY29tIiwicm9sZSI6ImNvbXBsaWFuY2VfaGVhZCIsImV4cCI6MTc3ODkyMDg1OH0.N7PbvbwVLbmQcnZwu_x_wm8XiLJ1T7KToSM2xc_Edpo" [accepted]
+INFO:     connection open

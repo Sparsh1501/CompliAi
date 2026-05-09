@@ -531,6 +531,7 @@ class NPCIScraper:
         year: Optional[str] = None,
         search: Optional[str] = None,
         processed_only: bool = False,
+        status: Optional[str] = None,
         page: int = 1,
         size: int = 20,
     ) -> Dict[str, Any]:
@@ -541,7 +542,14 @@ class NPCIScraper:
             product: Filter by product slug
             year: Filter by year
             search: Search text in title
-            processed_only: Only return processed circulars
+            processed_only: Legacy boolean — equivalent to ``status="completed"``.
+            status: Richer status filter. One of:
+                "completed" - LLM extraction succeeded
+                "pending"   - never processed (or processed_status missing)
+                "failed"    - LLM extraction was attempted and failed
+                "processing"- currently in-flight
+                ``None``    - no status filter
+                If both ``processed_only`` and ``status`` are passed, ``status`` wins.
             page: Page number (1-indexed)
             size: Results per page
 
@@ -556,7 +564,20 @@ class NPCIScraper:
             query["year"] = year
         if search:
             query["title"] = {"$regex": search, "$options": "i"}
-        if processed_only:
+
+        if status:
+            status_norm = status.strip().lower()
+            if status_norm == "pending":
+                # Anything that hasn't successfully completed and isn't actively
+                # in-flight or marked failed is "pending" from the user's POV.
+                query["$or"] = [
+                    {"processing_status": {"$exists": False}},
+                    {"processing_status": {"$nin": ["completed", "failed", "processing"]}},
+                ]
+            elif status_norm in ("completed", "failed", "processing"):
+                query["processing_status"] = status_norm
+            # any other value: treat as "no filter" silently
+        elif processed_only:
             # Real LLM extraction succeeded — not just any processed_at marker
             query["processing_status"] = "completed"
 

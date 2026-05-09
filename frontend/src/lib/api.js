@@ -477,6 +477,12 @@ export const npciApi = {
   convertToRegulations: () => api.post('/npci/circulars/convert-to-regulations', {}, { timeout: 600000 }),
   // Demo Point #2: Required Evidences rollup per circular
   getEvidenceRollup: (id) => api.get(`/npci/circulars/${id}/evidences`).then(r => r.data),
+  // Cancel a Process-All batch (graceful — current circular finishes first).
+  // Pass a batch_id to target a specific run, or call without one to cancel all.
+  cancelProcessAll: (batchId) => api.post('/npci/circulars/process-all/cancel', null, {
+    params: batchId ? { batch_id: batchId } : {},
+  }).then(r => r.data),
+  getActiveProcessAllBatches: () => api.get('/npci/circulars/process-all/active').then(r => r.data),
 };
 
 // Demo Point #3: Device Binding & RASP Advisor

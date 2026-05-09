@@ -147,44 +147,43 @@ async def extract_text_with_vision_fallback(pdf_path: str, db=None) -> str:
             client = AsyncAnthropic(api_key=api_key)
             pdf_b64 = base64.standard_b64encode(pdf_bytes).decode("utf-8")
 
-        response = await client.messages.create(
-            model="claude-sonnet-4-20250514",
-            max_tokens=8000,
-            messages=[{
-                "role": "user",
-                "content": [
-                    {
-                        "type": "document",
-                        "source": {
-                            "type": "base64",
-                            "media_type": "application/pdf",
-                            "data": pdf_b64,
+            response = await client.messages.create(
+                model="claude-sonnet-4-20250514",
+                max_tokens=8000,
+                messages=[{
+                    "role": "user",
+                    "content": [
+                        {
+                            "type": "document",
+                            "source": {
+                                "type": "base64",
+                                "media_type": "application/pdf",
+                                "data": pdf_b64,
+                            },
                         },
-                    },
-                    {
-                        "type": "text",
-                        "text": "Extract all text from this NPCI circular PDF. Return the complete text content preserving the structure and formatting as much as possible."
-                    }
-                ]
-            }],
-        )
+                        {
+                            "type": "text",
+                            "text": "Extract all text from this NPCI circular PDF. Return the complete text content preserving the structure and formatting as much as possible."
+                        }
+                    ]
+                }],
+            )
 
-        vision_text = response.content[0].text if response.content else ""
-        if vision_text and len(vision_text.strip()) > 50:
-            logger.info(f"Vision API extracted {len(vision_text)} chars from scanned PDF")
+            vision_text = response.content[0].text if response.content else ""
+            if vision_text and len(vision_text.strip()) > 50:
+                logger.info(f"Vision API extracted {len(vision_text)} chars from scanned PDF")
 
-            # Log cost
-            if db is not None:
-                await log_llm_cost(
-                    db=db,
-                    provider="claude",
-                    operation="npci_pdf_vision_extraction",
-                    input_tokens=response.usage.input_tokens if hasattr(response, 'usage') else 0,
-                    output_tokens=response.usage.output_tokens if hasattr(response, 'usage') else 0,
-                    model="claude-sonnet-4-20250514",
-                )
+                if db is not None:
+                    await log_llm_cost(
+                        db=db,
+                        provider="claude",
+                        operation="npci_pdf_vision_extraction",
+                        input_tokens=response.usage.input_tokens if hasattr(response, 'usage') else 0,
+                        output_tokens=response.usage.output_tokens if hasattr(response, 'usage') else 0,
+                        model="claude-sonnet-4-20250514",
+                    )
 
-            return vision_text
+                return vision_text
 
     except Exception as e:
         logger.warning(f"LLM fallback failed: {e}")
@@ -419,17 +418,20 @@ class NPCIProcessingService:
                 embeddings_stored = await self._store_embeddings(clauses, circular)
             result["embeddings_stored"] = embeddings_stored
 
-            # Step 7: Update circular document
+            # Step 7: Update circular document (clear stale error from prior failure)
             await self.circulars_collection.update_one(
                 {"_id": ObjectId(circular_id)},
-                {"$set": {
-                    "raw_text": raw_text,
-                    "clauses": clauses,
-                    "processed_at": datetime.now(timezone.utc).isoformat(),
-                    "processing_status": "completed",
-                    "parsed_title": title_info,
-                    "clause_count": len(clauses),
-                }}
+                {
+                    "$set": {
+                        "raw_text": raw_text,
+                        "clauses": clauses,
+                        "processed_at": datetime.now(timezone.utc).isoformat(),
+                        "processing_status": "completed",
+                        "parsed_title": title_info,
+                        "clause_count": len(clauses),
+                    },
+                    "$unset": {"processing_error": ""},
+                },
             )
 
             # Step 8: Auto-convert to Regulation with full intelligence pipeline
@@ -572,12 +574,16 @@ Text (first 8000 chars):
                 if not clause.get("effective_date"):
                     clause["effective_date"] = None
 
-            # Log cost
+            # Log cost — pull token counts from the provider when available so
+            # llm_cost_tracking shows real spend instead of $0.
+            usage = getattr(provider, "last_usage", None) or {}
             await log_llm_cost(
                 db=self.db,
                 provider=provider_name,
                 operation="npci_clause_extraction",
                 model=provider.model if hasattr(provider, 'model') else "",
+                input_tokens=int(usage.get("input_tokens", 0) or 0),
+                output_tokens=int(usage.get("output_tokens", 0) or 0),
             )
 
             logger.info(f"LLM extracted {len(clauses)} clauses using {provider_name}")

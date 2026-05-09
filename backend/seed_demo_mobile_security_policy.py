@@ -45,8 +45,14 @@ load_dotenv(ROOT_DIR / ".env")
 
 POLICY_TITLE = "Mobile App Security & Device Binding Policy v3.0 (Demo)"
 POLICY_DEPARTMENT = "Information Technology"
-POLICY_ORG = "CompliAI"
-POLICY_USER_ID = os.environ.get("DEMO_USER_ID", "8a587d44-c374-4051-890f-db7769476b0c")
+
+# These two are resolved at runtime by `_resolve_owner` so the seeded policy
+# is owned by a REAL user and matches their organization. The gap-analysis
+# endpoint requires `policy.user_id == current_user.user_id`, so a hardcoded
+# placeholder makes the policy invisible to the actual demo operator.
+DEFAULT_POLICY_ORG = os.environ.get("DEMO_ORG", "")  # blank => infer from user
+DEFAULT_POLICY_USER_ID = os.environ.get("DEMO_USER_ID", "")  # blank => infer
+DEMO_USER_EMAIL = os.environ.get("DEMO_USER_EMAIL", "")  # optional; pick by email
 
 
 # Each clause has rich semantic metadata so the gap-analysis engine can match
@@ -416,8 +422,8 @@ def _build_clause(clause_data: dict) -> dict:
     }
 
 
-def _build_policy(now: datetime) -> dict:
-    """Build the full policy document."""
+def _build_policy(now: datetime, user_id: str, organization: str) -> dict:
+    """Build the full policy document for the given owner."""
     clauses = [_build_clause(c) for c in CLAUSES]
     return {
         "id": str(uuid.uuid4()),
@@ -459,8 +465,8 @@ def _build_policy(now: datetime) -> dict:
             "Fraud Risk",
             "Customer Awareness",
         ],
-        "user_id": POLICY_USER_ID,
-        "organization": POLICY_ORG,
+        "user_id": user_id,
+        "organization": organization,
         "department": POLICY_DEPARTMENT,
         "charter_id": None,
         "linked_regulations": [],
@@ -470,6 +476,44 @@ def _build_policy(now: datetime) -> dict:
         "created_at": (now - timedelta(days=45)).isoformat(),
         "updated_at": (now - timedelta(days=2)).isoformat(),
     }
+
+
+async def _resolve_owner(db) -> tuple[str, str]:
+    """Pick (user_id, organization) for the seeded policy.
+
+    Resolution order:
+        1. Explicit env / CLI overrides (DEMO_USER_ID + DEMO_ORG).
+        2. DEMO_USER_EMAIL → look up that user.
+        3. The single non-system user in the DB (typical local dev case).
+        4. Hard error if ambiguous.
+    """
+    if DEFAULT_POLICY_USER_ID and DEFAULT_POLICY_ORG:
+        return DEFAULT_POLICY_USER_ID, DEFAULT_POLICY_ORG
+
+    if DEMO_USER_EMAIL:
+        user = await db.users.find_one({"email": DEMO_USER_EMAIL}, {"id": 1, "organization": 1, "_id": 0})
+        if not user:
+            raise RuntimeError(f"DEMO_USER_EMAIL={DEMO_USER_EMAIL!r} not found in users collection")
+        return user["id"], (DEFAULT_POLICY_ORG or user.get("organization") or "Default")
+
+    # Auto-pick the only real user, ignoring synthetic 'system' rows.
+    candidates = []
+    async for u in db.users.find(
+        {"id": {"$nin": [None, "", "system"]}},
+        {"id": 1, "email": 1, "organization": 1, "_id": 0},
+    ):
+        candidates.append(u)
+    if not candidates:
+        raise RuntimeError("No real users found in the DB; create a user first or pass DEMO_USER_ID + DEMO_ORG.")
+    if len(candidates) > 1:
+        emails = ", ".join(c.get("email", "?") for c in candidates)
+        raise RuntimeError(
+            f"Multiple users present ({len(candidates)}): {emails}. "
+            "Re-run with DEMO_USER_EMAIL=<email> (or DEMO_USER_ID=<id> + DEMO_ORG=<org>) "
+            "to disambiguate which one should own the seeded demo policy."
+        )
+    chosen = candidates[0]
+    return chosen["id"], (DEFAULT_POLICY_ORG or chosen.get("organization") or "Default")
 
 
 async def _store_clauses_in_qdrant(policy: dict, qdrant_url: str):
@@ -501,8 +545,8 @@ async def _store_clauses_in_qdrant(policy: dict, qdrant_url: str):
         stored = await vector.store_policy_clauses(
             policy_id=policy["id"],
             clauses=clauses_for_vector,
-            organization=POLICY_ORG,
-            user_id=POLICY_USER_ID,
+            organization=policy.get("organization", "Default"),
+            user_id=policy.get("user_id", "system"),
         )
         print(f"  Stored {stored} policy clause embeddings in Qdrant policy_clauses collection")
     except Exception as e:
@@ -518,9 +562,18 @@ async def main(apply: bool):
     db = client[db_name]
 
     print(f"=== Demo Mobile Security Policy Seed (db={db_name}) ===")
+    user_id, org = await _resolve_owner(db)
+    print(f"Resolved owner: user_id={user_id}  organization={org}\n")
+
     existing = await db.policies.find_one({"title": POLICY_TITLE})
     if existing:
-        print(f"Policy '{POLICY_TITLE}' already exists. ID: {existing.get('id')}")
+        print(f"Policy '{POLICY_TITLE}' already exists.")
+        print(f"  id={existing.get('id')}  user_id={existing.get('user_id')}  org={existing.get('organization')}")
+        if existing.get("user_id") != user_id or existing.get("organization") != org:
+            print(
+                "  -> NOTE: existing policy is owned by a DIFFERENT user/org than the resolved demo owner. "
+                "Re-running with --apply will delete it and re-seed under the correct owner."
+            )
         if not apply:
             print("DRY RUN - re-run with --apply to delete and re-seed.")
             client.close()
@@ -528,7 +581,7 @@ async def main(apply: bool):
         await db.policies.delete_one({"id": existing["id"]})
         print("  Deleted existing policy. Will re-insert.")
 
-    policy = _build_policy(datetime.now(timezone.utc))
+    policy = _build_policy(datetime.now(timezone.utc), user_id=user_id, organization=org)
     print(f"Built policy with {len(policy['clauses'])} clauses, total text length: "
           f"{sum(len(c['text']) for c in policy['clauses'])} chars.")
     print()
@@ -551,6 +604,7 @@ async def main(apply: bool):
     print("DONE.")
     print(f"  Policy title:  {POLICY_TITLE}")
     print(f"  Policy id:     {policy['id']}")
+    print(f"  Owner:         user_id={user_id}  org={org}")
     print(f"  Clauses:       {len(policy['clauses'])}")
     print()
     print("Use this policy in Gap Analysis against any processed NPCI device-")

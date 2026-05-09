@@ -62,6 +62,10 @@ class ClaudeProvider(LLMProvider):
         else:
             self.client = AsyncAnthropic(api_key=self.api_key)
         self.model = "claude-sonnet-4-20250514"
+        # Populated after every successful generate() call so callers that
+        # care about cost-tracking can read the most recent usage without
+        # changing the LLMProvider interface signature.
+        self.last_usage: Optional[Dict[str, int]] = None
     
     async def generate(
         self, 
@@ -81,6 +85,13 @@ class ClaudeProvider(LLMProvider):
                 messages=[{"role": "user", "content": prompt}],
                 temperature=temperature
             )
+            try:
+                self.last_usage = {
+                    "input_tokens": getattr(response.usage, "input_tokens", 0) or 0,
+                    "output_tokens": getattr(response.usage, "output_tokens", 0) or 0,
+                }
+            except Exception:
+                self.last_usage = None
             return response.content[0].text
         except Exception as e:
             logger.error(f"Claude API error: {str(e)}")
@@ -122,6 +133,10 @@ class OllamaProvider(LLMProvider):
         self.base_url = os.getenv('OLLAMA_BASE_URL', 'http://localhost:11434')
         self.model = os.getenv('OLLAMA_MODEL', 'llama3.1:8b')
         self.timeout = httpx.Timeout(300.0)  # 5 minute timeout for slow CPU inference
+        # Mirror ClaudeProvider.last_usage so cost-tracking callers can read
+        # token counts uniformly. Local inference has no $ cost but we still
+        # surface the numbers for telemetry.
+        self.last_usage: Optional[Dict[str, int]] = None
     
     async def _call_ollama(
         self, 

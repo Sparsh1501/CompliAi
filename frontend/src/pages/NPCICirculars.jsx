@@ -28,7 +28,7 @@ import {
   Eye, Play, ChevronLeft, ExternalLink, CheckCircle, Clock,
   AlertCircle, Zap, Database, BarChart3, X, Timer, Settings2,
   CalendarClock, ToggleLeft, ToggleRight, Rocket, ClipboardList,
-  ListChecks, FileCheck2, Smartphone
+  ListChecks, FileCheck2, Smartphone, Filter, RotateCcw
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
@@ -64,6 +64,9 @@ export default function NPCICirculars() {
   const [activeTab, setActiveTab] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [yearFilter, setYearFilter] = useState('all');
+  // Filter by AI processing state. Backend understands:
+  //   "completed" | "pending" | "failed" | "processing" | undefined
+  const [statusFilter, setStatusFilter] = useState('all');
   const [page, setPage] = useState(1);
   const pageSize = 20;
 
@@ -85,6 +88,9 @@ export default function NPCICirculars() {
   // Process all
   const [processing, setProcessing] = useState(false);
   const [processProgress, setProcessProgress] = useState({ processed: 0, total: 0 });
+  // Cancel-batch support: backend emits batch_id in the SSE start event.
+  const [currentBatchId, setCurrentBatchId] = useState(null);
+  const [cancelling, setCancelling] = useState(false);
 
   // Processing individual circular
   const [processingId, setProcessingId] = useState(null);
@@ -119,6 +125,7 @@ export default function NPCICirculars() {
       if (activeTab !== 'all') params.product = activeTab;
       if (yearFilter !== 'all') params.year = yearFilter;
       if (searchQuery) params.search = searchQuery;
+      if (statusFilter !== 'all') params.status = statusFilter;
 
       const data = await npciApi.getCirculars(params);
       setCirculars(data.items || []);
@@ -129,7 +136,7 @@ export default function NPCICirculars() {
     } finally {
       setLoading(false);
     }
-  }, [page, activeTab, yearFilter, searchQuery]);
+  }, [page, activeTab, yearFilter, searchQuery, statusFilter]);
 
   // Feature #220: Load schedule status
   const loadSchedule = useCallback(async () => {
@@ -196,6 +203,33 @@ export default function NPCICirculars() {
     loadCirculars();
     loadSchedule();
   }, [loadStats, loadCirculars, loadSchedule]);
+
+  // On mount: if a Process-All batch is already running on the server (e.g.
+  // user reloaded the page mid-run), re-attach the Cancel button so the user
+  // isn't stuck waiting for it to finish silently. We don't reattach the SSE
+  // stream — that connection is gone — but we let the user kill the batch.
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const data = await npciApi.getActiveProcessAllBatches();
+        if (cancelled || !data?.active?.length) return;
+        const batch = data.active[0];
+        setProcessing(true);
+        setCurrentBatchId(batch.batch_id);
+        setProcessProgress({ processed: batch.processed || 0, total: batch.total || 0 });
+        toast.info(
+          `A Process-All batch is still running on the server (${batch.processed || 0}/${batch.total || 0}). Click Cancel to stop it.`,
+          { duration: 6000 }
+        );
+      } catch {
+        // Endpoint missing or backend down — ignore silently.
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   // Tab change resets page
   const handleTabChange = (tab) => {
@@ -318,14 +352,22 @@ export default function NPCICirculars() {
     }
   };
 
-  // Process all unprocessed circulars via SSE
-  const handleProcessAll = async () => {
+  // Process circulars via SSE.
+  //   scope = "all"     -> pending + previously-failed (default; the green Process All button)
+  //   scope = "pending" -> only never-attempted
+  //   scope = "failed"  -> only previously-failed (the red Retry-Failed button)
+  const handleProcessAll = async (scope = 'all') => {
     setProcessing(true);
     setProcessProgress({ processed: 0, total: 0 });
+    setCurrentBatchId(null);
+    setCancelling(false);
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`${API_URL}/api/npci/circulars/process-all`, {
+      const url = scope && scope !== 'all'
+        ? `${API_URL}/api/npci/circulars/process-all?status=${encodeURIComponent(scope)}`
+        : `${API_URL}/api/npci/circulars/process-all`;
+      const response = await fetch(url, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -354,18 +396,33 @@ export default function NPCICirculars() {
             try {
               const event = JSON.parse(line.slice(6));
 
-              if (event.event === 'progress') {
-                setProcessProgress({ processed: event.processed, total: event.total });
-              } else if (event.event === 'start') {
+              if (event.event === 'start') {
                 setProcessProgress({ processed: 0, total: event.total });
+                if (event.batch_id) setCurrentBatchId(event.batch_id);
+              } else if (event.event === 'progress') {
+                setProcessProgress({ processed: event.processed, total: event.total });
+              } else if (event.event === 'item_error') {
+                // Surface failures live without spamming toasts; UI shows counts via the stats refresh below.
+                setProcessProgress({ processed: event.processed, total: event.total });
+              } else if (event.event === 'cancelled') {
+                toast.info(event.message || 'Batch cancelled', { duration: 4000 });
+                setProcessing(false);
+                setCurrentBatchId(null);
+                setCancelling(false);
+                loadCirculars();
+                loadStats();
               } else if (event.event === 'complete') {
                 toast.success(event.message || 'Processing completed!');
                 setProcessing(false);
+                setCurrentBatchId(null);
+                setCancelling(false);
                 loadCirculars();
                 loadStats();
               } else if (event.event === 'error') {
                 toast.error(event.message || 'Processing failed');
                 setProcessing(false);
+                setCurrentBatchId(null);
+                setCancelling(false);
               }
             } catch (e) {
               // Skip
@@ -377,6 +434,33 @@ export default function NPCICirculars() {
       toast.error('Processing failed: ' + error.message);
     } finally {
       setProcessing(false);
+      setCurrentBatchId(null);
+      setCancelling(false);
+    }
+  };
+
+  // Request graceful cancellation of the in-flight Process-All batch.
+  // The backend lets the currently-processing circular finish (so its
+  // Claude call isn't wasted) and then emits an `event: cancelled` SSE
+  // event which the loop above turns into final UI state.
+  const handleCancelProcessAll = async () => {
+    if (!processing) return;
+    setCancelling(true);
+    try {
+      const result = await npciApi.cancelProcessAll(currentBatchId);
+      const n = (result?.cancelled || []).length;
+      if (n > 0) {
+        toast.info('Cancelling — current circular will finish, then the batch will stop.', { duration: 4000 });
+      } else {
+        toast.warning('No active batch found on server. UI may be out of sync.');
+        // Force-close UI so the user isn't stuck.
+        setProcessing(false);
+        setCurrentBatchId(null);
+        setCancelling(false);
+      }
+    } catch (error) {
+      toast.error('Cancel failed: ' + (error.response?.data?.detail || error.message));
+      setCancelling(false);
     }
   };
 
@@ -596,49 +680,70 @@ export default function NPCICirculars() {
             </CardHeader>
             <CardContent>
               <Accordion type="multiple" className="w-full">
-                {selectedCircular.clauses.map((clause, idx) => (
-                  <AccordionItem key={idx} value={`clause-${idx}`}>
-                    <AccordionTrigger className="text-sm">
-                      <div className="flex items-center gap-2">
-                        <Badge variant="outline" className="text-xs">{clause.clause_id || `C${idx + 1}`}</Badge>
-                        <span>{clause.title || `Clause ${idx + 1}`}</span>
-                        {clause.compliance_impact && (
-                          <Badge
-                            variant="outline"
-                            className={
-                              clause.compliance_impact === 'high' ? 'text-red-700 border-red-300' :
-                              clause.compliance_impact === 'medium' ? 'text-amber-700 border-amber-300' :
-                              'text-green-700 border-green-300'
-                            }
-                          >
-                            {clause.compliance_impact}
-                          </Badge>
-                        )}
-                        {clause.category && (
-                          <Badge variant="secondary" className="text-xs">{clause.category}</Badge>
-                        )}
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <div className="space-y-2">
-                        <p className="text-sm text-muted-foreground whitespace-pre-wrap">{clause.text}</p>
-                        {clause.key_requirements && clause.key_requirements.length > 0 && (
-                          <div>
-                            <div className="text-xs font-semibold text-gray-700 uppercase tracking-wide mt-2 mb-1">Key Requirements</div>
-                            <ul className="space-y-0.5">
-                              {clause.key_requirements.map((req, ridx) => (
-                                <li key={ridx} className="text-xs text-gray-700 flex items-start gap-1.5">
-                                  <CheckCircle className="h-3 w-3 text-emerald-600 flex-shrink-0 mt-0.5" />
-                                  <span>{req}</span>
-                                </li>
+                {selectedCircular.clauses.map((clause, idx) => {
+                  // NPCI clauses (extracted by npci_processing_service) use `clause_text`,
+                  // while the legacy regulation Clause model uses `text`. Support both.
+                  const body = clause.clause_text || clause.text || clause.original_text || '';
+                  const heading =
+                    clause.title ||
+                    (clause.clause_type ? `${clause.clause_type[0].toUpperCase()}${clause.clause_type.slice(1)}` : null) ||
+                    (body ? body.split(/\s+/).slice(0, 10).join(' ') + (body.split(/\s+/).length > 10 ? '…' : '') : `Clause ${idx + 1}`);
+                  return (
+                    <AccordionItem key={idx} value={`clause-${idx}`}>
+                      <AccordionTrigger className="text-sm">
+                        <div className="flex items-center gap-2 flex-wrap text-left">
+                          <Badge variant="outline" className="text-xs">{clause.clause_id || `C${idx + 1}`}</Badge>
+                          <span className="line-clamp-1">{heading}</span>
+                          {clause.compliance_impact && (
+                            <Badge
+                              variant="outline"
+                              className={
+                                clause.compliance_impact === 'high' ? 'text-red-700 border-red-300' :
+                                clause.compliance_impact === 'medium' ? 'text-amber-700 border-amber-300' :
+                                'text-green-700 border-green-300'
+                              }
+                            >
+                              {clause.compliance_impact}
+                            </Badge>
+                          )}
+                          {clause.category && (
+                            <Badge variant="secondary" className="text-xs">{clause.category}</Badge>
+                          )}
+                        </div>
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <div className="space-y-2">
+                          {body ? (
+                            <p className="text-sm text-gray-800 whitespace-pre-wrap">{body}</p>
+                          ) : (
+                            <p className="text-sm italic text-muted-foreground">No clause text available.</p>
+                          )}
+                          {clause.key_requirements && clause.key_requirements.length > 0 && (
+                            <div>
+                              <div className="text-xs font-semibold text-gray-700 uppercase tracking-wide mt-2 mb-1">Key Requirements</div>
+                              <ul className="space-y-0.5">
+                                {clause.key_requirements.map((req, ridx) => (
+                                  <li key={ridx} className="text-xs text-gray-700 flex items-start gap-1.5">
+                                    <CheckCircle className="h-3 w-3 text-emerald-600 flex-shrink-0 mt-0.5" />
+                                    <span>{req}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                          {clause.entities && clause.entities.length > 0 && (
+                            <div className="flex flex-wrap gap-1 mt-2">
+                              <span className="text-[11px] text-muted-foreground self-center mr-1">Entities:</span>
+                              {clause.entities.map((e, eidx) => (
+                                <Badge key={eidx} variant="outline" className="text-[10px]">{e}</Badge>
                               ))}
-                            </ul>
-                          </div>
-                        )}
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
+                            </div>
+                          )}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  );
+                })}
               </Accordion>
             </CardContent>
           </Card>
@@ -675,10 +780,37 @@ export default function NPCICirculars() {
             Browse and manage NPCI circulars across all payment products
           </p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 items-center">
+          {processing && (
+            <div className="flex items-center gap-2 text-xs text-muted-foreground" data-testid="process-all-progress-pill">
+              <Loader2 className="h-3 w-3 animate-spin text-emerald-600" />
+              <span>
+                {processProgress.processed}/{processProgress.total || '?'}
+              </span>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleCancelProcessAll}
+                disabled={cancelling}
+                className="text-red-700 border-red-200 hover:bg-red-50"
+                title="Cancel batch — the current circular will finish first to avoid wasting Claude tokens"
+                data-testid="cancel-process-all-btn"
+              >
+                {cancelling ? (
+                  <>
+                    <Loader2 className="h-4 w-4 mr-1 animate-spin" /> Cancelling…
+                  </>
+                ) : (
+                  <>
+                    <X className="h-4 w-4 mr-1" /> Cancel
+                  </>
+                )}
+              </Button>
+            </div>
+          )}
           <Button
             variant="outline"
-            onClick={handleProcessAll}
+            onClick={() => handleProcessAll('all')}
             disabled={processing || (stats.pending === 0 && (stats.failed || 0) === 0)}
             title={(stats.failed || 0) > 0 ? `Process ${stats.pending} pending + retry ${stats.failed} failed circular(s)` : `Process ${stats.pending} pending circular(s)`}
           >
@@ -1023,9 +1155,9 @@ export default function NPCICirculars() {
         </Card>
       )}
 
-      {/* Search and Year Filter */}
-      <div className="flex items-center gap-4">
-        <div className="relative flex-1 max-w-sm">
+      {/* Search, Status Filter, Year Filter, Retry-Failed (conditional) */}
+      <div className="flex items-center gap-3 flex-wrap">
+        <div className="relative flex-1 min-w-[220px] max-w-sm">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
             placeholder="Search circulars..."
@@ -1037,6 +1169,40 @@ export default function NPCICirculars() {
             className="pl-10"
           />
         </div>
+
+        {/* AI processing status filter (Demo Point #2 helper) */}
+        <Select
+          value={statusFilter}
+          onValueChange={(v) => { setStatusFilter(v); setPage(1); }}
+        >
+          <SelectTrigger
+            className="w-44"
+            data-testid="status-filter"
+            title="Filter by AI processing status"
+          >
+            <Filter className="h-3.5 w-3.5 mr-1.5 text-muted-foreground" />
+            <SelectValue placeholder="Status" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">All statuses</SelectItem>
+            <SelectItem value="completed">
+              <span className="inline-flex items-center gap-1.5">
+                <CheckCircle className="h-3.5 w-3.5 text-emerald-600" /> AI Processed
+              </span>
+            </SelectItem>
+            <SelectItem value="pending">
+              <span className="inline-flex items-center gap-1.5">
+                <Clock className="h-3.5 w-3.5 text-amber-600" /> Pending
+              </span>
+            </SelectItem>
+            <SelectItem value="failed">
+              <span className="inline-flex items-center gap-1.5">
+                <AlertCircle className="h-3.5 w-3.5 text-red-600" /> Failed
+              </span>
+            </SelectItem>
+          </SelectContent>
+        </Select>
+
         <Select value={yearFilter} onValueChange={(v) => { setYearFilter(v); setPage(1); }}>
           <SelectTrigger className="w-32">
             <SelectValue placeholder="Year" />
@@ -1048,6 +1214,54 @@ export default function NPCICirculars() {
             ))}
           </SelectContent>
         </Select>
+
+        {/* Retry-Failed-only batch action — only visible when the failed
+            filter is active so it's never confused with the global Process All */}
+        {statusFilter === 'failed' && (
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => handleProcessAll('failed')}
+            disabled={processing || (stats.failed || 0) === 0}
+            className="text-red-700 border-red-200 hover:bg-red-50"
+            title={(stats.failed || 0) === 0
+              ? 'No failed circulars to retry'
+              : `Retry ${stats.failed} failed circular(s) only`}
+            data-testid="retry-failed-btn"
+          >
+            {processing ? (
+              <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+            ) : (
+              <RotateCcw className="h-4 w-4 mr-2" />
+            )}
+            Retry All Failed{stats.failed ? ` (${stats.failed})` : ''}
+          </Button>
+        )}
+
+        {/* Process-Pending-only batch action — only visible when the pending
+            filter is active. Skips already-failed and completed circulars
+            so the user knows exactly what's about to be processed. */}
+        {statusFilter === 'pending' && (
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => handleProcessAll('pending')}
+            disabled={processing || (stats.pending || 0) === 0}
+            className="text-emerald-700 border-emerald-200 hover:bg-emerald-50"
+            title={(stats.pending || 0) === 0
+              ? 'No pending circulars to process'
+              : `Process ${stats.pending} pending circular(s) only`}
+            data-testid="process-pending-btn"
+          >
+            {processing ? (
+              <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+            ) : (
+              <Zap className="h-4 w-4 mr-2" />
+            )}
+            Process All Pending{stats.pending ? ` (${stats.pending})` : ''}
+          </Button>
+        )}
+
         <Button variant="outline" size="sm" onClick={() => { loadCirculars(); loadStats(); }}>
           <RefreshCw className="h-4 w-4" />
         </Button>

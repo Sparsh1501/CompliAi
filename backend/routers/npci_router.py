@@ -22,10 +22,11 @@ Endpoints:
 import asyncio
 import json
 import logging
+import uuid
 from datetime import datetime, timezone
-from typing import Optional
+from typing import Any, Dict, Optional
 
-from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, Query
+from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, Query, Request
 from fastapi.responses import StreamingResponse
 
 logger = logging.getLogger(__name__)
@@ -34,6 +35,37 @@ npci_router = APIRouter(prefix="/npci", tags=["NPCI Circulars"])
 
 # Track scraping job status in-memory (per-process)
 _scrape_jobs = {}
+
+# Track in-flight Process-All batches so the UI can cancel them mid-run.
+# Key: batch_id (uuid str). Value: dict with keys
+#   - cancel_requested (bool)
+#   - started_at (iso str)
+#   - total (int)
+#   - processed (int)  - updated by the batch loop
+#   - failed (int)     - updated by the batch loop
+#   - cancelled_at (iso str | None)
+# Single-process only; for multi-worker deployments swap for Redis or Mongo.
+_active_process_all_batches: Dict[str, Dict[str, Any]] = {}
+
+
+def _register_batch(batch_id: str, total: int) -> None:
+    _active_process_all_batches[batch_id] = {
+        "batch_id": batch_id,
+        "cancel_requested": False,
+        "started_at": datetime.now(timezone.utc).isoformat(),
+        "total": total,
+        "processed": 0,
+        "failed": 0,
+        "cancelled_at": None,
+    }
+
+
+def _unregister_batch(batch_id: str) -> None:
+    _active_process_all_batches.pop(batch_id, None)
+
+
+def _is_batch_cancelled(batch_id: str) -> bool:
+    return bool(_active_process_all_batches.get(batch_id, {}).get("cancel_requested"))
 
 
 def _get_server_module():
@@ -190,7 +222,11 @@ async def list_circulars(
     product: Optional[str] = Query(None, description="Filter by product"),
     year: Optional[str] = Query(None, description="Filter by year"),
     search: Optional[str] = Query(None, description="Search in title"),
-    processed: Optional[bool] = Query(None, description="Filter by processed status"),
+    processed: Optional[bool] = Query(None, description="Legacy: equivalent to status=completed"),
+    status: Optional[str] = Query(
+        None,
+        description="Filter by processing status: 'completed', 'pending', 'failed', 'processing' (or omit for all)",
+    ),
     page: int = Query(1, ge=1, description="Page number"),
     size: int = Query(20, ge=1, le=100, description="Items per page"),
 ):
@@ -202,6 +238,7 @@ async def list_circulars(
         year=year,
         search=search,
         processed_only=processed if processed else False,
+        status=status,
         page=page,
         size=size,
     )
@@ -230,11 +267,20 @@ async def get_circular(circular_id: str):
 # Now uses background job + upload_job_service for progress tracking
 # -------------------------------------------------------------------
 @npci_router.post("/circulars/{circular_id}/process")
-async def process_circular(circular_id: str, background_tasks: BackgroundTasks):
+async def process_circular(
+    circular_id: str,
+    background_tasks: BackgroundTasks,
+    force: bool = Query(False, description="Re-process even if already completed"),
+):
     """
     Trigger LLM clause extraction for a specific circular.
     Runs as a background job with real-time progress tracking via upload_job_service,
     matching the regulation upload pipeline experience.
+
+    By default, refuses to re-process circulars that are already `completed`
+    or currently `processing` (prevents wasted Claude credits and duplicate
+    regulation rows from impatient repeated clicks). Pass `?force=true` to
+    deliberately re-run a completed circular.
     """
     npci_scraper, db, get_current_user = _get_dependencies()
     srv = _get_server_module()
@@ -243,8 +289,33 @@ async def process_circular(circular_id: str, background_tasks: BackgroundTasks):
     if not circular:
         raise HTTPException(status_code=404, detail="Circular not found")
 
+    current_status = circular.get("processing_status")
+    if current_status == "processing":
+        return {
+            "success": False,
+            "message": "Already processing — wait for it to finish before retrying.",
+            "circular_id": circular_id,
+            "status": current_status,
+        }
+    if current_status == "completed" and not force:
+        return {
+            "success": False,
+            "message": "Already processed. Pass force=true to re-process.",
+            "circular_id": circular_id,
+            "status": current_status,
+            "clause_count": circular.get("clause_count", 0),
+        }
+
     try:
         upload_job_service = srv.upload_job_service
+
+        # Mark the circular as processing immediately so a second click can't
+        # race past the status check above before the background task starts.
+        from bson import ObjectId
+        await npci_scraper.collection.update_one(
+            {"_id": ObjectId(circular_id)},
+            {"$set": {"processing_status": "processing"}, "$unset": {"processing_error": ""}},
+        )
 
         # Create a tracking job (same as regulation upload)
         job = await upload_job_service.create_job(
@@ -370,17 +441,22 @@ async def _process_npci_circular_background(job_id: str, circular_id: str):
             job_id, 85, "Saving to database...", 6
         )
 
-        # Step 6: Update circular status
+        # Step 6: Update circular status (and clear any stale error from a
+        # previous failed run so the UI doesn't keep showing "Failed" hints
+        # next to a successfully-completed circular).
         await processing_service.circulars_collection.update_one(
             {"_id": ObjectId(circular_id)},
-            {"$set": {
-                "raw_text": raw_text,
-                "clauses": npci_clauses,
-                "processed_at": datetime.now(timezone.utc).isoformat(),
-                "processing_status": "completed",
-                "parsed_title": title_info,
-                "clause_count": len(npci_clauses),
-            }}
+            {
+                "$set": {
+                    "raw_text": raw_text,
+                    "clauses": npci_clauses,
+                    "processed_at": datetime.now(timezone.utc).isoformat(),
+                    "processing_status": "completed",
+                    "parsed_title": title_info,
+                    "clause_count": len(npci_clauses),
+                },
+                "$unset": {"processing_error": ""},
+            },
         )
 
         # Complete the job
@@ -428,36 +504,93 @@ async def _process_npci_circular_background(job_id: str, circular_id: str):
 # `processed_at` without ever calling an LLM was removed because it
 # made the "Processed" count meaningless.
 # -------------------------------------------------------------------
-@npci_router.post("/circulars/process-all")
-async def process_all_circulars():
+def _build_batch_query(scope: str) -> Dict[str, Any]:
+    """Build the MongoDB query for a Process-All batch.
+
+    Scopes:
+        "all"     — pending + failed (everything that isn't completed/processing)
+        "pending" — only never-attempted-or-marked-pending
+        "failed"  — only previously-failed (Retry-Failed button)
     """
-    Batch process all unprocessed circulars with SSE progress streaming.
-    Uses the real NPCIProcessingService pipeline - no placeholders.
+    s = (scope or "all").strip().lower()
+    if s == "failed":
+        return {"processing_status": "failed"}
+    if s == "pending":
+        return {
+            "$or": [
+                {"processing_status": {"$exists": False}},
+                {"processing_status": {"$nin": ["completed", "failed", "processing"]}},
+            ]
+        }
+    # default: everything that needs processing (pending + failed)
+    return {
+        "$or": [
+            {"processing_status": {"$exists": False}},
+            {"processing_status": {"$nin": ["completed", "processing"]}},
+        ]
+    }
+
+
+@npci_router.post("/circulars/process-all")
+async def process_all_circulars(
+    request: Request,
+    status: Optional[str] = Query(
+        None,
+        description="Scope: 'all' (default — pending+failed), 'pending', or 'failed' (retry-failed-only)",
+    ),
+):
+    """
+    Batch process circulars matching ``status`` (default: pending + failed)
+    with SSE progress streaming. Uses the real NPCIProcessingService pipeline.
+
+    The first SSE event (``event: start``) includes a ``batch_id`` UUID. Pass
+    that ``batch_id`` to ``POST /api/npci/circulars/process-all/cancel`` to
+    gracefully halt the batch between iterations (the in-flight circular
+    finishes its LLM call so we don't waste tokens on a half-extracted
+    clause set).
+
+    The endpoint also stops automatically if the SSE client disconnects, so
+    closing the browser tab is enough to halt processing.
     """
     npci_scraper, db, get_current_user = _get_dependencies()
     processing_service = _get_processing_service()
 
+    batch_id = uuid.uuid4().hex
+    scope = (status or "all").strip().lower()
+    if scope not in ("all", "pending", "failed"):
+        scope = "all"
+
     async def generate_events():
         try:
-            # Find all not-yet-completed circulars (pending OR previously failed)
-            cursor = db.npci_circulars.find({
-                "$or": [
-                    {"processing_status": {"$exists": False}},
-                    {"processing_status": {"$nin": ["completed", "processing"]}},
-                ]
-            })
+            cursor = db.npci_circulars.find(_build_batch_query(scope))
             unprocessed = []
             async for doc in cursor:
                 doc["_id"] = str(doc["_id"])
                 unprocessed.append(doc)
 
             total = len(unprocessed)
-            yield f"data: {json.dumps({'event': 'start', 'total': total, 'message': f'Processing {total} circulars with AI...'})}\n\n"
+            _register_batch(batch_id, total)
+            scope_label = {
+                "failed": f"Retrying {total} previously-failed circular(s)...",
+                "pending": f"Processing {total} pending circular(s)...",
+                "all": f"Processing {total} circulars with AI...",
+            }.get(scope, f"Processing {total} circulars with AI...")
+            yield f"data: {json.dumps({'event': 'start', 'batch_id': batch_id, 'scope': scope, 'total': total, 'message': scope_label})}\n\n"
 
             processed = 0
             failed = 0
 
             for doc in unprocessed:
+                # Cancel-checks BEFORE pulling the next circular, so an
+                # in-flight LLM call always finishes (avoids partial state +
+                # wasted Claude tokens), but the next one is skipped.
+                if _is_batch_cancelled(batch_id):
+                    logger.info(f"[NPCI BATCH] Cancel requested for batch {batch_id}; stopping after {processed + failed}/{total}.")
+                    break
+                if await request.is_disconnected():
+                    logger.info(f"[NPCI BATCH] Client disconnected for batch {batch_id}; stopping after {processed + failed}/{total}.")
+                    break
+
                 circular_id = doc["_id"]
                 try:
                     result = await processing_service.process_circular(circular_id)
@@ -468,30 +601,47 @@ async def process_all_circulars():
                             f"Processed {processed}/{total} - "
                             f"{result.get('clauses_extracted', 0)} clauses extracted"
                         )
-                        yield f"data: {json.dumps({'event': 'progress', 'processed': processed, 'failed': failed, 'total': total, 'current': doc.get('title', '')[:100], 'message': msg})}\n\n"
+                        yield f"data: {json.dumps({'event': 'progress', 'batch_id': batch_id, 'processed': processed, 'failed': failed, 'total': total, 'current': doc.get('title', '')[:100], 'message': msg})}\n\n"
                     else:
                         failed += 1
                         err = result.get("error", "Unknown error")
                         logger.warning(f"Failed to process circular {circular_id}: {err}")
-                        yield f"data: {json.dumps({'event': 'item_error', 'circular_id': circular_id, 'error': err, 'processed': processed, 'failed': failed, 'total': total})}\n\n"
+                        yield f"data: {json.dumps({'event': 'item_error', 'batch_id': batch_id, 'circular_id': circular_id, 'error': err, 'processed': processed, 'failed': failed, 'total': total})}\n\n"
 
                 except Exception as e:
                     failed += 1
                     logger.error(f"Error processing circular {circular_id}: {e}", exc_info=True)
-                    yield f"data: {json.dumps({'event': 'item_error', 'circular_id': circular_id, 'error': str(e), 'processed': processed, 'failed': failed, 'total': total})}\n\n"
+                    yield f"data: {json.dumps({'event': 'item_error', 'batch_id': batch_id, 'circular_id': circular_id, 'error': str(e), 'processed': processed, 'failed': failed, 'total': total})}\n\n"
+
+                # Update tracker for any clients polling /process-all/active.
+                state = _active_process_all_batches.get(batch_id)
+                if state is not None:
+                    state["processed"] = processed
+                    state["failed"] = failed
 
                 # Small delay to be nice to the LLM provider / rate limits
                 await asyncio.sleep(0.3)
 
-            msg = (
-                f"Batch processing complete: {processed} succeeded with real AI extraction, "
-                f"{failed} failed (likely LLM unavailable or PDF unreadable)"
-            )
-            yield f"data: {json.dumps({'event': 'complete', 'processed': processed, 'failed': failed, 'total': total, 'message': msg})}\n\n"
+            cancelled = _is_batch_cancelled(batch_id)
+            remaining = total - processed - failed
+            if cancelled:
+                msg = (
+                    f"Cancelled by user: {processed} succeeded, {failed} failed, "
+                    f"{remaining} skipped of {total} total."
+                )
+                yield f"data: {json.dumps({'event': 'cancelled', 'batch_id': batch_id, 'processed': processed, 'failed': failed, 'remaining': remaining, 'total': total, 'message': msg})}\n\n"
+            else:
+                msg = (
+                    f"Batch processing complete: {processed} succeeded with real AI extraction, "
+                    f"{failed} failed (likely LLM unavailable or PDF unreadable)"
+                )
+                yield f"data: {json.dumps({'event': 'complete', 'batch_id': batch_id, 'processed': processed, 'failed': failed, 'total': total, 'message': msg})}\n\n"
 
         except Exception as e:
             logger.error(f"Batch processing error: {e}", exc_info=True)
-            yield f"data: {json.dumps({'event': 'error', 'message': str(e)})}\n\n"
+            yield f"data: {json.dumps({'event': 'error', 'batch_id': batch_id, 'message': str(e)})}\n\n"
+        finally:
+            _unregister_batch(batch_id)
 
     return StreamingResponse(
         generate_events(),
@@ -502,6 +652,54 @@ async def process_all_circulars():
             "X-Accel-Buffering": "no",
         },
     )
+
+
+# -------------------------------------------------------------------
+# POST /api/npci/circulars/process-all/cancel - Cancel a running batch
+# GET  /api/npci/circulars/process-all/active - List in-flight batches
+# -------------------------------------------------------------------
+@npci_router.get("/circulars/process-all/active")
+async def list_active_process_all_batches():
+    """List currently-running Process-All batches (one entry per batch_id).
+
+    Useful for the frontend to render a "cancel" button when reloading the
+    page mid-batch (since the SSE stream is connection-bound).
+    """
+    return {
+        "active": list(_active_process_all_batches.values()),
+        "count": len(_active_process_all_batches),
+    }
+
+
+@npci_router.post("/circulars/process-all/cancel")
+async def cancel_process_all_batch(
+    batch_id: Optional[str] = Query(None, description="Batch id to cancel; omit to cancel ALL active batches"),
+):
+    """Request graceful cancellation of a running Process-All batch.
+
+    The currently-in-flight circular finishes (so its LLM call isn't wasted),
+    then the loop exits and emits an `event: cancelled` SSE event.
+    """
+    if not _active_process_all_batches:
+        return {"cancelled": [], "message": "No active Process-All batches."}
+
+    targets = [batch_id] if batch_id else list(_active_process_all_batches.keys())
+    cancelled = []
+    for bid in targets:
+        state = _active_process_all_batches.get(bid)
+        if state is None:
+            continue
+        state["cancel_requested"] = True
+        state["cancelled_at"] = datetime.now(timezone.utc).isoformat()
+        cancelled.append(bid)
+
+    if not cancelled and batch_id:
+        raise HTTPException(status_code=404, detail=f"No active batch with id={batch_id}")
+
+    return {
+        "cancelled": cancelled,
+        "message": f"Cancellation requested for {len(cancelled)} batch(es). Currently-running circular will finish first.",
+    }
 
 
 # -------------------------------------------------------------------
