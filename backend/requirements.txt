@@ -35,7 +35,7 @@ mistralai>=1.0.0  # For cost-effective OCR (Mistral OCR API)
 email-validator==2.3.0
 
 # HTTP Client
-aiohttp==3.13.2
+aiohttp==3.14.0
 httpx==0.28.1
 requests>=2.31.0
 
